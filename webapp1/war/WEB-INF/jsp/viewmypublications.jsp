@@ -1,0 +1,120 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<!-- <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> -->
+		 
+		<link href="/css/styles.css" rel="stylesheet" type="text/css">
+		<link href="/css/main.css" rel="stylesheet">
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<link href="/css/jumbotron-narrow.css" rel="stylesheet">
+		
+		<title>QuakeCoRE</title>
+		
+		<!-- <meta name="Keywords" content="QuakeCoRE, research in earthquake resilience, University of Canterbury, New Zealand, University, ">
+		<meta name="Description" content="QuakeCoRE Home Page, University of Canterbury, Christchurch, New Zealand"> -->
+		
+		<!-- <style type="text/css">
+		</style> -->
+	
+	</head>
+
+	<body>
+		<div id="wrapper">
+				<div id="header">
+				<h1>QuakeCoRE</h1>
+				<h2>Centre for Earthquake Resilience</h2>
+				</div>
+				<div id="imagearea">
+				</div>
+					  
+					 <div id="topnavbar"><button id="nav-button">Toggle Navigation</button>
+								<ul>
+									<li id="homeTab"><a href="/homeuser"><strong>Home</strong></a></li> 
+									<li id="logoutTab"><a href="/logout"><strong>Logout</strong></a></li> 
+								</ul>
+					  </div> 
+					
+			  	 <!-- <div class="topbar"></div>  --> 
+				<div id="content" class="content-width">
+				  	<div class="container">
+        <div id="userid"  style="display:none;">
+				${email}
+			</div>
+			<div id="pubs"  style="display:none;">
+				${mypubs}
+			</div>
+			<div id="singlepub"  style="display:none;">
+				${singlePub}
+			</div>
+			<div id="buttonid"  style="display:none;">
+				
+			</div>
+      </div>
+      <!--  <span id="myPublications" class="hide"> -->
+      <h3 class="form-heading">View my publications</h3>
+        <div class="jumbotron">
+         <form  method="post"  class="fillform" name="formLogin" action="newpublication">
+			<div align="center">
+		        <table border="1" cellpadding="5">
+		            
+		            <tr>
+		                <th>ID</th>
+		                <th>Details</th>
+						<th>Fund</th>
+						<th>Article</th>
+						<th>Status</th>
+						<th>Year</th>
+						<th>Action</th>
+						
+		            </tr>
+		
+		            <c:forEach var="pub" items="${mypubs}">
+		                 <tr>
+							 
+							 <c:set var="name" scope="application" value="${pub.publicationId}"/>
+		                    <c:if test="${not empty pub.publicationId}"><td><c:out value="${pub.publicationId}" /></td></c:if> 
+		                   <td> 
+							<c:if test="${not empty pub.author}"><c:out value="${pub.author}"/>.</c:if> 
+							<c:if test="${not empty pub.title}">'<c:out value="${pub.title}"/>'</c:if> 
+							<c:if test="${not empty pub.venueName}">,<c:out value="${pub.venueName}"/>.</c:if>
+							<c:if test="${not empty pub.location}"><c:out value="${pub.location}"/>.</c:if>
+							<%-- <c:if test="${not empty pub.page}"><c:out value="${pub.page}"/>.</c:if> --%>
+							<c:if test="${not empty pub.publisher}"><c:out value="${pub.publisher}"/>.</c:if>
+							<c:if test="${not empty pub.volume}"><c:out value="${pub.volume}"/>.</c:if>
+							<c:if test="${not empty pub.url}"><c:out value="${pub.url}"/>.</c:if>
+							<c:if test="${not empty pub.publishDate}"><c:out value="${pub.publishDate}"/>.</c:if>
+							</td>
+							<c:if test="${not empty pub.fund}"><td><c:out value="${pub.fund}"/></td></c:if> 
+							<c:if test="${not empty pub.article}"><td><c:out value="${pub.article}"/></td></c:if> 
+							<c:if test="${not empty pub.status}"><td><c:out value="${pub.status}" /></td></c:if> 
+							<c:if test="${not empty pub.year}"><td><c:out value="${pub.year}" /></td></c:if>
+							<td><button type="submit" class="myButton" name="actionBtn" value="<c:out value="${pub.publicationId}" />">Update</button ></td>
+							
+		                </tr>
+		            </c:forEach>
+		
+		        </table>
+		    </div>
+		</form>
+		</div>
+		
+		<!-- </span> -->
+	 </div>  
+	 
+				  <div id="footer"><p><strong>QuakeCoRE | 
+				  </strong><a href="mailto:info@quakecore.nz">info@quakecore.nz</a><strong> | </strong> </p>
+				  </div> 
+		</div>
+		<%--  <span id="editPublication" class="hide">
+		<%@ include file="newpublication.jsp" %>
+	</span>  --%>
+		 
+		<script  src="/lib/jquery-min-latest.js"></script>
+		<script  src="bootstrap/js/bootstrap.min.js"></script>
+		 <!-- <script  src="/js/viewmypublication.js"></script> -->
+		</body>
+		</html>
