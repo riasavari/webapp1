@@ -6,7 +6,7 @@ $(document).ready(function()
 var userid=$('#userid').text();
 //if no session hide the logout link at the top
 
-if($.trim(userid) === 'sharmila.savarimuthu@gmail.com')//if admin,hide userhome link
+if($.trim(userid) === 'quakecore.nz@gmail.com')//if admin,hide userhome link
 {
 	$("#homeUserTab").hide();
 }

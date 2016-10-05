@@ -53,25 +53,32 @@
 			<div id="buttonid"  style="display:none;">
 				
 			</div>
+			<div id="nopub-message"  style="display:none;">
+				<span class="well well-sm">Sorry, currently no publications to update</span>
+			</div>
       </div>
       <!--  <span id="myPublications" class="hide"> -->
       <h3 class="form-heading">View my publications</h3>
         <div class="jumbotron">
-         <form  method="post"  class="fillform" name="formLogin" action="newpublication">
-			<div align="center">
-		        <table border="1" cellpadding="5">
+        <form  method="post" name="formLogin" action="newpublication">
+          <div align="center">
+          <c:choose>
+           <c:when test="${empty mypubs}"><c:out value="Sorry, currently no publications to update" /></c:when> 
+			
+      		 <c:otherwise>
+		        <table border="1" cellpadding="10" cellspacing="10">
 		            
 		            <tr>
 		                <th>ID</th>
 		                <th>Details</th>
-						<th>Fund</th>
+						<th>Funding</th>
 						<th>Article</th>
 						<th>Status</th>
 						<th>Year</th>
 						<th>Action</th>
 						
 		            </tr>
-		
+					
 		            <c:forEach var="pub" items="${mypubs}">
 		                 <tr>
 							 
@@ -98,6 +105,8 @@
 		            </c:forEach>
 		
 		        </table>
+		</c:otherwise>
+		</c:choose>
 		    </div>
 		</form>
 		</div>

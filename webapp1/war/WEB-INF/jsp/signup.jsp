@@ -51,12 +51,9 @@
 	 <br><br><br>
 <!-- Loading Spinner Modal -->
 <div class="modal" id="modalbox">
-  <div class="modal-header">
-    <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
-    <h3>Modal header</h3>
-  </div>
+ 
   <div class="modal-body">
-    <p>One fine body…</p>
+    <p>Loading…</p>
   </div>
   <!-- <div class="modal-footer">
     <a href="#" class="btn">Close</a>
@@ -97,7 +94,7 @@
       <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Last name">
     </div>
 	<div class="form-group">
-      <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+      <input type="text" class="form-control" name="email" id="email" placeholder="Email">
     </div>
     <div class="form-group">
       <input type="password" class="form-control" name="password" id="password" placeholder="Password">
@@ -124,7 +121,7 @@
                 <option value="Secondary school teacher">Secondary school teacher</option>
                 <option value="Graduate student">Graduate student</option>
                 <option value="Undergraduate student">Undergraduate student</option>
-                <option value="QuakeCore staff">QuakeCore staff</option>
+                <option value="QuakeCoRE staff">QuakeCoRE staff</option>
                 <option value="Technician">Technician</option>
                 <option value="Professional engineer">Professional engineer</option>
                 <option value="Professional geologist">Professional geologist</option>

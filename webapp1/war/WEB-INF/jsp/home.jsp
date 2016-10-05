@@ -61,15 +61,16 @@
   </div>
 </div>
 								    <div class="form-group">
-								      <input type="email" class="form-control" id="email" placeholder="Email">
+								      <input type="text" class="form-control" id="email" placeholder="Email">
 								     <!--  <table style="width:100%;"><tr><td><input type="email" class="form-control" id="email" placeholder="Email"></td><td><span style="color:red;">*</span></td></tr></table> -->
 								    </div>
 							      <div class="form-group">
 								      <input type="password" class="form-control" id="password" placeholder="Password">
 								    </div>
-							  
+							  		
 									<a href="forgotpassword" class="btn-link">Forgot Password</a> |
-									<a href="signup" class="btn-link"> Sign up</a>
+									<a href="signup" class="btn-link"> Sign up</a> |
+									<a href="mailto:quakecore.nz@gmail.com">Problem signing in?</a>
 								 	<button type="submit" class="myButton" id="btn-login" data-toggle="modal" data-target="#modalbox" onclick="return login()">Submit</button>
 							  </form>
 						 </div>

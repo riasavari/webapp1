@@ -57,9 +57,9 @@
 							  <a href="changepassword" class="btn btn-default btn-block" role="button" >Change password</a>
 							  <a href="editprofile" class="btn  btn-default btn-block" role="button" >Edit profile</a>
 							  <a href="mailinglist" class="btn  btn-default btn-block" role="button">Mailing list subscription</a>
-							  <a href="newpublication" class="btn  btn-default btn-block" role="button">Get a QC publication number</a>
-							   <a href="viewmypublications" class="btn  btn-default btn-block" role="button">Manage submissions</a>
-							  <a href="viewpublication" class="btn  btn-default btn-block" role="button">QuakeCore publications</a><br>
+							  <a href="newpublication" class="btn  btn-default btn-block" role="button">Get QuakeCoRE article number</a>
+							   <a href="viewmypublications" class="btn  btn-default btn-block" role="button">Update article details</a>
+							  <a href="viewpublication" class="btn  btn-default btn-block" role="button">QuakeCoRE publications</a><br>
 							   <!--  <a href="abstractSubmission" class="btn btn-round" role="button">Submit abstract</a> 
 							   <a href="viewMyAbstractSubmissions" class="btn btn-round" role="button">View my abstract submissions</a> -->
 			  		 </ul>

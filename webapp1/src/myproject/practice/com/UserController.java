@@ -119,7 +119,7 @@ public class UserController {
 	@RequestMapping(value = "/newpublication", method = RequestMethod.GET)
 	public ModelAndView editPublicationPage(@RequestParam(value = "id", required = false) String pubid,
 			ModelMap model) {
-		System.out.println("got here for /newpublication GET");
+		System.out.println("got here for EDIT /newpublication GET");
 		if (pubid != null && !pubid.isEmpty())
 			model.addAttribute("singlePub", pubid);
 
@@ -228,11 +228,11 @@ public class UserController {
 			Email mm = (Email) context.getBean("Email");
 			if(activeStatus.equals("false"))
 			{
-				mm.sendMail(Constants.adminEmailId, useremail, "Account Activated for QuakeCore User Portal",
+				mm.sendMail(Constants.adminEmailId, useremail, "Account Activated for QuakeCoRE User Portal",
 						"Your account has been activated. Please login to the user portal "+url);
 			}
 			/*else
-				mm.sendMail(Constants.adminEmailId, useremail, "Account Deactivated for QuakeCore User Portal",
+				mm.sendMail(Constants.adminEmailId, useremail, "Account Deactivated for QuakeCoRE User Portal",
 						"Sorry, your account has been deactivated.");*/
 			
 		}
@@ -347,7 +347,7 @@ public class UserController {
 		try {
 			pm.makePersistent(abs);
 			System.out.println(" ****************  " + absNo);
-			saveNewUserAbstract(emailId, absNo);
+			PublicationService.saveNewUserAbstract(emailId, absNo);
 		} finally {
 			pm.close();
 		}
@@ -357,7 +357,7 @@ public class UserController {
 
 	}
 
-	// for viewing all QuakeCore publications
+	// for viewing all QuakeCoRE publications
 	@RequestMapping(value = "/viewpublication", method = RequestMethod.GET)
 	public String getviewpublicationsPage(HttpServletRequest request, HttpServletResponse response, HttpSession session,
 			ModelMap model) {
@@ -437,7 +437,7 @@ public class UserController {
 			HttpServletRequest request, HttpServletResponse response, HttpSession session, ModelMap model) {
 		String buttonValue = request.getParameter("actionBtn");
 
-		int displayNo = 0;
+		
 		String pubNo = request.getParameter("editNo");
 		System.out.println(pubNo + " *** POST *** " + buttonValue);
 		if (buttonValue != null) {
@@ -469,7 +469,7 @@ public class UserController {
 				List<Publication> results = (List<Publication>) q.execute(no);
 				System.out.println("result size " + results.size());
 				if (results.isEmpty()) {
-					System.out.println("no account so proceed" + no);
+					System.out.println("no records found" + no);
 
 				} else {
 					System.out.println("to save the edited pubdetails");
@@ -489,7 +489,7 @@ public class UserController {
 					String publisher = request.getParameter("publisher");
 
 					try {
-
+						results.get(0).setlastModifiedDate(new Date());
 						results.get(0).setYear(year);
 						results.get(0).setFund(fund);
 						results.get(0).setStatus(status);
@@ -498,20 +498,36 @@ public class UserController {
 						results.get(0).setTitle(title);
 						if (!Strings.isNullOrEmpty(venueName))
 							results.get(0).setVenueName(venueName);
+						else
+							results.get(0).setVenueName("");
 						if (!Strings.isNullOrEmpty(descOutputOther))
 							results.get(0).setdescOutputOther(descOutputOther);
+						else
+							results.get(0).setdescOutputOther("");
 						if (!Strings.isNullOrEmpty(volume))
 							results.get(0).setVolume(volume);
+						else
+							results.get(0).setVolume("");
 						if (!Strings.isNullOrEmpty(page))
 							results.get(0).setPage(page);
+						else
+							results.get(0).setPage("");
 						if (!Strings.isNullOrEmpty(location))
 							results.get(0).setLocation(location);
+						else
+							results.get(0).setLocation("");
 						if (!Strings.isNullOrEmpty(url))
 							results.get(0).setUrl(url);
+						else
+							results.get(0).setUrl("");
 						if (!Strings.isNullOrEmpty(dates))
 							results.get(0).setpublishDate(dates);
+						else
+							results.get(0).setpublishDate("");
 						if (!Strings.isNullOrEmpty(publisher))
 							results.get(0).setPublisher(publisher);
+						else
+							results.get(0).setPublisher("");
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -532,13 +548,7 @@ public class UserController {
 		{
 			System.out.println(" *** THREE *** ");
 			if (session != null && session.getAttribute("email") != null) {
-				String emailAddress = session.getAttribute("email").toString();
-				try {
-					displayNo = PublicationService.getPublicationNo(emailAddress, request, response, model);
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				
 				String year = request.getParameter("year");
 				String fund = request.getParameter("fund");
 				String status = request.getParameter("status");
@@ -553,54 +563,37 @@ public class UserController {
 				String url = request.getParameter("url");
 				String dates = request.getParameter("dates");
 				String publisher = request.getParameter("publisher");
-				
-				System.out.println(year + " -- " + fund);
-				System.out.println(venueName + "-- " + status+ "-- " + descOutputOther);
-				System.out.println(volume + "-- " + article);
-				System.out.println(page + "-- " + title);
-				System.out.println(location + "-- " + author);
-				System.out.println(url + "-- " + dates + " -- " + publisher);
-				if (!Strings.isNullOrEmpty(title) && !Strings.isNullOrEmpty(author)) {
-					Publication newpub = new Publication();
-					String uuid = UUID.randomUUID().toString();
-					newpub.setKey(uuid);
-					newpub.setpublicationId(displayNo);
-					newpub.setYear(year);
-					newpub.setFund(fund);
-					newpub.setStatus(status);
-					newpub.setArticle(article);
-					newpub.setAuthor(author);
-					newpub.setTitle(title);
-					if (!Strings.isNullOrEmpty(venueName))
-						newpub.setVenueName(venueName);
-					if (!Strings.isNullOrEmpty(descOutputOther))
-						newpub.setdescOutputOther(descOutputOther);
-					if (!Strings.isNullOrEmpty(volume))
-						newpub.setVolume(volume);
-					if (!Strings.isNullOrEmpty(page))
-						newpub.setPage(page);
-					if (!Strings.isNullOrEmpty(location))
-						newpub.setLocation(location);
-					if (!Strings.isNullOrEmpty(url))
-						newpub.setUrl(url);
-					if (!Strings.isNullOrEmpty(dates))
-						newpub.setpublishDate(dates);
-					if (!Strings.isNullOrEmpty(publisher))
-						newpub.setPublisher(publisher);
-					PersistenceManager pm = PMF.get().getPersistenceManager();
-					try {
-						pm.makePersistent(newpub);
-						saveNewUserPublication(emailAddress, displayNo);// stores
-																		// into
-																		// the
-																		// UserPublication
-																		// table
-						System.out.println(" ****************  " + displayNo);
-						request.setAttribute("pubNo", displayNo);
-					} finally {
-						pm.close();
-					}
-				} 
+				JSONObject pub_detailsJson = new JSONObject();
+				try {
+					pub_detailsJson.put("year", year);
+					pub_detailsJson.put("fund", fund);
+					pub_detailsJson.put("status", status);
+					pub_detailsJson.put("article", article);
+					pub_detailsJson.put("author", author);
+					pub_detailsJson.put("title", title);
+					pub_detailsJson.put("venueName", venueName);
+					pub_detailsJson.put("descOutputOther", descOutputOther);
+					pub_detailsJson.put("volume", volume);
+					pub_detailsJson.put("page", page);
+					pub_detailsJson.put("location", location);
+					pub_detailsJson.put("url", url);
+					pub_detailsJson.put("dates", dates);
+					pub_detailsJson.put("publisher", publisher);
+					
+					String emailAddress = session.getAttribute("email").toString();
+					
+						try {
+							return PublicationService.getPublicationNo(pub_detailsJson,emailAddress, request, response, model,session);
+						} catch (Exception e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		 
 			}else {
 				return new ModelAndView("expiry");
 			}
@@ -614,81 +607,8 @@ public class UserController {
 
 	}
 
-	public void saveNewUserPublication(String email, int displayNo) {
-		System.out.println("coming to save a publication");
-
-		PersistenceManager pm = PMF.get().getPersistenceManager();
-		Query q = pm.newQuery(UserPublication.class);
-		q.setFilter("key == emailParameter");
-		q.declareParameters("String emailParameter");
-
-		try {
-			List<UserPublication> results = (List<UserPublication>) q.execute(email);
-			List<Integer> newlist = new ArrayList<Integer>();
-			System.out.println(results.hashCode());
-			if (!results.isEmpty()) {
-
-				newlist = results.get(0).getPublicationList();
-				newlist.add(displayNo);
-				results.get(0).setPublicationList(newlist);
-
-			} else {
-
-				UserPublication userpub = new UserPublication();
-
-				newlist.add(displayNo);
-
-				userpub.setKey(email);
-				userpub.setPublicationList(newlist);
-				pm.makePersistent(userpub);
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			q.closeAll();
-			pm.close();
-		}
-
-	}
-
-	public void saveNewUserAbstract(String email, int absNo) {
-		System.out.println("coming to save an abstract in saveUserAbstract()");
-
-		PersistenceManager pm = PMF.get().getPersistenceManager();
-		Query q = pm.newQuery(UserPublication.class);
-		q.setFilter("key == emailParameter");
-		q.declareParameters("String emailParameter");
-
-		try {
-			List<UserPublication> results = (List<UserPublication>) q.execute(email);
-			List<Integer> newlist = new ArrayList<Integer>();
-			System.out.println(results.hashCode());
-			if (!results.isEmpty()) {
-
-				newlist = results.get(0).getAbstractList();
-				newlist.add(absNo);
-				results.get(0).setAbstractList(newlist);
-
-			} else {
-
-				UserPublication userpub = new UserPublication();
-
-				newlist.add(absNo);
-
-				userpub.setKey(email);
-				userpub.setAbstractList(newlist);
-				pm.makePersistent(userpub);
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			q.closeAll();
-			pm.close();
-		}
-
-	}
+	
+	
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpServletRequest request, ModelMap model) {
@@ -815,9 +735,9 @@ public class UserController {
 		String hashedPassword = UserService.hashPassword(password);
 		System.out.println(emailId + " - " + password + " - " + hashedPassword);
 
-		if (emailId.equalsIgnoreCase("sharmila.savarimuthu@gmail.com")) {
+		if (emailId.equalsIgnoreCase(Constants.adminEmailId)) {
 			String pswHsh = UserService.hashPassword("admin007");
-
+			//get the password from Admin DB
 			if (hashedPassword.equals(pswHsh)) {
 				System.out.println("matched");
 				session.setAttribute("email", emailId);
@@ -834,7 +754,7 @@ public class UserController {
 			Query q = pm.newQuery(User.class);
 
 			q.setFilter("email == emailParameter");
-			q.setOrdering("date desc");
+			//q.setOrdering("date desc");
 			q.declareParameters("String emailParameter");
 			try {
 				List<User> results = (List<User>) q.execute(emailId);
@@ -854,7 +774,7 @@ public class UserController {
 					}
 					if (receivedPassword.equals(hashedPassword)) {
 						System.out.println("user matched");
-
+						results.get(0).setLastLoginDate(new Date());
 						session.setAttribute("email", emailId);
 						session.setAttribute("userKey", results.get(0).getKey().toString());
 						session.setAttribute("name", results.get(0).getFirstname().toString());
@@ -882,7 +802,7 @@ public class UserController {
 		Query q = pm.newQuery(User.class);
 
 		q.setFilter("email == emailParameter");
-		q.setOrdering("date desc");
+		//q.setOrdering("date desc");
 		q.declareParameters("String emailParameter");
 		try {
 			List<User> results = (List<User>) q.execute(emailId);
@@ -929,7 +849,7 @@ public class UserController {
 			user.setOrganisation(userInfo.getString("organisation"));
 			user.setCategory(userInfo.getString("category"));
 			Date now = new Date();
-			user.setDate(now.getTime());
+			user.setSignupdate(new Date());
 
 			//session.setAttribute("email", userInfo.getString("email"));
 			//session.setAttribute("name", userInfo.getString("firstname"));
@@ -1119,7 +1039,7 @@ public class UserController {
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		Query q = pm.newQuery(User.class);
 		q.setFilter("email == emailParameter");
-		q.setOrdering("date desc");
+		//q.setOrdering("date desc");
 		q.declareParameters("String emailParameter");
 		try {
 			List<User> results = (List<User>) q.execute(emailId);
@@ -1171,7 +1091,7 @@ public class UserController {
 		Query q = pm.newQuery(User.class);
 
 		q.setFilter("email == emailParameter");
-		q.setOrdering("date desc");
+		//q.setOrdering("date desc");
 		q.declareParameters("String emailParameter");
 		try {
 			List<User> results = (List<User>) q.execute(emailId);
@@ -1206,7 +1126,7 @@ public class UserController {
 		Query q = pm.newQuery(User.class);
 
 		q.setFilter("email == emailParameter");
-		q.setOrdering("date desc");
+		//q.setOrdering("date desc");
 		q.declareParameters("String emailParameter");
 		try {
 			List<User> results = (List<User>) q.execute(emailId);
@@ -1321,7 +1241,7 @@ public class UserController {
 
 		String tempString = UserService.randString();
 		saveTempEntry(email, tempString);
-		mm.sendMail("sharmila.savarimuthu@gmail.com", email, "QuakeCore",
+		mm.sendMail("quakecore.nz@gmail.com", email, "QuakeCoRE account reset information",
 				"Your temporary password is " + tempString + ". Please login and change your password.");
 		// System.out.println("emailed");
 		return new ModelAndView("select");
@@ -1334,7 +1254,7 @@ public class UserController {
 		Query q = pm.newQuery(User.class);
 
 		q.setFilter("email == emailParameter");
-		q.setOrdering("date desc");
+		//q.setOrdering("date desc");
 		q.declareParameters("String emailParameter");
 		try {
 			List<User> results = (List<User>) q.execute(email);

@@ -28,7 +28,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<welcome-file>index</welcome-file>
 	</welcome-file-list>
 	<session-config>
-    <session-timeout>3</session-timeout>
+    <session-timeout>30</session-timeout>
 	</session-config>
 	<error-page>
     <error-code>404</error-code>

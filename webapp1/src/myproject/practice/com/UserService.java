@@ -33,7 +33,7 @@ public class UserService {
 		Query q = pm.newQuery(User.class);
 
 		q.setFilter("email == emailParameter");
-		q.setOrdering("date desc");
+		//q.setOrdering("date desc");
 		q.declareParameters("String emailParameter");
 		try {
 			List<User> results = (List<User>) q.execute(emailId);
@@ -104,7 +104,7 @@ String nextpage="expiry";
 		Query q = pm.newQuery(User.class);
 
 		q.setFilter("email == emailParameter");
-		q.setOrdering("date desc");
+		//q.setOrdering("date desc");
 		q.declareParameters("String emailParameter");
 		try {
 			List<User> results = (List<User>) q.execute(emailId);

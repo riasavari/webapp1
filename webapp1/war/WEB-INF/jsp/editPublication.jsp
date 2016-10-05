@@ -79,9 +79,9 @@
       		<label class="col-xs-4 control-label">Status</label>
         <div class="col-xs-5 selectContainer">
             <select class="form-control selectwidthauto" name="status" id="status">
-                <option value="submitted">Submitted</option>
-                <option value="accepted">Accepted</option>
-                <option value="published">Published</option>
+                <option value="Submitted">Submitted</option>
+                <option value="Accepted">Accepted</option>
+                <option value="Published">Published</option>
             </select>
         </div>
     	 </div>

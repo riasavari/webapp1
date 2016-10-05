@@ -114,8 +114,10 @@
             </select>
         </div>
     </div>
-    
-			 <button type="submit" class="myButton" id="btn-editprofile" onclick="return save()">Submit</button>
+    		
+			 <button type="submit" class=" btn-lnk" id="btn-editprofile" onclick="return save()">Submit</button>
+	<a href="/homeuser" class="btn-lnk">Cancel</a>
+			  
 	 </form>
 	</div>
 	  </div> 

@@ -1,5 +1,7 @@
 package myproject.practice.com;
 
+import java.util.Date;
+
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
@@ -15,7 +17,13 @@ public class Publication {
 	@PrimaryKey
     @Persistent
     private String key;
-
+	
+	@Persistent
+	private Date lastModifiedDate;
+	
+	@Persistent
+	private Date firstEnteredDate;
+	
     @Persistent
     private int publicationId;
 	
@@ -66,6 +74,21 @@ public class Publication {
 	}
 	public void setKey(String key) {
 		this.key = key;
+	}
+	
+	public Date getlastModifiedDate() {
+		return lastModifiedDate;
+	}
+
+	public void setlastModifiedDate(Date lastModifiedDate) {
+		this.lastModifiedDate = lastModifiedDate;
+	}
+	public Date getfirstEnteredDate() {
+		return firstEnteredDate;
+	}
+
+	public void setfirstEnteredDate(Date firstEnteredDate) {
+		this.firstEnteredDate = firstEnteredDate;
 	}
 	public int getpublicationId() {
 	    return publicationId;
@@ -132,7 +155,7 @@ public class Publication {
 		this.status = status;
 	}
 	public void setArticle(String article) {
-		this.article = article;
+		this.article = article.substring(0, 1).toUpperCase()+article.substring(1);
 	}
 	public void setAuthor(String author) {
 		this.author = author;

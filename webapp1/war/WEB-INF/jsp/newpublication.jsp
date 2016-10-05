@@ -85,6 +85,7 @@
     <div class="form-group" >
       		<input type="hidden" class="form-control" name="editNo" id="editNo">
     	 </div>
+    	 <!-- copy from here for editPublication -->
 		 <div class="form-group">
       		<label class="col-xs-4 control-label">Year</label>
         <div class="col-xs-5 selectContainer">
@@ -92,6 +93,8 @@
                 <option value="2016">2016</option>
                 <option value="2017">2017</option>
                 <option value="2018">2018</option>
+                <option value="2017">2019</option>
+                <option value="2018">2020</option>
             </select>
         </div>
         </div>
@@ -99,8 +102,8 @@
         <label class="col-xs-4 control-label">Funding</label>
         <div class="col-xs-5 selectContainer">
             <select class="form-control selectwidthauto" name="fund" id="fund">
-                <option value="aligned">aligned</option>
-                <option value="direct">direct</option>
+                <option value="Aligned">Aligned</option>
+                <option value="Direct">Direct</option>
             </select>
         </div>
     	 </div>
@@ -108,22 +111,22 @@
       		<label class="col-xs-4 control-label">Status</label>
         <div class="col-xs-5 selectContainer">
             <select class="form-control selectwidthauto" name="status" id="status">
-                <option value="submitted">Submitted</option>
-                <option value="accepted">Accepted</option>
-                <option value="published">Published</option>
+                <option value="Submitted">Submitted</option>
+                <option value="Accepted">Accepted</option>
+                <option value="Published">Published</option>
             </select>
         </div>
     	 </div>
     	  <div class="form-group">
       		<label class="col-xs-4 control-label">Article Type</label>
-        <div class="col-xs-5 selectContainer">
+        <div class="col-xs-5 selectContainer"><!-- if you change/add the value names in this dropdown list,change in js files accordingly -->
             <select class="form-control selectwidthauto" name="article" id="article">
-                <option value="journal">Journal Article (peer-reviewed)</option>
-                <option value="conference">Conference Article (peer-reviewed)</option>
-                <option value="book">Book (peer-reviewed)</option>
-                 <option value="bookchapter">Book Chapter (peer-reviewed)</option>
-                <option value="peerreviewed">Other (peer-reviewed)</option>
-                <option value="nonpeerreviewed">Other (non peer-reviewed)</option>
+                <option value="Journal">Journal Article (peer-reviewed)</option>
+                <option value="Conference">Conference Article (peer-reviewed)</option>
+                <option value="Book">Book (peer-reviewed)</option>
+                 <option value="Book chapter">Book Chapter (peer-reviewed)</option>
+                <option value="Peer-reviewed">Other (peer-reviewed)</option>
+                <option value="Non peer-reviewed">Other (non peer-reviewed)</option>
             </select>
         </div>
     	 </div>
@@ -171,6 +174,7 @@
 			</div>
 		<button type="submit" class="myButton" name="submitBtn" id="btn-new-pub" onclick="return validate(id)">Submit</button>
 		<button type="submit" class="myButton" name="submitBtn" id="btn-edit-pub" onclick="return validate(id)">Submit</button>
+		<a href="/homeuser" class="btn-lnk">Cancel</a>
 	 </form>
 	</div>
 	 </div>

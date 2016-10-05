@@ -45,22 +45,27 @@
         <div id="userid"  style="display:none;">
 				${email}
 			</div>
-      <div id="username"  style="display:block;">
+      <div id="username"  style="display:none;">
 				${name}
 			</div>
        <div id="allpublications"  style="display:none;">
 				${allPublicationList}
 			</div>
+			 
       <h3 class="form-heading">QuakeCore Publications</h3>
         <div class="jumbotron">
  
 			<div align="center">
+			 <c:choose>
+           <c:when test="${empty allPublicationList}"><c:out value="Sorry, currently no publications to list" /></c:when> 
+			
+      		 <c:otherwise>
 		        <table border="1" cellpadding="5">
 		            
 		            <tr>
 		                <th>ID</th>
 		                <th>Details</th>
-						<th>Fund</th>
+						<th>Funding</th>
 						<th>Article</th>
 						<th>Status</th>
 						<th>Year</th>
@@ -86,6 +91,8 @@
 		                </tr>
 		            </c:forEach>
 		        </table>
+		</c:otherwise>
+		</c:choose>
 		    </div>
 		
 	</div>
@@ -96,7 +103,7 @@
 				  </strong><a href="mailto:info@quakecore.nz">info@quakecore.nz</a><strong> | </strong> </p>
 				  </div> 
 		</div>
-		  <%@include file="popup.jsp" %> 
+		 <%--  <%@include file="popup.jsp" %>  --%>
 		<script  src="/lib/jquery-min-latest.js"></script>
 		<script  src="bootstrap/js/bootstrap.min.js"></script>
 		<script  src="/js/viewpublication.js"></script>

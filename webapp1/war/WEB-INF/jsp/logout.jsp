@@ -31,7 +31,7 @@
     <div class="jumbotron">
   <h4 class="form-heading">You have successfully logged out</h3>
  			<a href="/home" class="btn-link">Log in</a> |
-            <a href="http://www.quakecore.nz/" class="btn-link">Visit QuakeCore website</a>
+            <a href="http://www.quakecore.nz/" class="btn-link">Visit QuakeCoRE website</a>
             
           </ul>
    </div>

@@ -57,6 +57,9 @@ body {
    margin-bottom: 55px; 
   
 } 
+a.btn {
+  text-decoration: none;
+}
 .myButton
 {
 	/* background-color: #F16B22;dark orange 

@@ -91,7 +91,7 @@
 			{$('#modalbox').modal().hide();
 			document.getElementById("password").value="";  
 		    document.getElementById("password").focus(); 
-		    $('#signupErr').html("Password is minimum 6 characters with numbers and letters only");
+		    $('#signupErr').html("Password-minimum-length 6 with numbers and letters only");
 		    $('#messagebox').fadeIn().delay(2000).fadeOut();
 		  //  $("html, body").animate({ scrollTop: 0 }, "slow");
 		   

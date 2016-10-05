@@ -1,11 +1,4 @@
-<!-- Indices written at Sun, 2 Oct 2016 16:25:50 NZDT -->
+<!-- Indices written at Wed, 5 Oct 2016 14:00:52 NZDT -->
 
-<datastore-indexes>
+<datastore-indexes/>
 
-    <!-- Used 3 times in query history -->
-    <datastore-index kind="User" ancestor="false" source="auto">
-        <property name="email" direction="asc"/>
-        <property name="date" direction="desc"/>
-    </datastore-index>
-
-</datastore-indexes>

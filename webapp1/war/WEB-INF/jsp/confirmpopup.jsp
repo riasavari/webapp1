@@ -24,7 +24,7 @@
       <div class="modal-content">
        
         <div class="modal-body">
-          <p>Please confirm that the intended publication was not given a quakeCore number before </p>
+          <p>Please confirm that the intended publication was not given a quakeCoRE number before </p>
         </div>
         <div class="modal-footer">
        <a href="viewpublication" role="button" class="btn btn-default">No</a>

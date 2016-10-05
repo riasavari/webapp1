@@ -14,8 +14,8 @@
           <h4 class="modal-title">Your QuakeCore publication number</h4>
         </div>
         <div class="modal-body">
-          <p>Your QuakeCore publication number for the article is <b> ${pubNo} </b>. Please add the following statement in your acknowledgement.</p>
-        <p><b>This project was supported by QuakeCoRE, a New Zealand Tertiary Education Commission-funded Centre. This is QuakeCoRE publication number ${pubNo}.</b></p>
+          <p>Your QuakeCoRE publication number for this item is <b> ${pubNo} </b>. Please add the following statement in your acknowledgement.</p>
+        <p><b>This project was (partially) supported by QuakeCoRE, a New Zealand Tertiary Education Commission-funded Centre. This is QuakeCoRE publication number ${pubNo}.</b></p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

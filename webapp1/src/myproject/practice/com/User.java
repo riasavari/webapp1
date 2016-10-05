@@ -45,10 +45,10 @@ public class User {
 	    private String password;
 		
 	    @Persistent
-	    private long date;
+	    private Date signupdate;
 	    
 	    @Persistent
-	    private long lastLoginDate;
+	    private Date lastLoginDate;
 	  
 	    @Persistent
 		private List<String> mailLists;
@@ -66,7 +66,7 @@ public class User {
 		}
 
 		public void setFirstname(String firstname) {
-			this.firstname = firstname.substring(0, 1).toUpperCase()+firstname.substring(1).toLowerCase();
+			this.firstname = firstname.substring(0, 1).toUpperCase()+firstname.substring(1);
 		}
 
 		public String getLastname() {
@@ -82,7 +82,7 @@ public class User {
 		}
 		
 		public void setLastname(String lastname) {
-			this.lastname = lastname.substring(0, 1).toUpperCase()+lastname.substring(1).toLowerCase();
+			this.lastname = lastname.substring(0, 1).toUpperCase()+lastname.substring(1);
 		}
 
 		public String getEmail() {
@@ -101,14 +101,16 @@ public class User {
 			this.password = UserService.hashPassword(password);
 		}
 
-		public long getDate() {
-			return date;
+		public Date getSignupdate() {
+			return signupdate;
 		}
 
-		public void setDate(long date) {
-			this.date = date;
+	    public void setSignupdate(Date signupdate) {
+			this.signupdate = signupdate;
 		}
-	    public String getTitle() {
+
+		
+		public String getTitle() {
 				return title;
 			}
 
@@ -116,12 +118,20 @@ public class User {
 				this.title = title;
 			}
 
+			
+			public Date getLastLoginDate() {
+				return lastLoginDate;
+			}
+			public void setLastLoginDate(Date lastLoginDate) {
+				this.lastLoginDate = lastLoginDate;
+			}
+
 			public String getPosition() {
 				return position;
 			}
 
 			public void setPosition(String position) {
-				this.position = position.substring(0, 1).toUpperCase()+position.substring(1).toLowerCase();
+				this.position = position.substring(0, 1).toUpperCase()+position.substring(1);
 			}
 			
 			public String getOrganisation() {
@@ -129,7 +139,7 @@ public class User {
 			}
 
 			public void setOrganisation(String organisation) {
-				this.organisation = organisation.substring(0, 1).toUpperCase()+organisation.substring(1).toLowerCase();
+				this.organisation = organisation.substring(0, 1).toUpperCase()+organisation.substring(1);
 			}
 
 			public String getCategory() {

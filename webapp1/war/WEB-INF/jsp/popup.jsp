@@ -14,7 +14,7 @@
          <!--  <h4 class="modal-title">Modal Header</h4> -->
         </div>
         <div class="modal-body">
-          <p>Please do a manual search (ctrl+F) to search for a particular publication in this list.</p>
+          <p>Please do a search to find a particular publication in this list.</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

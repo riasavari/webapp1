@@ -63,6 +63,7 @@
       <input type="password" class="form-control" name="retype-password" id="retype-password" placeholder="Re-enter new password">
     </div>
     <button type="submit" class="myButton" id="btn-change-pwd" onclick="return validate()">Submit</button>
+    <a href="/homeuser" class="btn-lnk">Cancel</a>
 	 </form>
 	 </div>
 	 </div> 

@@ -70,7 +70,7 @@
 		</div>
 		<div  class="longNameFields" id="cbox-group">
 			<div class="checkbox">
-			  <label><input type="checkbox" value="m1" id="cbox-newsletter">  QuakeCore Monthly Newsletter</label>
+			  <label><input type="checkbox" value="m1" id="cbox-newsletter">  QuakeCoRE Monthly Newsletter</label>
 			</div>
 			<div class="checkbox">
 			  <label><input type="checkbox" value="t1" id="cbox-tech1">TP 1 - Large-scale laboratory facilities</label>
@@ -105,7 +105,7 @@
 	</div>
 	
    		<button type="submit" class="myButton" id="btn-submit" onclick="return validate()">Submit</button>
-   
+   		<a href="/homeuser" class="btn-lnk">Cancel</a>
 	 </form>
 	 </div>
 			 </div>
