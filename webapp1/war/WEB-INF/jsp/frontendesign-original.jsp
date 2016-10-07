@@ -63,7 +63,7 @@
 												            
 												          </ul>
 												        </nav>
-												       <h3 class="text-muted">QuakeCore</h3> 
+												       <h3 class="text-muted">QuakeCoRE</h3> 
 												       
 												      </div> -->
         <div id="userid"  style="display:none;">

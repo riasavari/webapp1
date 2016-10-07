@@ -66,20 +66,36 @@ public class PublicationService {
 			newpub.setTitle(pubJson.get("title").toString());
 			if (!Strings.isNullOrEmpty(pubJson.get("venueName").toString()))
 				newpub.setVenueName(pubJson.get("venueName").toString());
+			else
+				newpub.setVenueName("");
 			if (!Strings.isNullOrEmpty(pubJson.get("descOutputOther").toString()))
 				newpub.setdescOutputOther(pubJson.get("descOutputOther").toString());
+			else
+				newpub.setdescOutputOther("");
 			if (!Strings.isNullOrEmpty(pubJson.get("volume").toString()))
 				newpub.setVolume(pubJson.get("volume").toString());
+			else
+				newpub.setVolume("");
 			if (!Strings.isNullOrEmpty(pubJson.get("page").toString()))
 				newpub.setPage(pubJson.get("page").toString());
+			else
+				newpub.setPage("");
 			if (!Strings.isNullOrEmpty(pubJson.get("location").toString()))
 				newpub.setLocation(pubJson.get("location").toString());
+			else
+				newpub.setLocation("");
 			if (!Strings.isNullOrEmpty(pubJson.get("url").toString()))
 				newpub.setUrl(pubJson.get("url").toString());
+			else
+				newpub.setUrl("");
 			if (!Strings.isNullOrEmpty(pubJson.get("dates").toString()))
 				newpub.setpublishDate(pubJson.get("dates").toString());
+			else
+				newpub.setpublishDate("");
 			if (!Strings.isNullOrEmpty(pubJson.get("publisher").toString()))
 				newpub.setPublisher(pubJson.get("publisher").toString());
+			else
+				newpub.setPublisher("");
 			PersistenceManager pmf = PMF.get().getPersistenceManager();
 			try {
 				pmf.makePersistent(newpub);
@@ -99,7 +115,10 @@ public class PublicationService {
 		}
 		else
 		{
-			return new ModelAndView("expiry");
+			if(session.getAttribute("email").equals(Constants.adminEmailId))
+				return new ModelAndView("adminInvalidrequest");
+			else
+				return new ModelAndView("expiry");
 		}
 		return new ModelAndView("changed");
 		

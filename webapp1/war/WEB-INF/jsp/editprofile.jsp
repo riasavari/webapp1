@@ -97,13 +97,13 @@
         <div class="col-xs-8 selectContainer">
         
             <select class="form-control" name="category" id="category">
-               <option value="University researcher">University researcher</option>
+    			 <option value="University researcher">University researcher</option>
                 <option value="Consulting researcher">Consulting researcher</option>
                 <option value="Postdoctoral fellow">Postdoctoral fellow</option>
                 <option value="Secondary school teacher">Secondary school teacher</option>
                 <option value="Graduate student">Graduate student</option>
                 <option value="Undergraduate student">Undergraduate student</option>
-                <option value="QuakeCore staff">QuakeCore staff</option>
+                <option value="QuakeCoRE staff">QuakeCoRE staff</option>
                 <option value="Technician">Technician</option>
                 <option value="Professional engineer">Professional engineer</option>
                 <option value="Professional geologist">Professional geologist</option>

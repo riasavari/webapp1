@@ -12,7 +12,7 @@
 
 <div class="container">
   <!-- Modal -->
-  <div class="modal fade" id="confirmModal" role="dialog">
+  <div class="modal fade" id="confirmModal" data-backdrop="static" role="dialog">
     <div class="modal-dialog">
     <div id="userid"  style="display:none;">
 				${email}
@@ -24,7 +24,7 @@
       <div class="modal-content">
        
         <div class="modal-body">
-          <p>Please confirm that the intended publication was not given a quakeCoRE number before </p>
+          <p>Please confirm that the intended publication was not given a QuakeCoRE number before </p>
         </div>
         <div class="modal-footer">
        <a href="viewpublication" role="button" class="btn btn-default">No</a>

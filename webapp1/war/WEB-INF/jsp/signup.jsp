@@ -133,7 +133,7 @@
         </div>
         
 			<div>
-			  <label class="checkbox-inline"><input type="checkbox" value="agree-cbox" id="agree-cbox">  agree to the <a href="" data-toggle="modal" data-target="#tandc-modalbox">Terms and Conditions</a></label>
+			  <label class="checkbox-inline"><input type="checkbox" value="agree-cbox" id="agree-cbox"> I agree to the <a href="" data-toggle="modal" data-target="#tandc-modalbox">Terms and Conditions</a></label>
 			</div>
 			
     </div>

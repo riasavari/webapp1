@@ -225,7 +225,7 @@ validate=function(id)
     $("html, body").animate({ scrollTop: 0 }, "slow");
 	return false;
 	}
-	if(article === "journal" || article === "conference" ||  article === "bookchapter" || article === "peerreviewed" || article === "nonpeerreviewed")
+	if(article === "Journal" || article === "Conference" ||  article === "Book chapter" || article === "Peer-reviewed" || article === "Non peer-reviewed")
 	{
 		if(!isValid(venueName))
 		{
@@ -237,7 +237,7 @@ validate=function(id)
 		return false;
 		}
 	}
-	if(status === "published")
+	if(status === "Published")
 		{
 			if(!isValid(page))
 			{
@@ -248,7 +248,7 @@ validate=function(id)
 		    $("html, body").animate({ scrollTop: 0 }, "slow");
 			return false;
 			}
-			if( article === "book" ||  article === "bookchapter" )
+			if( article === "Book" ||  article === "Book chapter" )
 			{
 				if(!isValid(publisher))
 				{
@@ -261,7 +261,7 @@ validate=function(id)
 				}
 			}
 		
-			if(article === "journal" )
+			if(article === "Journal" )
 			{
 				if(!isValid(volume))
 				{
@@ -273,7 +273,7 @@ validate=function(id)
 				return false;
 				}
 			}
-			if(article === "conference" )
+			if(article === "Conference" )
 			{
 				if(!isValid(location))
 				{
@@ -295,7 +295,7 @@ validate=function(id)
 				}
 				
 			}
-			if(article === "peerreviewed" || article === "nonpeerreviewed")
+			if(article === "Peer-reviewed" || article === "Non peer-reviewed")
 				{
 				if(!isValid(descOutputOther))
 				{

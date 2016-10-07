@@ -109,7 +109,7 @@
     	 </div>
     	  <div class="form-group">
       		<label class="col-xs-4 control-label">Status</label>
-        <div class="col-xs-5 selectContainer">
+        <div class="col-xs-5 selectContainer"><!-- if you change/add the value names in this dropdown list,change in js files accordingly -->
             <select class="form-control selectwidthauto" name="status" id="status">
                 <option value="Submitted">Submitted</option>
                 <option value="Accepted">Accepted</option>
@@ -148,12 +148,13 @@
     	 </div> 
     	
     	 <div id="optional">
-		 <div class="form-group" style="display:none;" id="volumeDiv">
-      		<input type="text" class="form-control" name="volume" id="volume" placeholder="Volume,issue no, if available (e.g: 143,8)">
-    	 </div>
+		 
     	 
 		 <div class="form-group" style="display:none;" id="pageDiv">
       		<input type="text" class="form-control" name="page" id="page"  placeholder="Number of pages">
+    	 </div>
+    	 <div class="form-group" style="display:none;" id="volumeDiv">
+      		<input type="text" class="form-control" name="volume" id="volume" placeholder="Volume,issue no, if available (e.g: 143,8)">
     	 </div>
     	 
     	 <div class="form-group" style="display:none;" id="locationDiv">

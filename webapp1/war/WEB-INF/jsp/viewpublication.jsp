@@ -52,7 +52,7 @@
 				${allPublicationList}
 			</div>
 			 
-      <h3 class="form-heading">QuakeCore Publications</h3>
+      <h3 class="form-heading">QuakeCoRE Publications</h3>
         <div class="jumbotron">
  
 			<div align="center">
@@ -103,7 +103,7 @@
 				  </strong><a href="mailto:info@quakecore.nz">info@quakecore.nz</a><strong> | </strong> </p>
 				  </div> 
 		</div>
-		 <%--  <%@include file="popup.jsp" %>  --%>
+		  <%@include file="popup.jsp" %>  
 		<script  src="/lib/jquery-min-latest.js"></script>
 		<script  src="bootstrap/js/bootstrap.min.js"></script>
 		<script  src="/js/viewpublication.js"></script>

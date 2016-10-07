@@ -43,7 +43,7 @@
 				  	<div class="container">
  <div class="jumbotron">
   <div class="form-group">
-            <h4>Invalid session or session expired. Please <a href="/home">Login </a></h4>
+            <h4>Invalid session or session expired. Please <a href="/">Login </a></h4>
     </div>
     </div>
      </div> 
@@ -55,5 +55,6 @@
 		</div>
 	<script  src="/lib/jquery-min-latest.js"></script>
 	<script  src="bootstrap/js/bootstrap.min.js"></script>
+	
 	</body>
 </html>

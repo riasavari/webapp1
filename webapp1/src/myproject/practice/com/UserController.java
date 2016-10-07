@@ -32,6 +32,8 @@ import com.google.common.base.Splitter;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 
+
+
 @Controller
 public class UserController {
 
@@ -94,14 +96,86 @@ public class UserController {
 		return "forgotpassword";
 
 	}
-
-	@RequestMapping(value = "/getmailSubscriptions", method = RequestMethod.GET)
-	public String getmailSubscriptions(ModelMap model) {
-		System.out.println("got here for /getmailSubscriptions");
-		return "getmailSubscriptions";
+	//Admin related pages-start
+	@RequestMapping(value = "/homeAdmin", method = RequestMethod.GET)
+	public String homeAdminPage(ModelMap model,HttpSession session) {
+		System.out.println("got here for /homeAdmin");
+		String page="expiry";
+		if(session == null || session.getAttribute("email") == null)
+			return page;
+		else
+		{
+		if(session.getAttribute("email").equals(Constants.adminEmailId) )
+			return "homeAdmin";
+		else
+			return "invalidrequest";
+			}
 
 	}
+	@RequestMapping(value = "/getmailSubscriptions", method = RequestMethod.GET)
+	public String getmailSubscriptions(ModelMap model,HttpSession session) {
+		System.out.println("got here for /getmailSubscriptions");
+		
+			String page="expiry";
+			if(session == null || session.getAttribute("email") == null)
+				return page;
+			else
+			{
+			if(session.getAttribute("email").equals(Constants.adminEmailId) )
+				return "getmailSubscriptions";
+			else
+				return "invalidrequest";
+				}
+		
+	}
+	
+	@RequestMapping(value = "/showbanner", method = RequestMethod.GET)
+	public String getshowbannerPage(ModelMap model,HttpSession session) {
+		System.out.println("got here for /showbanner ");
+		String page="expiry";
+		if(session == null || session.getAttribute("email") == null)
+			return page;
+		else
+		{
+		if(session.getAttribute("email").equals(Constants.adminEmailId) )
+		return "showbanner";
+		else
+		return "invalidrequest";
+		}
 
+	}
+	@RequestMapping(value = "/sent", method = RequestMethod.GET)
+	public String sent(ModelMap model,HttpSession session) {
+		System.out.println("got here for /sent");
+		String page="expiry";
+		if(session == null || session.getAttribute("email") == null)
+			return page;
+		else
+		{
+		if(session.getAttribute("email").equals(Constants.adminEmailId) )
+			return "sent";
+		else
+			return "invalidrequest";
+		}
+
+	}
+	@RequestMapping(value = "/banner", method = RequestMethod.GET)
+	public String banner(ModelMap model,HttpSession session) {
+		System.out.println("got here for /banner");
+		String page="expiry";
+		if(session == null || session.getAttribute("email") == null)
+			return page;
+		else
+		{
+		if(session.getAttribute("email").equals(Constants.adminEmailId) )
+			return "banner";
+		else
+			return "invalidrequest";
+		}
+
+	}
+	//Admin related pages-end
+	
 	@RequestMapping(value = "/changed", method = RequestMethod.POST)
 	public String postchanged(ModelMap model) {
 		System.out.println("got here for /changed POST");
@@ -118,22 +192,26 @@ public class UserController {
 
 	@RequestMapping(value = "/newpublication", method = RequestMethod.GET)
 	public ModelAndView editPublicationPage(@RequestParam(value = "id", required = false) String pubid,
-			ModelMap model) {
+			ModelMap model,HttpSession session) {
 		System.out.println("got here for EDIT /newpublication GET");
-		if (pubid != null && !pubid.isEmpty())
-			model.addAttribute("singlePub", pubid);
+		 if(session == null || session.getAttribute("email") == null)
+			 return new ModelAndView( "expiry");
+			else
+			{
+				if(session.getAttribute("email").equals(Constants.adminEmailId))
+					return new ModelAndView("adminInvalidrequest");
+				else
+				{
+					if (pubid != null && !pubid.isEmpty())
+						model.addAttribute("singlePub", pubid);
 
-		return new ModelAndView("newpublication");
+					return new ModelAndView("newpublication");
+				}
+			}
 
 	}
 
-	@RequestMapping(value = "/changepassword", method = RequestMethod.GET)
-	public String getChangePasswordPage(ModelMap model) {
-		System.out.println("got here for /changepassword " + model);
-		return "changepassword";
-
-	}
-
+	
 	@RequestMapping(value = "/rechangepassword", method = RequestMethod.GET)
 	public String getreChangePasswordPage(ModelMap model) {
 		System.out.println("got here for /rechangepassword");
@@ -141,12 +219,7 @@ public class UserController {
 
 	}
 
-	@RequestMapping(value = "/homeAdmin", method = RequestMethod.GET)
-	public String homeAdminPage(ModelMap model) {
-		System.out.println("got here for /homeAdmin");
-		return "homeAdmin";
-
-	}
+	
 
 	@RequestMapping(value = "/contactlist", method = RequestMethod.POST)
 	public String contactlistAdminPage(ModelMap model) {
@@ -160,18 +233,46 @@ public class UserController {
 		return "newsignup";
 
 	}
+	//Start:user related pages
 	@RequestMapping(value = "/homeuser", method = RequestMethod.POST)
-	public String homeUserPage(ModelMap model) {
-		System.out.println("got here for /posthomeuser ");
-		return "homeuser";
+	public String homeUserPage(ModelMap model,HttpSession session) {
+		System.out.println("got here for /homeuser  POST");
+		 if(session == null || session.getAttribute("email") == null)
+				return "expiry";
+			else
+			{
+				if(session.getAttribute("email").equals(Constants.adminEmailId))
+				return "adminInvalidrequest";
+				else
+					return "homeuser";
+			}
 
 	}
 
 	@RequestMapping(value = "/homeuser", method = RequestMethod.GET)
-	public String gethomeUserPage(ModelMap model) {
-		System.out.println("got here for /gethomeuser ");
-		return "homeuser";
+	public String gethomeUserPage(ModelMap model,HttpSession session) {
+		System.out.println("got here for /gethomeuser GET");
+		 if(session == null || session.getAttribute("email") == null)
+				return "expiry";
+			else
+			{
+				if(session.getAttribute("email").equals(Constants.adminEmailId))
+				return "adminInvalidrequest";
+				else
+					return "homeuser";
+			}
 
+	}
+
+	@RequestMapping(value = "/changepassword", method = RequestMethod.GET)
+	public String getChangePasswordPage(ModelMap model,HttpSession session) {
+		System.out.println("got here for /changepassword " + model);
+		if((session != null && session.getAttribute("email") != null )&& !(session.getAttribute("email").equals(Constants.adminEmailId)))
+			return "changepassword";
+			else if(session == null || session.getAttribute("email") == null)
+				return "expiry";
+			else
+				return "adminInvalidrequest";
 	}
 
 	@RequestMapping(value = "/userActivation", method = RequestMethod.GET)
@@ -180,10 +281,17 @@ public class UserController {
 		return "userActivation";
 
 	}
-	@RequestMapping(value = "/showbanner", method = RequestMethod.GET)
-	public String getshowbannerPage(ModelMap model) {
-		System.out.println("got here for /showbanner ");
-		return "showbanner";
+	
+	@RequestMapping(value = "/invalidrequest", method = RequestMethod.GET)
+	public String invalidrequest(ModelMap model) {
+		System.out.println("/invalidrequest");
+		return "invalidrequest";
+
+	}
+	@RequestMapping(value = "/adminInvalidrequest", method = RequestMethod.GET)
+	public String adminInvalidrequest(ModelMap model) {
+		System.out.println("/adminInvalidrequest");
+		return "adminInvalidrequest";
 
 	}
 	@RequestMapping(value = "/home", method = RequestMethod.POST)
@@ -192,25 +300,42 @@ public class UserController {
 		return "home";
 
 	}
-	/*@RequestMapping(value = "/banner", method = RequestMethod.POST)
+	@RequestMapping(value = "/banner", method = RequestMethod.POST)
 	public String getshowbannerPage(ModelMap model,HttpServletRequest request, HttpServletResponse response,HttpSession session) {
 		System.out.println("got here for /banner POST");
 		System.out.println(request.getParameter("msg"));
-		String useremail=request.getParameter("msg");
+		String displayMsg=request.getParameter("msg");
+		
 		String page="expiry";
-		if(page.equals("useractivated"))
-		{
-			String url=request.getScheme() + "://"	+ request.getServerName() + request.getContextPath();
-			ApplicationContext context = new ClassPathXmlApplicationContext("Spring-Mail.xml");
+		if(session != null && session.getAttribute("email") != null) {
+			String currentSessionEmail=session.getAttribute("email").toString();
+			if(currentSessionEmail.equals(Constants.adminEmailId))
+			{
+		PersistenceManager pm = PMF.get().getPersistenceManager();
 
-			Email mm = (Email) context.getBean("Email");
-			
-				mm.sendMail(Constants.adminEmailId, useremail, "Account Activated for QuakeCore User Portal",
-						"Your account has been activated. Please login to the user portal "+url);
+        Query q = pm.newQuery(Admin.class);
+        q.setFilter("email == nameParameter");
+        q.declareParameters("String nameParameter");
+
+        try {
+               List<Admin> results = (List<Admin>) q.execute(currentSessionEmail);
+
+               if (!results.isEmpty()) {
+                     
+                     results.get(0).setMsg(displayMsg);
+                     page="banner";
+               }
+        } finally {
+               q.closeAll();
+               pm.close();
+        }
+			}
+			else
+				return "invalidrequest";
 		}
 		return page;
 
-	}*/
+	}
 	@RequestMapping(value = "/activated", method = RequestMethod.GET)
 	public String getuseractivatedPage(ModelMap model,HttpServletRequest request, HttpServletResponse response,HttpSession session) {
 		System.out.println("got here for /activated ");
@@ -241,13 +366,7 @@ public class UserController {
 		return page;
 	}
 	
-	@RequestMapping(value = "/sent", method = RequestMethod.GET)
-	public String sent(ModelMap model) {
-		System.out.println("got here for /sent");
-		return "sent";
-
-	}
-
+	
 	@RequestMapping(value = "/changed", method = RequestMethod.GET)
 	public String changed(ModelMap model) {
 		System.out.println("got here for /changed");
@@ -255,12 +374,7 @@ public class UserController {
 
 	}
 
-	@RequestMapping(value = "/expiry", method = RequestMethod.GET)
-	public String expiry(ModelMap model) {
-		System.out.println("got here for /expiry");
-		return "expiry";
-
-	}
+	
 
 	@RequestMapping(value = "/editthisAbstract", method = RequestMethod.POST)
 	public String geteditAbstractPage(@RequestParam(value = "absId", required = false) String absId,
@@ -391,7 +505,11 @@ public class UserController {
 
 	public ModelAndView getPublication(String emailId, HttpServletRequest request, HttpServletResponse response,
 			ModelMap model, int publicationId) throws Exception {
-
+		List<Integer> user_pubList=getUserPublicationList(emailId);
+		if(!user_pubList.contains(publicationId))
+		{
+			return new ModelAndView("expiry");
+		}
 		String nextpage = "newpublication";
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		List<Publication> results = new ArrayList<Publication>();
@@ -435,6 +553,7 @@ public class UserController {
 	@RequestMapping(value = "/newpublication", method = RequestMethod.POST)
 	public ModelAndView getPublicationId(@RequestParam(value = "id", required = false) String pub,
 			HttpServletRequest request, HttpServletResponse response, HttpSession session, ModelMap model) {
+		
 		String buttonValue = request.getParameter("actionBtn");
 
 		
@@ -443,6 +562,9 @@ public class UserController {
 		if (buttonValue != null) {
 			System.out.println(" *** ONE *** ");
 			if (session != null && session.getAttribute("email") != null) {
+				if(session.getAttribute("email").equals(Constants.adminEmailId))
+					return new ModelAndView("adminInvalidrequest");
+					
 				String emailId = session.getAttribute("email").toString();
 				int id = Integer.parseInt(buttonValue);
 				try {
@@ -460,7 +582,10 @@ public class UserController {
 			System.out.println(" *** TWO *** ");
 			int no = Integer.parseInt(pubNo);
 			System.out.println(" *** TWO *** no " + no);
+			
 			if (session != null && session.getAttribute("email") != null) {
+				if(session.getAttribute("email").equals(Constants.adminEmailId))
+					return new ModelAndView("adminInvalidrequest");
 			PersistenceManager pm = PMF.get().getPersistenceManager();
 			Query q = pm.newQuery(Publication.class);
 			q.setFilter("publicationId == idParameter");
@@ -548,7 +673,8 @@ public class UserController {
 		{
 			System.out.println(" *** THREE *** ");
 			if (session != null && session.getAttribute("email") != null) {
-				
+				if(session.getAttribute("email").equals(Constants.adminEmailId))
+					return new ModelAndView("adminInvalidrequest");
 				String year = request.getParameter("year");
 				String fund = request.getParameter("fund");
 				String status = request.getParameter("status");
@@ -615,12 +741,27 @@ public class UserController {
 		System.out.println("got here for /logout");
 		HttpSession session = request.getSession(false);
 		if (session != null) {
-			System.out.println("got here or NOT in /logout");
+			
 			session.removeAttribute("email");
 			session.removeAttribute("name");
+			session.removeAttribute("userKey");
 			session.invalidate();
 		}
 		return "logout";
+
+	}
+	@RequestMapping(value = "/expiry", method = RequestMethod.GET)
+	public String expiry(ModelMap model,HttpServletRequest request) {
+		System.out.println("got here for /expiry");
+		HttpSession session = request.getSession(false);
+		if (session != null) {
+			
+			session.removeAttribute("email");
+			session.removeAttribute("name");
+			session.removeAttribute("userKey");
+			session.invalidate();
+		}
+		return "expiry";
 
 	}
 
@@ -658,6 +799,8 @@ public class UserController {
 
 		if (session != null && session.getAttribute("email") != null) {
 			System.out.println("got here for /editprofile GET");
+			if(session.getAttribute("email").equals(Constants.adminEmailId))
+				return "adminInvalidrequest";
 			String email = session.getAttribute("email").toString();
 
 			try {
@@ -715,7 +858,8 @@ public class UserController {
 		if (session != null && session.getAttribute("email") != null) {
 			System.out.println("got here for /mailingList");
 			String email = session.getAttribute("email").toString();
-
+			if (email.equalsIgnoreCase(Constants.adminEmailId)) 
+				return "adminInvalidrequest";
 			try {
 				page = UserService.getUserSubscriptions(email, request, response, model);
 			} catch (Exception e) {
@@ -734,13 +878,36 @@ public class UserController {
 
 		String hashedPassword = UserService.hashPassword(password);
 		System.out.println(emailId + " - " + password + " - " + hashedPassword);
+		
+		String adminemail=Constants.adminEmailId;
+		String msg="";
+		String adminPwd="";
+		
+		PersistenceManager pmf = PMF.get().getPersistenceManager();
 
-		if (emailId.equalsIgnoreCase(Constants.adminEmailId)) {
-			String pswHsh = UserService.hashPassword("admin007");
-			//get the password from Admin DB
-			if (hashedPassword.equals(pswHsh)) {
+        Query que = pmf.newQuery(Admin.class);
+        que.setFilter("email == nameParameter");
+        que.declareParameters("String nameParameter");
+
+        try {
+               List<Admin> results = (List<Admin>) que.execute(adminemail);
+
+               if (!results.isEmpty()) {
+            	   adminPwd= results.get(0).getPassword();
+                   msg=results.get(0).getMsg();
+               }
+        } finally {
+               que.closeAll();
+               pmf.close();
+        }
+
+		
+
+		if (emailId.equalsIgnoreCase(adminemail)) {
+			if (hashedPassword.equals(adminPwd)) {
 				System.out.println("matched");
 				session.setAttribute("email", emailId);
+				session.setAttribute("msg", msg);
 				return "adminMatched";
 
 			} else {
@@ -778,6 +945,7 @@ public class UserController {
 						session.setAttribute("email", emailId);
 						session.setAttribute("userKey", results.get(0).getKey().toString());
 						session.setAttribute("name", results.get(0).getFirstname().toString());
+						session.setAttribute("msg", msg);
 						return "userMatched";
 					} else {
 						System.out.println("user mismatched");
@@ -907,6 +1075,37 @@ public class UserController {
 		return "viewMyAbstractSubmissions";
 
 	}
+	
+	public List<Integer> getUserPublicationList(String emailId)
+	{System.out.println("getUserPublicationListgetUserPublicationListgetUserPublicationListgetUserPublicationListgetUserPublicationList");
+		List<Integer> absList=new ArrayList<Integer>();
+		
+		PersistenceManager pm = PMF.get().getPersistenceManager();
+		UserPublication userAbs = pm.getObjectById(UserPublication.class, emailId);
+		try {
+
+			if (userAbs == null) {
+				System.out.println("no publications yet");
+			} else {
+				try {
+					System.out.println("His abstracts are : " + userAbs.getPublicationList().toString());
+					absList = userAbs.getPublicationList();
+					
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+
+		} finally {
+
+			pm.close();
+		}
+		System.out.println(absList);
+		return absList;
+
+		
+	}
 
 	@RequestMapping(value = "/viewmypublications", method = RequestMethod.GET)
 	public String getViewMyPublicationPage(ModelMap model, HttpServletRequest request, HttpServletResponse response,
@@ -916,6 +1115,8 @@ public class UserController {
 		List<Integer> pubs;
 		if (session != null && session.getAttribute("email") != null) {
 			emailId = session.getAttribute("email").toString();
+			if(emailId.equals(Constants.adminEmailId))
+				return "adminInvalidrequest";
 			System.out.println("my email id " + emailId);
 		} else
 			return "expiry";
@@ -1056,11 +1257,12 @@ public class UserController {
 					results.get(0).setCategory(user_detailsJson.getString("category"));
 					results.get(0).setPosition(user_detailsJson.getString("position"));
 					results.get(0).setOrganisation(user_detailsJson.getString("organisation"));
+					session.setAttribute("name", user_detailsJson.getString("firstname"));
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-
+				
 				return "saved";
 			}
 
@@ -1069,6 +1271,7 @@ public class UserController {
 			pm.close();
 		}
 	}
+	
 	
 	@RequestMapping(value = "/ifExistingUser", method = RequestMethod.POST)
 	public @ResponseBody String ifExistingUser(@RequestParam(value = "userInfo", required = false) String userdetails,
@@ -1086,6 +1289,8 @@ public class UserController {
 				e.printStackTrace();
 			}
 		}
+		if(emailId.equals(Constants.adminEmailId))
+			return "existingUser";
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 
 		Query q = pm.newQuery(User.class);
@@ -1152,7 +1357,7 @@ public class UserController {
 			@RequestParam(value = "emailid", required = false) String emailid, HttpServletRequest request,
 			ModelMap model, HttpSession session) {
 		String nextpage = "expiry";
-		if (session != null && session.getAttribute("email") != null) {
+		if (session != null && session.getAttribute("email") != null && session.getAttribute("email").equals(Constants.adminEmailId)) {
 
 			System.out.println("getContactList " + contactList);
 			PersistenceManager pm = PMF.get().getPersistenceManager();
@@ -1241,7 +1446,7 @@ public class UserController {
 
 		String tempString = UserService.randString();
 		saveTempEntry(email, tempString);
-		mm.sendMail("quakecore.nz@gmail.com", email, "QuakeCoRE account reset information",
+		mm.sendMail(Constants.adminEmailId, email, "QuakeCoRE account reset information",
 				"Your temporary password is " + tempString + ". Please login and change your password.");
 		// System.out.println("emailed");
 		return new ModelAndView("select");

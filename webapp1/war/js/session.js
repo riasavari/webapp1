@@ -5,7 +5,7 @@ $(document).ready(function()
 	if(userid === null || $.trim(userid) === "")
 	{
 		//$("#logoutTab").hide();
-		window.location.href = "expiry";
+		window.location.href= "expiry";
 	}
 	
 });

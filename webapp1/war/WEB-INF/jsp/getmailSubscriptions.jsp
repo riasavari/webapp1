@@ -57,10 +57,10 @@
     <div class="longNameFields"  id="radio-group">
         <!--  To keep a value cheked as default
         <label class="btn btn-default active">
-            <input type="radio" name="radio-m1" value="radio-m1"  checked=""> QuakeCore Monthly Newsletter
+            <input type="radio" name="radio-m1" value="radio-m1"  checked=""> QuakeCoRE Monthly Newsletter
         </label>-->
         <div class="radio"><label>
-            <input type="radio"  name="radioSubs" value="m1" id="QuakeCore Monthly Newsletter"> QuakeCore Monthly Newsletter
+            <input type="radio"  name="radioSubs" value="m1" id="QuakeCoRE Monthly Newsletter"> QuakeCoRE Monthly Newsletter
         </label></div>
         <div class="radio"><label>
             <input type="radio"  name="radioSubs" value="t1" id="Technology Platform 1">TP 1 - Large-scale laboratory facilities
