@@ -46,7 +46,8 @@
 				${singlePub}
 			</div>
     <div class="jumbotron">
-  <h3 class="form-heading">The details have been successfully updated.</h3>
+  <h3 class="form-heading">The publication details have been successfully updated. </h3>
+  <h4><a href="viewmypublications">View</a></h4>
    </div>
    		</div> 
 			  	 </div>	

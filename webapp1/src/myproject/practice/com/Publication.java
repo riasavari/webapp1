@@ -26,6 +26,9 @@ public class Publication {
 	
     @Persistent
     private int publicationId;
+    
+    @Persistent
+    private Boolean isVisible; 
 	
  	@Persistent
     private String year; 
@@ -104,6 +107,11 @@ public class Publication {
 	public void setTitle(String title) {
 	    this.title = title;
 	}
+	
+	public Boolean getIsVisible() {
+	    return isVisible;
+	}
+	
 	public String getYear() {
 		return year;
 	}
@@ -144,6 +152,9 @@ public class Publication {
 	}
 	public String getPublisher() {
 		return publisher;
+	}
+	public void setIsVisible(Boolean isVisible) {
+		this.isVisible = isVisible;
 	}
 	public void setYear(String year) {
 		this.year = year;

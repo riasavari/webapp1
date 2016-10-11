@@ -95,6 +95,8 @@ String nextpage="expiry";
 	}
 	return nextpage;
 }
+
+
 	public static String  getUserSubscriptions(String emailId,HttpServletRequest request,HttpServletResponse response,ModelMap model) throws Exception
 	{
 		PersistenceManager pm = PMF.get().getPersistenceManager();

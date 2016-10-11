@@ -53,14 +53,15 @@
 			<div id="buttonid"  style="display:none;">
 				
 			</div>
-			<div id="nopub-message"  style="display:none;">
-				<span class="well well-sm">Sorry, currently no publications to update</span>
+			<div id="refresh"  class="well well-sm" style="display:block;">
+				Refresh the page to see latest additions. Contact <a href="mailto:quakecore.nz@gmail.com">admin</a> to remove an item.
 			</div>
       </div>
       <!--  <span id="myPublications" class="hide"> -->
       <h3 class="form-heading">View my publications</h3>
         <div class="jumbotron">
         <form  method="post" name="formLogin" action="newpublication">
+        <span style="white-space: nowrap">
           <div align="center">
           <c:choose>
            <c:when test="${empty mypubs}"><c:out value="Sorry, currently no publications to update" /></c:when> 
@@ -108,6 +109,7 @@
 		</c:otherwise>
 		</c:choose>
 		    </div>
+		</span>
 		</form>
 		</div>
 		

@@ -45,6 +45,7 @@
 			
 			//console.log(email);console.log(firstname);console.log(lastname);console.log(password);console.log(confirmPassword);
 			
+			console.log(firstname+lastname);
 			
 			if(!isValid(email) && !isValid(firstname) && !isValid(lastname) && !isValid(password) && !isValid(confirmPassword) && !isValid(position) && !isValid(organisation) )
 			{
@@ -91,7 +92,7 @@
 			{$('#modalbox').modal().hide();
 			document.getElementById("password").value="";  
 		    document.getElementById("password").focus(); 
-		    $('#signupErr').html("Password-minimum-length 6 with numbers and letters only");
+		    $('#signupErr').html("Password minimum length 6 with numbers and letters only");
 		    $('#messagebox').fadeIn().delay(2000).fadeOut();
 		  //  $("html, body").animate({ scrollTop: 0 }, "slow");
 		   
@@ -152,12 +153,12 @@
 			//console.log("final validate in signup");
 			var userInfo = {};
 			userInfo["email"]	=	email;
-			userInfo["firstname"]	=	firstname;
-			userInfo["lastname"]	=	lastname;
+			userInfo["firstname"]	=	$.trim(firstname);
+			userInfo["lastname"]	=	$.trim(lastname);
 			userInfo["password"]	=	password;
 			userInfo["title"]	=	title;
-			userInfo["position"]	=	position;
-			userInfo["organisation"]	=	organisation;
+			userInfo["position"]	=	$.trim(position);
+			userInfo["organisation"]	=	$.trim(organisation);
 			userInfo["category"]	=	category;
 			console.log(userInfo);
 			
@@ -216,7 +217,8 @@
 	    }
 		 var isValidName = function(name) {
 		        var flag = true;
-		        var namePattern =  /^[a-z]+$/i;
+		       // var namePattern =  /^[a-z]+$/i;
+		        var namePattern = /^[a-zA-Z ]+$/;
 		        flag = namePattern.test(name);
 		        return flag;
 		    }

@@ -33,7 +33,7 @@
 					  
 					 <div id="topnavbar"><button id="nav-button">Toggle Navigation</button>
 								<ul>
-									<li id="homeTab"><a href="/homeuser"><strong>Home</strong></a></li> 
+									<li id="homeTab"><a href="/homeAdmin"><strong>Home</strong></a></li> 
 									<li id="logoutTab"><a href="/logout"><strong>Logout</strong></a></li> 
 								</ul>
 					  </div> 

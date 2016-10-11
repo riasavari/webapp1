@@ -83,6 +83,12 @@ public class UserController {
 		return "userStatusChanged";
 	}
 	
+	@RequestMapping(value = "/visibilityChanged", method = RequestMethod.GET)
+	public String pubvisibilityChangedPage(ModelMap model) {
+		System.out.println("came to /visibilityChanged");
+		return "visibilityChanged";
+	}
+	
 	@RequestMapping(value = "/exusersignup", method = RequestMethod.GET)
 	public String getExUserSignUpPage(ModelMap model) {
 		System.out.println("got here for /exusersignup");
@@ -341,6 +347,8 @@ public class UserController {
 		System.out.println("got here for /activated ");
 		String page="expiry";
 		if (session != null && session.getAttribute("email") != null) {
+			if(!(session.getAttribute("email").equals(Constants.adminEmailId)))
+				return "invalidrequest";
 		System.out.println(request.getParameter("useremail"));
 		String useremail=request.getParameter("useremail");
 		String activeStatus=request.getParameter("activeStatus");
@@ -365,7 +373,20 @@ public class UserController {
 		}
 		return page;
 	}
-	
+	@RequestMapping(value = "/changeVisibility", method = RequestMethod.GET)
+	public String getchangeVisibilityPage(ModelMap model,HttpServletRequest request, HttpServletResponse response,HttpSession session) {
+		System.out.println("got here for /changeVisibility ");
+		String page="expiry";
+		if (session != null && session.getAttribute("email") != null) {
+			if(!(session.getAttribute("email").equals(Constants.adminEmailId)))
+				return "invalidrequest";
+		System.out.println(request.getParameter("useremail"));
+		String pubId=request.getParameter("pubno");
+		
+		page=PublicationService.publicationVisibility(pubId,model,session);
+		}
+		return page;
+	}
 	
 	@RequestMapping(value = "/changed", method = RequestMethod.GET)
 	public String changed(ModelMap model) {
@@ -471,7 +492,7 @@ public class UserController {
 
 	}
 
-	// for viewing all QuakeCoRE publications
+	// for viewing all QuakeCoRE publications which has visibility true
 	@RequestMapping(value = "/viewpublication", method = RequestMethod.GET)
 	public String getviewpublicationsPage(HttpServletRequest request, HttpServletResponse response, HttpSession session,
 			ModelMap model) {
@@ -481,12 +502,14 @@ public class UserController {
 			emailId = session.getAttribute("email").toString();
 		} else
 			return "expiry";
-
+		Boolean visible=true;
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		Query q = pm.newQuery(Publication.class);
 		q.setOrdering("publicationId");
+		q.setFilter("isVisible == nameParameter");
+		q.declareParameters("int nameParameter");
 		try {
-			List<Publication> results = (List<Publication>) q.execute();
+			List<Publication> results = (List<Publication>) q.execute(visible);
 			System.out.println("result size " + results.size());
 			if (results.isEmpty()) {
 				model.addAttribute("allPublicationList", null);
@@ -502,7 +525,38 @@ public class UserController {
 		return "viewpublication";
 
 	}
+	@RequestMapping(value = "/selectpublication", method = RequestMethod.GET)
+	public  String getAllPubsforAdmin(HttpServletRequest request, HttpServletResponse response,
+			ModelMap model,HttpSession session )
+	{System.out.println("/selectpublication");
+		String emailId = "";
+		if (session != null && session.getAttribute("email") != null) {
+			emailId = session.getAttribute("email").toString();
+			if(!(emailId.equals(Constants.adminEmailId)))
+				return "invalidrequest";
+		} else
+			return "expiry";
+		Boolean visible=true;
+		PersistenceManager pm = PMF.get().getPersistenceManager();
+		Query q = pm.newQuery(Publication.class);
+		q.setOrdering("publicationId");
+		try {
+			List<Publication> results = (List<Publication>) q.execute();
+			System.out.println("result size " + results.size());
+			if (results.isEmpty()) {
+				model.addAttribute("allPubsList", null);
+			} else {
+				model.addAttribute("allPubsList", results);
+			}
 
+		} finally {
+			q.closeAll();
+			pm.close();
+		}
+
+		return "selectpublication";
+	}
+	
 	public ModelAndView getPublication(String emailId, HttpServletRequest request, HttpServletResponse response,
 			ModelMap model, int publicationId) throws Exception {
 		List<Integer> user_pubList=getUserPublicationList(emailId);
@@ -1131,7 +1185,7 @@ public class UserController {
 				try {
 					System.out.println("His publications are : " + userPubs.getPublicationList().toString());
 					pubs = userPubs.getPublicationList();
-					List<Publication> pubDetailedlist = getPubDetailedlist(pubs);
+					List<Publication> pubDetailedlist = getPubDetailedlist(pubs);//gets only the pubs with visibility true
 
 					request.setAttribute("mypubs", pubDetailedlist);
 					// GET EACH PUBLICATION AND ITS DETAILS -> NEED TO SHOW IN
@@ -1155,7 +1209,7 @@ public class UserController {
 	}
 
 	public List<Proposal> getAbsDetailedlist(List<Integer> abs) {
-		System.out.println(" getPubDetailedlist ");
+		System.out.println(" getAbsDetailedlist ");
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		List<Proposal> another = new ArrayList<Proposal>();
 		List<Proposal> results = new ArrayList<Proposal>();
@@ -1197,6 +1251,7 @@ public class UserController {
 
 				results = (List<Publication>) q.execute(no);
 				System.out.println(results.get(0).getpublicationId());
+				if(results.get(0).getIsVisible())//only displays visible publications
 				another.addAll(results);
 				// results.add(p)
 				// Publication p=(Publication)q.execute(no);

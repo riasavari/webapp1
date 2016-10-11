@@ -1,10 +1,11 @@
 <div class="container">
-  
+   
+  <!-- NOR USED -->
   <!-- Trigger the modal with a button -->
 <!--  <button type="button" id="openModal" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>  -->
  
 <!-- Modal -->
-  <div class="modal fade" id="numberModal" role="dialog">
+  <div class="modal fade" id="numberModal" data-backdrop="static" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->

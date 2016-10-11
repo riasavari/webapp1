@@ -58,6 +58,7 @@ public class PublicationService {
 			newpub.setfirstEnteredDate(new Date());
 			newpub.setlastModifiedDate(new Date());
 			newpub.setpublicationId(publicationNo);
+			newpub.setIsVisible(true);
 			newpub.setYear(pubJson.get("year").toString());
 			newpub.setFund(pubJson.get("fund").toString());
 			newpub.setStatus(pubJson.get("status").toString());
@@ -123,7 +124,43 @@ public class PublicationService {
 		return new ModelAndView("changed");
 		
 	}
-	
+	//to change the visibility of a publication by admin only
+	public static String publicationVisibility(String pubId,ModelMap model,HttpSession session)
+	{System.out.println("in publicationVisibility "+pubId);
+	String nextpage="expiry";
+	if (session != null && session.getAttribute("email") != null && session.getAttribute("email").equals(Constants.adminEmailId))
+		{
+		if(!Strings.isNullOrEmpty(pubId))
+		{
+			PersistenceManager pm = PMF.get().getPersistenceManager();
+			Query q = pm.newQuery(Publication.class);
+			q.setFilter("publicationId == idParameter");
+			q.declareParameters("String idParameter");
+			try {
+				List<Publication> results = (List<Publication>) q.execute(Integer.parseInt(pubId));
+				
+				if (!results.isEmpty()) {
+					System.out.println(results.get(0).getIsVisible());
+					Boolean pubStatus=results.get(0).getIsVisible();
+					if(pubStatus)
+						results.get(0).setIsVisible(false);
+					else
+						results.get(0).setIsVisible(true);
+					nextpage="visibilityChanged";
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				q.closeAll();
+				pm.close();
+			}
+			
+		}
+		
+		}
+		return nextpage;
+	}
 	public static void saveNewUserPublication(String email, int displayNo) {
 		System.out.println("coming to save a publication");
 
@@ -231,6 +268,7 @@ public class PublicationService {
 		return nextpage;
 			
 	}
+	
 	
 
 }

@@ -55,6 +55,7 @@
 			   		 <br>
 			         <ul class="nav nav-pills">
 			         			<a href="showbanner" class="btn btn-round" role="button" >Show banner</a><br>
+			         			<a href="selectpublication" class="btn btn-round" role="button" >Change publication status</a><br>
 							  <a href="getmailSubscriptions" class="btn btn-round" role="button" >Get email subscriptions</a><br>
 							  <a href="viewpublication" class="btn btn-round" role="button">View all publications</a><br>
 					 </ul>

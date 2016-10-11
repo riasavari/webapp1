@@ -41,7 +41,7 @@
 			  	 <!-- <div class="topbar"></div> --> 
 				<div id="content" class="content-width">
 				<div id="msg" style="display:block;">
-						${msg}
+						<h4>${msg}</h4>
 						</div>
 				  	<div class="container">  
 				        <div id="userid"  style="display:none;">

@@ -52,7 +52,7 @@ $(document).ready(function()
 	    		    console.log("Please enter a new password");
 	       	   		document.getElementById("newpassword").value="";  
 	       	   		document.getElementById("newpassword").focus(); 
-	       	   		$('#Err').html("Password is minimum 6 characters with numbers and letters only");
+	       	   		$('#Err').html("Password minimum length 6 with numbers and letters only");
 	       	   		$('#messagebox').fadeIn().delay(2000).fadeOut();
 	       	   		return false;
 	    		   }

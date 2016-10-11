@@ -51,10 +51,13 @@
        <div id="allpublications"  style="display:none;">
 				${allPublicationList}
 			</div>
-			 
+			  <div id="search"  class="well well-sm" style="display:block;">
+				Please do a search to find a particular publication in this list.
+				Refresh the page to see latest additions.
+			</div>
       <h3 class="form-heading">QuakeCoRE Publications</h3>
         <div class="jumbotron">
- 
+ 			<span style="white-space: nowrap">
 			<div align="center">
 			 <c:choose>
            <c:when test="${empty allPublicationList}"><c:out value="Sorry, currently no publications to list" /></c:when> 
@@ -94,7 +97,7 @@
 		</c:otherwise>
 		</c:choose>
 		    </div>
-		
+		</span>
 	</div>
 	 </div>
 			  	 </div>	
@@ -103,7 +106,7 @@
 				  </strong><a href="mailto:info@quakecore.nz">info@quakecore.nz</a><strong> | </strong> </p>
 				  </div> 
 		</div>
-		  <%@include file="popup.jsp" %>  
+		  <%-- <%@include file="popup.jsp" %>   --%>
 		<script  src="/lib/jquery-min-latest.js"></script>
 		<script  src="bootstrap/js/bootstrap.min.js"></script>
 		<script  src="/js/viewpublication.js"></script>

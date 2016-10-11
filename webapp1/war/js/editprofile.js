@@ -25,7 +25,7 @@ $(document.body).keypress(function(event){
 		}
 		console.log(userid);
 		
-		//To set user details in iput fields
+		//To set user details in input fields
 		$('#firstname').val(firstName);
 		$('#lastname').val(lastName);
 		$('#title').val(title);
@@ -101,11 +101,11 @@ $(document.body).keypress(function(event){
 			console.log("final validate in editprofile.js");
 			var userInfo = {};
 			
-			userInfo["firstname"]	=	firstname;
-			userInfo["lastname"]	=	lastname;
+			userInfo["firstname"]	=	$.trim(firstname);
+			userInfo["lastname"]	=	$.trim(lastname);
 			userInfo["title"]	=	title;
-			userInfo["position"]	=	position;
-			userInfo["organisation"]	=	organisation;
+			userInfo["position"]	=	$.trim(position);
+			userInfo["organisation"]	=	$.trim(organisation);
 			userInfo["category"]	=	category;
 			console.log(userInfo);
 			var result=intoServer(userInfo);
@@ -162,7 +162,8 @@ $(document.body).keypress(function(event){
 	    }
 		 var isValidName = function(name) {
 		        var flag = true;
-		        var namePattern =  /^[a-z]+$/i;
+		       // var namePattern =  /^[a-z]+$/i;
+		        var namePattern = /^[a-zA-Z ]+$/;
 		        flag = namePattern.test(name);
 		        return flag;
 		    }
