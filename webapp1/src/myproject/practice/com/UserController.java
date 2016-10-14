@@ -615,6 +615,7 @@ public class UserController {
 		System.out.println(pubNo + " *** POST *** " + buttonValue);
 		if (buttonValue != null) {
 			System.out.println(" *** ONE *** ");
+			//To get publication details based on button value 
 			if (session != null && session.getAttribute("email") != null) {
 				if(session.getAttribute("email").equals(Constants.adminEmailId))
 					return new ModelAndView("adminInvalidrequest");
@@ -632,7 +633,7 @@ public class UserController {
 			else {
 				return new ModelAndView("expiry");
 			}
-		} else if (buttonValue == null && !(pubNo.isEmpty())) {
+		} else if (buttonValue == null && !(pubNo.isEmpty())) {//displays the page with a particular publications's  details for editing
 			System.out.println(" *** TWO *** ");
 			int no = Integer.parseInt(pubNo);
 			System.out.println(" *** TWO *** no " + no);
@@ -722,7 +723,7 @@ public class UserController {
 			}else {
 				return new ModelAndView("expiry");
 			}
-		} else if (buttonValue == null && pubNo.isEmpty())
+		} else if (buttonValue == null && pubNo.isEmpty())//To sava a new publication
 
 		{
 			System.out.println(" *** THREE *** ");
@@ -1473,6 +1474,7 @@ public class UserController {
 		}
 
 	}
+	
 	public void activateEmailReqToAdmin(String senderEmailid,HttpServletRequest request) {
 		System.out.println("came to /activateEmailToAdmin " + senderEmailid);
 		ApplicationContext context = new ClassPathXmlApplicationContext("Spring-Mail.xml");
@@ -1490,6 +1492,49 @@ public class UserController {
 		
 		
 	}
+	//For the first time to add admin to the backend.It creates the table there
+	@RequestMapping(value = "/addAdmin", method = RequestMethod.GET)
+    public void addAdmin(HttpServletRequest request, ModelMap model) {
+           System.out.println("/addAdmin GET");
+           Admin a=new Admin();
+           String msg="some message to display";
+           String pwd="admin007";
+           
+           a.setMsg(msg);
+           a.setPassword(UserService.hashPassword(pwd));
+           a.setEmail("quakecore.nz@gmail.com");
+
+           PersistenceManager pm = PMF.get().getPersistenceManager();
+           try {
+                  pm.makePersistent(a);
+           } finally {
+                  pm.close();
+           }
+    }
+	//After the table was created, if we need to change details
+	@RequestMapping(value = "/changeCredential", method = RequestMethod.GET)
+    public void changeCredentials(HttpServletRequest request, ModelMap model) {
+           System.out.println("/changeCredential");
+           String searchAdminTable=Constants.adminEmailId;
+           PersistenceManager pm = PMF.get().getPersistenceManager();
+
+           Query q = pm.newQuery(Admin.class);
+           q.setFilter("email == nameParameter");
+           q.declareParameters("String nameParameter");
+
+           try {
+                  List<Admin> results = (List<Admin>) q.execute(searchAdminTable);
+
+                  if (!results.isEmpty()) {
+                        results.get(0).setPassword(UserService.hashPassword("orange"));
+                        results.get(0).setMsg("orange");
+                  }
+           } finally {
+                  q.closeAll();
+                  pm.close();
+           }
+    }
+
 	@RequestMapping(value = "/sendmail", method = RequestMethod.POST)
 	public ModelAndView sendMail(HttpServletRequest request, ModelMap model) {
 		 System.out.println("came to /sendmail"+request.getContextPath());

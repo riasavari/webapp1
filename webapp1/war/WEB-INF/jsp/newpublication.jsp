@@ -138,18 +138,15 @@
 		 <div class="form-group" >
       		<input type="text" class="form-control" name="title" id="title" placeholder="Article Title">
     	 </div>
-    	 
-		 <div class="form-group"> 
+    	 <div id="optional">
+		 <div class="form-group" style="display:none;" id="venueDiv"> 
       		<input type="text" class="form-control" name="venueName" id="venueName" placeholder="Journal / Conference / Workshop / Book Title">
     	 </div>
     	 
-    	  <div class="form-group"> 
+    	  <div class="form-group" style="display:none;" id="descDiv"> 
       		<input type="text" class="form-control" name="descOutputOther" id="descOutputOther" placeholder="Description of output">
     	 </div> 
     	
-    	 <div id="optional">
-		 
-    	 
 		 <div class="form-group" style="display:none;" id="pageDiv">
       		<input type="text" class="form-control" name="page" id="page"  placeholder="Number of pages">
     	 </div>

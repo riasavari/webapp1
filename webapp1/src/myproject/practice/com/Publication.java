@@ -28,6 +28,9 @@ public class Publication {
     private int publicationId;
     
     @Persistent
+    private String pubIdStr4digit; 
+    
+    @Persistent
     private Boolean isVisible; 
 	
  	@Persistent
@@ -100,7 +103,13 @@ public class Publication {
 	{
 	   this.publicationId=publicationId;
 	}
-	
+	public String getpubIdStr4digit() {
+	    return pubIdStr4digit;
+	}
+	public void setpubIdStr4digit(String pubIdStr4digit) 
+	{
+	   this.pubIdStr4digit=pubIdStr4digit;
+	}
 	public String getTitle() {
 	    return title;
 	}

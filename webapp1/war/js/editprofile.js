@@ -78,19 +78,19 @@ $(document.body).keypress(function(event){
 			$('#messagebox').fadeIn().delay(2000).fadeOut();
 			return false;
 			}
-			else if(!isValid(position))
+			else if(!isValid(position) || !isValidName(position))
 			{
 			document.getElementById("position").value="";  
 			document.getElementById("position").focus(); 
-			$('#profileErr').html("Please enter your position");
+			$('#profileErr').html("Please enter the position with letters");
 			$('#messagebox').fadeIn().delay(2000).fadeOut();
 			return false;
 			}
-			else if(!isValid(organisation))
+			else if(!isValid(organisation) || !isValidName(organisation))
 			{
 			document.getElementById("organisation").value="";  
 			document.getElementById("organisation").focus(); 
-			$('#profileErr').html("Please enter your organisation");
+			$('#profileErr').html("Please enter the organisation with letters");
 			$('#messagebox').fadeIn().delay(2000).fadeOut();
 			return false;
 			}

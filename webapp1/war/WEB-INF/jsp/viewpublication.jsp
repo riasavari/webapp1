@@ -57,13 +57,13 @@
 			</div>
       <h3 class="form-heading">QuakeCoRE Publications</h3>
         <div class="jumbotron">
- 			<span style="white-space: nowrap">
-			<div align="center">
+ 			<!-- <span style="white-space: nowrap"> -->
+			<div style="white-space: nowrap" align="center">
 			 <c:choose>
            <c:when test="${empty allPublicationList}"><c:out value="Sorry, currently no publications to list" /></c:when> 
 			
       		 <c:otherwise>
-		        <table border="1" cellpadding="5">
+		        <table border="1" cellpadding="5" width="relative">
 		            
 		            <tr>
 		                <th>ID</th>
@@ -75,7 +75,7 @@
 		            </tr>
 		            <c:forEach var="pub" items="${allPublicationList}">
 		                <tr>
-		                    <c:if test="${not empty pub.publicationId}"><td><c:out value="${pub.publicationId}" /></td></c:if> 
+		                    <c:if test="${not empty pub.pubIdStr4digit}"><td><c:out value="${pub.pubIdStr4digit}" /></td></c:if> 
 		                   <td> 
 							<c:if test="${not empty pub.author}"><c:out value="${pub.author}"/>.</c:if> 
 							<c:if test="${not empty pub.title}">'<c:out value="${pub.title}"/>'</c:if> 
@@ -97,7 +97,7 @@
 		</c:otherwise>
 		</c:choose>
 		    </div>
-		</span>
+		<!-- </span> -->
 	</div>
 	 </div>
 			  	 </div>	

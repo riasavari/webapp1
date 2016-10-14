@@ -62,7 +62,7 @@
 			{$('#modalbox').modal().hide();
 			document.getElementById("firstname").value="";  
 		    document.getElementById("firstname").focus(); 
-		    $('#signupErr').html("Please enter a valid firstname with letters only");
+		    $('#signupErr').html("Please enter a valid firstname with letters");
 		    $('#messagebox').fadeIn().delay(2000).fadeOut();
 		  //  $("html, body").animate({ scrollTop: 0 }, "slow");
 		    
@@ -72,7 +72,7 @@
 			{$('#modalbox').modal().hide();
 			document.getElementById("lastname").value="";  
 			document.getElementById("lastname").focus(); 
-			$('#signupErr').html("Please enter a valid lastname with letters only");
+			$('#signupErr').html("Please enter a valid lastname with letters");
 			$('#messagebox').fadeIn().delay(2000).fadeOut();
 			//$("html, body").animate({ scrollTop: 0 }, "slow");
 			
@@ -119,21 +119,21 @@
 		    
 			return false;
 			}
-			else if(!isValid(position))
+			else if(!isValid(position) || !isValidName(position))
 			{$('#modalbox').modal().hide();
 			document.getElementById("position").value="";  
 			document.getElementById("position").focus(); 
-			$('#signupErr').html("Please enter your position");
+			$('#signupErr').html("Please enter the position with letters");
 			$('#messagebox').fadeIn().delay(2000).fadeOut();
 		//	$("html, body").animate({ scrollTop: 0 }, "slow");
 			
 			return false;
 			}
-			else if(!isValid(organisation))
+			else if(!isValid(organisation) || !isValidName(organisation))
 			{$('#modalbox').modal().hide();
 			document.getElementById("organisation").value="";  
 			document.getElementById("organisation").focus(); 
-			$('#signupErr').html("Please enter your organisation");
+			$('#signupErr').html("Please enter the organisation with letters");
 			$('#messagebox').fadeIn().delay(2000).fadeOut();
 			//$("html, body").animate({ scrollTop: 0 }, "slow");
 			

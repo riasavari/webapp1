@@ -61,8 +61,8 @@
       <h3 class="form-heading">View my publications</h3>
         <div class="jumbotron">
         <form  method="post" name="formLogin" action="newpublication">
-        <span style="white-space: nowrap">
-          <div align="center">
+       <!--  <span style="white-space: nowrap"> -->
+          <div style="white-space: nowrap" align="center">
           <c:choose>
            <c:when test="${empty mypubs}"><c:out value="Sorry, currently no publications to update" /></c:when> 
 			
@@ -84,7 +84,7 @@
 		                 <tr>
 							 
 							 <c:set var="name" scope="application" value="${pub.publicationId}"/>
-		                    <c:if test="${not empty pub.publicationId}"><td><c:out value="${pub.publicationId}" /></td></c:if> 
+		                    <c:if test="${not empty pub.pubIdStr4digit}"><td><c:out value="${pub.pubIdStr4digit}" /></td></c:if> 
 		                   <td> 
 							<c:if test="${not empty pub.author}"><c:out value="${pub.author}"/>.</c:if> 
 							<c:if test="${not empty pub.title}">'<c:out value="${pub.title}"/>'</c:if> 
@@ -109,7 +109,7 @@
 		</c:otherwise>
 		</c:choose>
 		    </div>
-		</span>
+		<!-- </span> -->
 		</form>
 		</div>
 		

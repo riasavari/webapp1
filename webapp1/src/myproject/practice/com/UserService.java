@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.ui.ModelMap;
 
 import com.google.common.base.Charsets;
@@ -139,6 +141,17 @@ String nextpage="expiry";
 		return nextpage;
 			
 	}
+	public static void sendNewPubDeatilsToUser(String receiverEmail,String number,String aticleTitle)
+	{
+		System.out.println("came to /sendNewPubDeatilsToUser");
+		ApplicationContext context = new ClassPathXmlApplicationContext("Spring-Mail.xml");
+		Email mm = (Email) context.getBean("Email");
+		if (!(Strings.isNullOrEmpty(number)) && !(Strings.isNullOrEmpty(aticleTitle)) ) {
+			mm.sendMail(Constants.adminEmailId,receiverEmail, "Your new QuakeCoRE publication number",
+					"Your QuakeCoRE publication number for the article entitled '" +aticleTitle+  "' is "+number+". Please forward this message to your coauthors. Please add the following statement in your acknowledgement - 'This project was (partially) supported by QuakeCoRE, a New Zealand Tertiary Education Commission-funded Centre. This is QuakeCoRE publication number "+number+"'.");
+		}
+	}
+	
 	public static String hashPassword(String password)
 	{
 		if (Strings.isNullOrEmpty(password))

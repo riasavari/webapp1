@@ -45,6 +45,7 @@ public class PublicationService {
 		}
 		if(publicationNo > 0)
 		{
+			String aticleTitle=pubJson.get("title").toString();
 		System.out.println(pubJson.get("year") + " -- " + pubJson.get("fund"));
 		System.out.println(pubJson.get("venueName") + "-- " +pubJson.get("status")+ "-- " + pubJson.get("descOutputOther"));
 		System.out.println(pubJson.get("volume") + "-- " + pubJson.get("article"));
@@ -58,6 +59,7 @@ public class PublicationService {
 			newpub.setfirstEnteredDate(new Date());
 			newpub.setlastModifiedDate(new Date());
 			newpub.setpublicationId(publicationNo);
+			newpub.setpubIdStr4digit(number);
 			newpub.setIsVisible(true);
 			newpub.setYear(pubJson.get("year").toString());
 			newpub.setFund(pubJson.get("fund").toString());
@@ -107,7 +109,11 @@ public class PublicationService {
 																// table
 				System.out.println(" ****************  " + number);
 				request.setAttribute("pubNo", number);
-				return new ModelAndView("changed");
+				
+				//To send email to user with publication number
+				UserService.sendNewPubDeatilsToUser(emailId,number,aticleTitle);
+				
+				//return new ModelAndView("changed");
 			} finally {
 				pmf.close();
 			}
