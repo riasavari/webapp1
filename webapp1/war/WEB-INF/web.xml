@@ -30,6 +30,10 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<session-config>
     <session-timeout>30</session-timeout>
 	</session-config>
+	<context-param>
+    <param-name>defaultHtmlEscape</param-name>
+    <param-value>true</param-value>
+	</context-param>
 	<error-page>
     <error-code>404</error-code>
     <location>/404.jsp</location>

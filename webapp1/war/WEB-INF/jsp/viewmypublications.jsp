@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib  prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<!-- <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		 
 		<link href="/css/styles.css" rel="stylesheet" type="text/css">
 		<link href="/css/main.css" rel="stylesheet">
@@ -21,7 +21,6 @@
 		</style> -->
 	
 	</head>
-
 	<body>
 		<div id="wrapper">
 				<div id="header">
@@ -54,7 +53,7 @@
 				
 			</div>
 			<div id="refresh"  class="well well-sm" style="display:block;">
-				Refresh the page to see latest additions. Contact <a href="mailto:quakecore.nz@gmail.com">admin</a> to remove an item.
+				Refresh the page to see latest additions. Contact <a href="mailto:quakecore.nz@gmail.com">admin</a> to remove any item.
 			</div>
       </div>
       <!--  <span id="myPublications" class="hide"> -->
@@ -67,7 +66,7 @@
            <c:when test="${empty mypubs}"><c:out value="Sorry, currently no publications to update" /></c:when> 
 			
       		 <c:otherwise>
-		        <table border="1" cellpadding="10" cellspacing="10">
+		        <table  border="1" cellpadding="5">
 		            
 		            <tr>
 		                <th>ID</th>
@@ -84,11 +83,13 @@
 		                 <tr>
 							 
 							 <c:set var="name" scope="application" value="${pub.publicationId}"/>
-		                    <c:if test="${not empty pub.pubIdStr4digit}"><td><c:out value="${pub.pubIdStr4digit}" /></td></c:if> 
+							 
+							  <c:if test="${not empty pub.pubIdStr4digit}"><td><c:out value="${pub.pubIdStr4digit}" /></td></c:if> 
 		                   <td> 
-							<c:if test="${not empty pub.author}"><c:out value="${pub.author}"/>.</c:if> 
-							<c:if test="${not empty pub.title}">'<c:out value="${pub.title}"/>'</c:if> 
+							<c:if test="${not empty pub.author}"><c:out value="${pub.author}"/>.'</c:if> 
+							<c:if test="${not empty pub.title}"><c:out value="${pub.title}"/>'</c:if> 
 							<c:if test="${not empty pub.venueName}">,<c:out value="${pub.venueName}"/>.</c:if>
+							
 							<c:if test="${not empty pub.location}"><c:out value="${pub.location}"/>.</c:if>
 							<%-- <c:if test="${not empty pub.page}"><c:out value="${pub.page}"/>.</c:if> --%>
 							<c:if test="${not empty pub.publisher}"><c:out value="${pub.publisher}"/>.</c:if>

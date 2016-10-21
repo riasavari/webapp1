@@ -63,7 +63,7 @@
            <c:when test="${empty allPublicationList}"><c:out value="Sorry, currently no publications to list" /></c:when> 
 			
       		 <c:otherwise>
-		        <table border="1" cellpadding="5" width="relative">
+		        <table  border="1" cellpadding="5">
 		            
 		            <tr>
 		                <th>ID</th>
@@ -109,6 +109,6 @@
 		  <%-- <%@include file="popup.jsp" %>   --%>
 		<script  src="/lib/jquery-min-latest.js"></script>
 		<script  src="bootstrap/js/bootstrap.min.js"></script>
-		<script  src="/js/viewpublication.js"></script>
+		<script  src="/js/viewAuthorise.js"></script>
 		</body>
 		</html>

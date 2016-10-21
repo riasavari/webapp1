@@ -48,8 +48,8 @@
       <div id="username"  style="display:none;">
 				${name}
 			</div>
-       <div id="allusers"  style="display:none;">
-				${allUserList}
+       <div id="allusers"  style="display:block;">
+				${peopleList}
 			</div>
 			  <!-- <div id="search"  class="well well-sm" style="display:block;">
 				Please do a search to find a name in this list.
@@ -60,34 +60,20 @@
  			<!-- <span style="white-space: nowrap"> -->
 			<div style="white-space: nowrap" align="center">
 			 <c:choose>
-           <c:when test="${empty allUserList}"><c:out value="Sorry, currently no publications to list" /></c:when> 
+           <c:when test="${empty peopleList}"><c:out value="Sorry, currently no publications to list" /></c:when> 
 			
       		 <c:otherwise>
 		        <table border="1" cellpadding="5" width="relative">
 		            
-		            <tr>
-		                <th>picIcon</th>
+		            <!-- <tr>
+		                
 		                <th>Name</th>
 						
-		            </tr>
-		            <c:forEach var="person" items="${allUserList}">
+		            </tr> -->
+		            <c:forEach var="person" items="${peopleList}">
 		                <tr>
-		                    <c:if test="${not empty person.firstName}"><td><c:out value="${pub.pubIdStr4digit}" /></td></c:if> 
-		                   <td> 
-							<c:if test="${not empty pub.author}"><c:out value="${pub.author}"/>.</c:if> 
-							<c:if test="${not empty pub.title}">'<c:out value="${pub.title}"/>'</c:if> 
-							<c:if test="${not empty pub.venueName}">,<c:out value="${pub.venueName}"/>.</c:if>
-							<c:if test="${not empty pub.location}"><c:out value="${pub.location}"/>.</c:if>
-							<%-- <c:if test="${not empty pub.page}"><c:out value="${pub.page}"/>.</c:if> --%>
-							<c:if test="${not empty pub.publisher}"><c:out value="${pub.publisher}"/>.</c:if>
-							<c:if test="${not empty pub.volume}"><c:out value="${pub.volume}"/>.</c:if>
-							<c:if test="${not empty pub.url}"><c:out value="${pub.url}"/>.</c:if>
-							<c:if test="${not empty pub.publishDate}"><c:out value="${pub.publishDate}"/>.</c:if>
-							</td>
-							<c:if test="${not empty pub.fund}"><td><c:out value="${pub.fund}"/></td></c:if> 
-							<c:if test="${not empty pub.article}"><td><c:out value="${pub.article}"/></td></c:if> 
-							<c:if test="${not empty pub.status}"><td><c:out value="${pub.status}" /></td></c:if> 
-							<c:if test="${not empty pub.year}"><td><c:out value="${pub.year}" /></td></c:if>
+		                  <td><img src="graphics/person-icon-sm.png" /></td> <td><b><c:out value="${person.title}" />.<c:out value="${person.firstname}" />&nbsp<c:out value="${person.lastname}" />.</b><c:out value="${person.position}" /><br><i><c:out value="${person.organisation}" /></i></td> 
+		                   
 		                </tr>
 		            </c:forEach>
 		        </table>
@@ -106,6 +92,6 @@
 		  <%-- <%@include file="popup.jsp" %>   --%>
 		<script  src="/lib/jquery-min-latest.js"></script>
 		<script  src="bootstrap/js/bootstrap.min.js"></script>
-		<script  src="/js/viewpublication.js"></script>
+		<script  src="/js/viewAuthorise.js"></script>
 		</body>
 		</html>

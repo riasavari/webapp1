@@ -495,7 +495,7 @@ fieldset fieldset legend {
 
 /* Dark Table Styles */
 
-table.darkTableChart h4 {margin-top:0px;}
+/* table.darkTableChart h4 {margin-top:0px;}
 
 table.darkTable, table.darkTablePlain, table.darkTableTopless, table.darkTablePlainTopless {
 	border-collapse: collapse; 
@@ -605,7 +605,7 @@ h6 { font-size: 1em; line-height: 1.1em; font-weight: bold; margin-bottom: 0.2em
 #content li {margin: 0.2em 0.5em 1em 0; padding: 0 0.5em 0 0;}
 
 .tdcolor {background-color: #f7f8fa;}
-}
+} */
 
 /*Customized*/
 

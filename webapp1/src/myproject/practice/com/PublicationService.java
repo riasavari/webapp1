@@ -46,7 +46,7 @@ public class PublicationService {
 		if(publicationNo > 0)
 		{
 			String aticleTitle=pubJson.get("title").toString();
-		System.out.println(pubJson.get("year") + " -- " + pubJson.get("fund"));
+		System.out.println(pubJson.get("year") + " -- " + pubJson.get("fund")+ "-- " + pubJson.get("project"));
 		System.out.println(pubJson.get("venueName") + "-- " +pubJson.get("status")+ "-- " + pubJson.get("descOutputOther"));
 		System.out.println(pubJson.get("volume") + "-- " + pubJson.get("article"));
 		System.out.println(pubJson.get("page")+ "-- " + pubJson.get("title"));
@@ -67,6 +67,10 @@ public class PublicationService {
 			newpub.setArticle(pubJson.get("article").toString());
 			newpub.setAuthor(pubJson.get("author").toString());
 			newpub.setTitle(pubJson.get("title").toString());
+			if (!Strings.isNullOrEmpty(pubJson.get("project").toString()))
+				newpub.setProject(pubJson.get("project").toString());
+			else
+				newpub.setProject("");
 			if (!Strings.isNullOrEmpty(pubJson.get("venueName").toString()))
 				newpub.setVenueName(pubJson.get("venueName").toString());
 			else

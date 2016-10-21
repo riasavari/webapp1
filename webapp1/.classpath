@@ -39,6 +39,7 @@
 	<classpathentry kind="lib" path="war/WEB-INF/lib/javax.mail-api-1.5.5.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/logging-mailhandler-1.5.5.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/javax.mail-1.5.5.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/jstl-1.1.2.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-lang3-3.5.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jstl-1.2.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

@@ -1,6 +1,5 @@
 $(document).ready(function() 
 {
-	$('#myModal').modal('show');
 
 //for user session display (to know logged in/out)
 var userid=$('#userid').text();

@@ -7,8 +7,7 @@ import java.util.UUID;
 
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeBodyPart;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -17,7 +16,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -525,6 +524,39 @@ public class UserController {
 		return "viewpublication";
 
 	}
+	// for viewing all QuakeCoRE publications which has visibility true
+		@RequestMapping(value = "/viewpeople", method = RequestMethod.GET)
+		public String getviewpeoplePage(HttpServletRequest request, HttpServletResponse response, HttpSession session,
+				ModelMap model) {
+			System.out.println("got here for GET /viewpeople " + model.toString());
+			String emailId = "";
+			if (session != null && session.getAttribute("email") != null) {
+				emailId = session.getAttribute("email").toString();
+			} else
+				return "expiry";
+			Boolean isActiveMember=true;
+			PersistenceManager pm = PMF.get().getPersistenceManager();
+			Query q = pm.newQuery(User.class);
+			q.setFilter("active == nameParameter");
+			q.setOrdering("lastname");
+			q.declareParameters("int nameParameter");
+			try {
+				List<User> results = (List<User>) q.execute(isActiveMember);
+				System.out.println("result size " + results.size());
+				if (results.isEmpty()) {
+					model.addAttribute("peopleList", null);
+				} else {
+					model.addAttribute("peopleList", results);
+				}
+
+			} finally {
+				q.closeAll();
+				pm.close();
+			}
+
+			return "viewpeople";
+
+		}
 	@RequestMapping(value = "/selectpublication", method = RequestMethod.GET)
 	public  String getAllPubsforAdmin(HttpServletRequest request, HttpServletResponse response,
 			ModelMap model,HttpSession session )
@@ -593,6 +625,7 @@ public class UserController {
 				request.setAttribute("publisher", results.get(0).getPublisher());
 				request.setAttribute("publicationNo", publicationId);
 				request.setAttribute("descOutputOther", results.get(0).getdescOutputOther());
+				request.setAttribute("project", results.get(0).getProject());
 			}
 		} catch (Exception e) {
 
@@ -667,7 +700,8 @@ public class UserController {
 					String url = request.getParameter("url");
 					String dates = request.getParameter("dates");
 					String publisher = request.getParameter("publisher");
-
+					String project = request.getParameter("project");
+					
 					try {
 						results.get(0).setlastModifiedDate(new Date());
 						results.get(0).setYear(year);
@@ -676,6 +710,10 @@ public class UserController {
 						results.get(0).setArticle(article);
 						results.get(0).setAuthor(author);
 						results.get(0).setTitle(title);
+						if (!Strings.isNullOrEmpty(project))
+							results.get(0).setProject(project);
+						else
+							results.get(0).setProject("");
 						if (!Strings.isNullOrEmpty(venueName))
 							results.get(0).setVenueName(venueName);
 						else
@@ -744,6 +782,7 @@ public class UserController {
 				String url = request.getParameter("url");
 				String dates = request.getParameter("dates");
 				String publisher = request.getParameter("publisher");
+				String project = request.getParameter("project");
 				JSONObject pub_detailsJson = new JSONObject();
 				try {
 					pub_detailsJson.put("year", year);
@@ -760,11 +799,11 @@ public class UserController {
 					pub_detailsJson.put("url", url);
 					pub_detailsJson.put("dates", dates);
 					pub_detailsJson.put("publisher", publisher);
-					
+					pub_detailsJson.put("project", project);
 					String emailAddress = session.getAttribute("email").toString();
 					
 						try {
-							return PublicationService.getPublicationNo(pub_detailsJson,emailAddress, request, response, model,session);
+							return PublicationService.getPublicationNo(pub_detailsJson,emailAddress, request, response, model,session);//it gets saved and gets a publication No
 						} catch (Exception e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -1060,6 +1099,8 @@ public class UserController {
 		System.out.println("got here for /save..........." + userInfo);
 		User user = new User();
 		String uuid = UUID.randomUUID().toString();
+		List<String> mailSubs=new<String> ArrayList();
+		mailSubs.add("m1,");//To add monthly newsletter as default mailing list subscription while they signup
 		try {
 			user.setKey(uuid);
 			user.setActive(false);
@@ -1071,6 +1112,7 @@ public class UserController {
 			user.setPosition(userInfo.getString("position"));
 			user.setOrganisation(userInfo.getString("organisation"));
 			user.setCategory(userInfo.getString("category"));
+			user.setMailLists(mailSubs);
 			Date now = new Date();
 			user.setSignupdate(new Date());
 
@@ -1167,6 +1209,7 @@ public class UserController {
 			HttpSession session) {
 		System.out.println("got here for GET /viewmypublications");
 		String emailId = "";
+		
 		List<Integer> pubs;
 		if (session != null && session.getAttribute("email") != null) {
 			emailId = session.getAttribute("email").toString();
@@ -1186,6 +1229,7 @@ public class UserController {
 				try {
 					System.out.println("His publications are : " + userPubs.getPublicationList().toString());
 					pubs = userPubs.getPublicationList();
+					
 					List<Publication> pubDetailedlist = getPubDetailedlist(pubs);//gets only the pubs with visibility true
 
 					request.setAttribute("mypubs", pubDetailedlist);

@@ -6,7 +6,7 @@
 	<head>
 		<!-- <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> -->
-		 
+		 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link href="/css/styles.css" rel="stylesheet" type="text/css">
 		<link href="/css/main.css" rel="stylesheet">
 		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
@@ -50,6 +50,7 @@
 		    <div>${publisher}</div>
 		    <div>${publicationNo}</div>
 		     <div>${descOutputOther}</div>
+		     <div>${project}</div>
 		</div>
 
 				<div id="header">
@@ -130,7 +131,9 @@
             </select>
         </div>
     	 </div>
-    	
+    	<div class="form-group">
+      		<input type="text" class="form-control" name="project" id="project" placeholder="project(s), if applicable (e.g: 16002, 16004 or TP4)">
+    	 </div>
     	  <div class="form-group">
       		<input type="text" class="form-control" name="author" id="author" placeholder="Authors (e.g: Carter C, Smith A, Bruce N)">
     	 </div>
@@ -144,7 +147,7 @@
     	 </div>
     	 
     	  <div class="form-group" style="display:none;" id="descDiv"> 
-      		<input type="text" class="form-control" name="descOutputOther" id="descOutputOther" placeholder="Description of output">
+      		<input type="text" class="form-control" name="descOutputOther" id="descOutputOther" placeholder="Description of output (e.g: Technical report)">
     	 </div> 
     	
 		 <div class="form-group" style="display:none;" id="pageDiv">
@@ -167,7 +170,7 @@
     	 </div>
     	 
     	  <div class="form-group" style="display:none;" id="publisherDiv">
-      		<input type="text" class="form-control" name="publisher" id="publisher" placeholder="Publisher, if available">
+      		<input type="text" class="form-control" name="publisher" id="publisher" placeholder="Publisher">
     	 </div>
 			</div>
 		<button type="submit" class="myButton" name="submitBtn" id="btn-new-pub" onclick="return validate(id)">Submit</button>

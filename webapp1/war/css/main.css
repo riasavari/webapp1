@@ -6,6 +6,13 @@ body {
  /* background-color: #F6921E;#837879;#F16B22;# 808184*/
  
 }
+td {
+  white-space: normal !important; 
+  word-wrap: break-word;  
+}
+table {
+  table-layout: fixed;
+}
 
 .glyphicon.spinning {
     animation: spin 1s infinite linear;

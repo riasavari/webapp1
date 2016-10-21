@@ -25,6 +25,7 @@ $(document).ready(function()
 	var publisher	=	($($('#temp > div')[12]).html() != "") ? ($($('#temp > div')[12]).html()) : "";
 	var publicationNo	=	($($('#temp > div')[13]).html() != "") ? ($($('#temp > div')[13]).html()) : "";
 	var descOutputOther= ($($('#temp > div')[14]).html() != "") ? ($($('#temp > div')[14]).html()) : "";
+	var project= ($($('#temp > div')[15]).html() != "") ? ($($('#temp > div')[15]).html()) : "";
 	if($.trim(editpub) == "edit")
 	{
 		console.log("GOT In EDIT validation"+year.length);
@@ -43,6 +44,11 @@ $(document).ready(function()
 	if(article.length != 0)
 		$('#article').val(article);
 	
+	if(project.length != 0)
+		$('#project').val(project);
+	else
+		$('#project').val("");
+	
 	if(author.length != 0)
 		$('#author').val(author);
 	else
@@ -59,6 +65,7 @@ $(document).ready(function()
 		$('#descOutputOther').val(descOutputOther);
 	else
 		$('#descOutputOther').val("");
+	
 	if(volume.length != 0)
 		$('#volume').val(volume);
 	else
@@ -94,6 +101,7 @@ $(document).ready(function()
         document.getElementById("title").value			=	""; 
     	document.getElementById("venueName").value		=	""; 
     	document.getElementById("descOutputOther").value		=	""; 
+    	document.getElementById("project").value		=	""; 
     	document.getElementById("volume").value			=	""; 
     	document.getElementById("page").value			=	""; 
     	document.getElementById("location").value		=	""; 
@@ -199,6 +207,7 @@ validate=function(id)
 	var author			=	document.getElementById("author").value;
 	var title			=	document.getElementById("title").value;
 	var descOutputOther 	=	document.getElementById("descOutputOther").value;
+	var project		=	document.getElementById("project").value;
 	var venueName		=	document.getElementById("venueName").value;
 	var volume 			=	document.getElementById("volume").value;
 	var page			=	document.getElementById("page").value;
@@ -206,12 +215,23 @@ validate=function(id)
 	var url				=	document.getElementById("url").value;
 	var dates			=	document.getElementById("dates").value
 	var publisher		=	document.getElementById("publisher").value;
-	
+	if(!isValidInput(project))
+	{
+	document.getElementById("project").value="";  
+    document.getElementById("project").focus(); 
+	$('#err').html("Please avoid &,< and > symbols in project names");
+	$('#messagebox').fadeIn().delay(2000).fadeOut();
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+	return false;
+	}
 	if(!isValid(author) || !isValidInput(author))
 	{
 	document.getElementById("author").value="";  
     document.getElementById("author").focus(); 
     $('#err').html("Please enter valid names");
+    if(!isValidInput(author)){
+	     $('#err').html("Please avoid &,< and > symbols in author names");
+	    }
     $('#messagebox').fadeIn().delay(2000).fadeOut();
     $("html, body").animate({ scrollTop: 0 }, "slow");
 	return false;
@@ -221,6 +241,9 @@ validate=function(id)
 	document.getElementById("title").value="";  
     document.getElementById("title").focus(); 
     $('#err').html("Please enter valid article title");
+    if(!isValidInput(title)){
+	     $('#err').html("Please avoid &,< and > symbols in title");
+	    }
     $('#messagebox').fadeIn().delay(2000).fadeOut();
     $("html, body").animate({ scrollTop: 0 }, "slow");
 	return false;
@@ -232,6 +255,9 @@ validate=function(id)
 		document.getElementById("venueName").value="";  
 	    document.getElementById("venueName").focus(); 
 	    $('#err').html("Please enter valid venue details");
+	    if(!isValidInput(venueName)){
+		     $('#err').html("Please avoid &,< and > symbols in venue");
+		    }
 	    $('#messagebox').fadeIn().delay(2000).fadeOut();
 	    $("html, body").animate({ scrollTop: 0 }, "slow");
 		return false;
@@ -244,6 +270,9 @@ validate=function(id)
 			document.getElementById("page").value="";  
 		    document.getElementById("page").focus(); 
 		    $('#err').html("Please enter valid number of pages");
+		    if(!isValidInput(page)){
+			     $('#err').html("Please avoid &,< and > symbols in pages");
+			    }
 		    $('#messagebox').fadeIn().delay(2000).fadeOut();
 		    $("html, body").animate({ scrollTop: 0 }, "slow");
 			return false;
@@ -255,6 +284,9 @@ validate=function(id)
 				document.getElementById("publisher").value="";  
 			    document.getElementById("publisher").focus(); 
 			    $('#err').html("Please enter valid publisher details");
+			    if(!isValidInput(publisher)){
+				     $('#err').html("Please avoid &,< and > symbols in publisher");
+				    }
 			    $('#messagebox').fadeIn().delay(2000).fadeOut();
 			    $("html, body").animate({ scrollTop: 0 }, "slow");
 				return false;
@@ -268,6 +300,9 @@ validate=function(id)
 				document.getElementById("volume").value="";  
 			    document.getElementById("volume").focus(); 
 			    $('#err').html("Please enter valid volume and issue numbers");
+			    if(!isValidInput(volume)){
+				     $('#err').html("Please avoid &,< and > symbols in volume");
+				    }
 			    $('#messagebox').fadeIn().delay(2000).fadeOut();
 			    $("html, body").animate({ scrollTop: 0 }, "slow");
 				return false;
@@ -280,6 +315,9 @@ validate=function(id)
 				document.getElementById("location").value="";  
 			    document.getElementById("location").focus(); 
 			    $('#err').html("Please enter valid location");
+			    if(!isValidInput(location)){
+				     $('#err').html("Please avoid &,< and > symbols in location");
+				    }
 			    $('#messagebox').fadeIn().delay(2000).fadeOut();
 			    $("html, body").animate({ scrollTop: 0 }, "slow");
 				return false;
@@ -289,6 +327,9 @@ validate=function(id)
 				document.getElementById("dates").value="";  
 			    document.getElementById("dates").focus(); 
 			    $('#err').html("Please enter the dates");
+			    if(!isValidInput(dates)){
+				     $('#err').html("Please avoid &,< and > symbols in dates");
+				    }
 			    $('#messagebox').fadeIn().delay(2000).fadeOut();
 			    $("html, body").animate({ scrollTop: 0 }, "slow");
 				return false;
@@ -302,6 +343,9 @@ validate=function(id)
 				document.getElementById("descOutputOther").value="";  
 			    document.getElementById("descOutputOther").focus(); 
 			    $('#err').html("Please enter the description of output");
+			    if(!isValidInput(descOutputOther)){
+			     $('#err').html("Please avoid &,< and > symbols in description");
+			    }
 			    $('#messagebox').fadeIn().delay(2000).fadeOut();
 			    $("html, body").animate({ scrollTop: 0 }, "slow");
 				return false;

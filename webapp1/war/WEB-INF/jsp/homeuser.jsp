@@ -62,7 +62,9 @@
 							  <a href="mailinglist" class="btn  btn-default btn-block" role="button">Mailing list subscription</a>
 							  <a href="newpublication" class="btn  btn-default btn-block" role="button">Get QuakeCoRE article number</a>
 							   <a href="viewmypublications" class="btn  btn-default btn-block" role="button">Update article details</a>
-							  <a href="viewpublication" class="btn  btn-default btn-block" role="button">QuakeCoRE publications</a><br>
+							   <a href="viewpeople" class="btn  btn-default btn-block" role="button">QuakeCoRE community</a>
+							  <a href="viewpublication" class="btn  btn-default btn-block" role="button">QuakeCoRE publications</a>
+							  <br><br>
 							   <!--  <a href="abstractSubmission" class="btn btn-round" role="button">Submit abstract</a> 
 							   <a href="viewMyAbstractSubmissions" class="btn btn-round" role="button">View my abstract submissions</a> -->
 			  		 </ul>

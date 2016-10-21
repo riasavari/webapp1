@@ -74,6 +74,9 @@ public class Publication {
  	
  	@Persistent
     private String publisher;
+ 	
+ 	@Persistent
+    private String project;
 
  	public String getKey() {
 		return key;
@@ -162,6 +165,9 @@ public class Publication {
 	public String getPublisher() {
 		return publisher;
 	}
+	public String getProject() {
+		return project;
+	}
 	public void setIsVisible(Boolean isVisible) {
 		this.isVisible = isVisible;
 	}
@@ -204,6 +210,8 @@ public class Publication {
 	public void setPublisher(String publisher) {
 		this.publisher = publisher;
 	}
-	
+	public void setProject(String project) {
+		this.project = project;
+	}
 
 }
