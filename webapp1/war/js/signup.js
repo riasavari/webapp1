@@ -14,6 +14,36 @@
 		{
 			$("#logoutTab").hide();
 		}
+		var raceList;
+		var gender;
+		
+			 $("#country").on("change", function(o){
+			     var status = this.value;
+			     
+			   if(status=="NZ")
+				   {
+				   $('#ethnicDiv').show();
+				   $('#e2').click(function() {
+						
+					    if ($(this).prop('checked')) {
+					    	$("#iwiDiv").show();
+					    } 
+					    else
+					    	{
+					    	$("#iwiDiv").hide();
+					    	document.getElementById("iwi").value="";  
+							}
+					});
+			 		}
+			   else
+				   {
+				   $('#ethnicDiv').hide();
+				   $('#cbox-group input').prop('checked', false);
+				   $("#iwiDiv").hide();
+				   document.getElementById("iwi").value="";
+				   }
+			  });
+
 		
 		
 		signup = function ()
@@ -26,8 +56,6 @@
 			return endOutput;
 			
 		}
-		
-	
 		function validate()
 		{
 			//alert("comes to validate in js");
@@ -40,12 +68,16 @@
 			var title			=	document.getElementById("title").value;
 			var position		=	document.getElementById("position").value;
 			var organisation	=	document.getElementById("organisation").value;
+			var orcId			=	document.getElementById("orcId").value;
 			var category		=	document.getElementById("category").value;
+			var country			=	document.getElementById("country").value;
+			var iwi				=	document.getElementById("iwi").value;
+			var comments		=   $("#comments").val();
 			var tick			=	document.getElementById('agree-cbox').checked;
 			
 			//console.log(email);console.log(firstname);console.log(lastname);console.log(password);console.log(confirmPassword);
 			
-			console.log(firstname+lastname);
+			console.log(comments);
 			
 			if(!isValid(email) && !isValid(firstname) && !isValid(lastname) && !isValid(password) && !isValid(confirmPassword) && !isValid(position) && !isValid(organisation) )
 			{
@@ -54,7 +86,7 @@
 			    document.getElementById("firstname").focus(); 
 		    $('#signupErr').html("Please fill in the details");
 		    $('#messagebox').fadeIn().delay(2000).fadeOut();
-		   // $("html, body").animate({ scrollTop: 0 }, "slow");
+		    $("html, body").animate({ scrollTop: 0 }, "slow");
 		   
 			return false;
 			}
@@ -64,7 +96,7 @@
 		    document.getElementById("firstname").focus(); 
 		    $('#signupErr').html("Please enter a valid firstname with letters");
 		    $('#messagebox').fadeIn().delay(2000).fadeOut();
-		  //  $("html, body").animate({ scrollTop: 0 }, "slow");
+		  $("html, body").animate({ scrollTop: 0 }, "slow");
 		    
 			return false;
 			}
@@ -74,7 +106,7 @@
 			document.getElementById("lastname").focus(); 
 			$('#signupErr').html("Please enter a valid lastname with letters");
 			$('#messagebox').fadeIn().delay(2000).fadeOut();
-			//$("html, body").animate({ scrollTop: 0 }, "slow");
+			$("html, body").animate({ scrollTop: 0 }, "slow");
 			
 			return false;
 			}
@@ -84,7 +116,7 @@
 	        document.getElementById("email").focus(); 
 		    $('#signupErr').html("Please enter a valid email address");
 		    $('#messagebox').fadeIn().delay(2000).fadeOut();
-		   // $("html, body").animate({ scrollTop: 0 }, "slow");
+		   $("html, body").animate({ scrollTop: 0 }, "slow");
 		    
 			return false;
 			}
@@ -94,7 +126,7 @@
 		    document.getElementById("password").focus(); 
 		    $('#signupErr').html("Password minimum length 6 with numbers and letters only");
 		    $('#messagebox').fadeIn().delay(2000).fadeOut();
-		  //  $("html, body").animate({ scrollTop: 0 }, "slow");
+		  $("html, body").animate({ scrollTop: 0 }, "slow");
 		   
 			return false;
 			}
@@ -104,7 +136,7 @@
 		    document.getElementById("retype-password").focus(); 
 		    $('#signupErr').html("Please retype your password");
 		    $('#messagebox').fadeIn().delay(2000).fadeOut();
-		   // $("html, body").animate({ scrollTop: 0 }, "slow");
+		   $("html, body").animate({ scrollTop: 0 }, "slow");
 		   
 			return false;
 			} 
@@ -115,7 +147,7 @@
 	        document.getElementById("password").focus(); 
 		    $('#signupErr').html("Password and retyped password should be the same");
 		    $('#messagebox').fadeIn().delay(2000).fadeOut();
-		   // $("html, body").animate({ scrollTop: 0 }, "slow");
+		   $("html, body").animate({ scrollTop: 0 }, "slow");
 		    
 			return false;
 			}
@@ -125,7 +157,7 @@
 			document.getElementById("position").focus(); 
 			$('#signupErr').html("Please enter the position with letters");
 			$('#messagebox').fadeIn().delay(2000).fadeOut();
-		//	$("html, body").animate({ scrollTop: 0 }, "slow");
+			$("html, body").animate({ scrollTop: 0 }, "slow");
 			
 			return false;
 			}
@@ -135,21 +167,119 @@
 			document.getElementById("organisation").focus(); 
 			$('#signupErr').html("Please enter the organisation with letters");
 			$('#messagebox').fadeIn().delay(2000).fadeOut();
-			//$("html, body").animate({ scrollTop: 0 }, "slow");
+			$("html, body").animate({ scrollTop: 0 }, "slow");
 			
 			return false;
+			}
+			else if(isValid(orcId) && !isValidOrcId(orcId))
+			{
+			$('#modalbox').modal().hide();
+			document.getElementById("orcId").value=""; 
+	        document.getElementById("orcId").focus(); 
+		    $('#signupErr').html("Not a valid orc-Id");
+		    $('#messagebox').fadeIn().delay(2000).fadeOut();
+		    $("html, body").animate({ scrollTop: 0 }, "slow");
+			return false;
+			}	
+			else if(isValid(comments) && !isValidInput(comments))
+			{
+			$('#modalbox').modal().hide();
+			document.getElementById("comments").value=""; 
+	        document.getElementById("comments").focus(); 
+		    $('#signupErr').html("Please avoid &,< and > symbols in comments");
+		    $('#messagebox').fadeIn().delay(2000).fadeOut();
+		    $("html, body").animate({ scrollTop: 0 }, "slow");
+			return false;
+			}
+			else if ((!$('#Male').prop('checked')) && (!$('#Female').prop('checked'))) 
+			{
+				$('#modalbox').modal().hide();
+			    $('#signupErr').html("Please select your gender");
+			    $('#messagebox').fadeIn().delay(2000).fadeOut();
+			    $("html, body").animate({ scrollTop: 0 }, "slow");
+				return false;
+			}
+			else if(country == 'select')
+			{ 
+				$('#modalbox').modal().hide();
+			    $('#signupErr').html("Please select your country");
+			    $('#messagebox').fadeIn().delay(2000).fadeOut();
+			    $("html, body").animate({ scrollTop: 0 }, "slow");
+				return false;
+			}
+			else if(country == 'NZ')
+			{ 
+			$('#modalbox').modal().hide();
+			raceList='';
+			$('#cbox-group input').each(function(){
+				if ($(this).prop('checked')) {
+					raceList=raceList.concat($(this).val()+',');
+			    }
+			}); 
+			
+			if (raceList === null || $.trim(raceList) === "")
+				{
+				 $('#signupErr').html("Please provide ethnic details");
+				    $('#messagebox').fadeIn().delay(2000).fadeOut();
+				    $("html, body").animate({ scrollTop: 0 }, "slow");
+				    return false;
+				}
+			else
+				{//to check if maori, then ask for iwi
+				if(raceList.indexOf("e2") > -1)
+				{
+					if(!isValid(iwi)|| !isValidName(iwi))
+						{
+						document.getElementById("iwi").value="";  
+					    document.getElementById("iwi").focus(); 
+					    $('#signupErr').html("Please enter a valid iwi with letters");
+					    $('#messagebox').fadeIn().delay(2000).fadeOut();
+						  $("html, body").animate({ scrollTop: 0 }, "slow");
+						  return false;
+						}
+					else
+					   {
+						if($.trim(tick) === "false")
+						{
+						$('#modalbox').modal().hide();
+						$('#signupErr').html("Please agree to the Terms and Conditions");
+						$('#messagebox').fadeIn().delay(2000).fadeOut();
+						$("html, body").animate({ scrollTop: 0 }, "slow");
+						return false;
+						}
+					   }
+				}
+				else
+				   {
+					if($.trim(tick) === "false")
+					{
+					$('#modalbox').modal().hide();
+					$('#signupErr').html("Please agree to the Terms and Conditions");
+					$('#messagebox').fadeIn().delay(2000).fadeOut();
+					$("html, body").animate({ scrollTop: 0 }, "slow");
+					return false;
+					}
+				   }
+				}
 			}
 			else if($.trim(tick) === "false")
 			{
 				$('#modalbox').modal().hide();
 				$('#signupErr').html("Please agree to the Terms and Conditions");
 				$('#messagebox').fadeIn().delay(2000).fadeOut();
+				$("html, body").animate({ scrollTop: 0 }, "slow");
 				return false;
 			}
 			else
 				{
 				
 				}
+			//For gender
+			if($('#Male').prop('checked'))
+				gender=$('#Male').val();
+			if($('#Female').prop('checked'))
+				gender=$('#Female').val();
+			
 			//console.log("final validate in signup");
 			var userInfo = {};
 			userInfo["email"]	=	email;
@@ -159,7 +289,13 @@
 			userInfo["title"]	=	title;
 			userInfo["position"]	=	$.trim(position);
 			userInfo["organisation"]	=	$.trim(organisation);
+			userInfo["orcId"]	=	orcId;
 			userInfo["category"]	=	category;
+			userInfo["country"]	=	country;
+			userInfo["comments"]	=	$.trim(comments);
+			userInfo["ethnicity"]	=	$.trim(raceList);
+			userInfo["iwi"]	=	$.trim(iwi);
+			userInfo["gender"]	=	$.trim(gender);
 			console.log(userInfo);
 			
 			
@@ -232,12 +368,27 @@
 	    
 	    var isValidPassword = function(password) {
 	        var flag = true;
-	        if (password.length<6) 
+	        if(password.length<6) 
 	        	return false;
 	        var passwordPattern =  /^[a-z0-9]+$/i;
 	        flag = passwordPattern.test(password);
 	        return flag;
 	    }
-		
+	    var isValidOrcId = function(orcId) {
+	    	 var flag = true;
+	    	 if (orcId.length<16) 
+	         	return false;
+	    	 var orcidPattern =  /^(\d{4})-(\d{4})-(\d{4})-(\d{3}[0-9X])$/;
+	         flag =orcidPattern.test(orcId);
+	         return flag;
+	    	
+	    }
+	    var isValidInput = function(text) {
+	        var flag = true;
+	       // var namePattern =  /^[a-z]+$/i;
+	        if(text.indexOf('<') > -1 || text.indexOf('>') > -1 || text.indexOf('&') > -1)
+	        flag = false;
+	        return flag;
+	    }
 		
 	});

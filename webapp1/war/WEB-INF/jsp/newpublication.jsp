@@ -94,8 +94,8 @@
                 <option value="2016">2016</option>
                 <option value="2017">2017</option>
                 <option value="2018">2018</option>
-                <option value="2017">2019</option>
-                <option value="2018">2020</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
             </select>
         </div>
         </div>
@@ -132,7 +132,7 @@
         </div>
     	 </div>
     	<div class="form-group">
-      		<input type="text" class="form-control" name="project" id="project" placeholder="project(s), if applicable (e.g: 16002, 16004 or TP4)">
+      		<input type="text" class="form-control" name="project" id="project" placeholder="project(s),if applicable (e.g: 16002, 16004 or TP4)">
     	 </div>
     	  <div class="form-group">
       		<input type="text" class="form-control" name="author" id="author" placeholder="Authors (e.g: Carter C, Smith A, Bruce N)">

@@ -39,18 +39,27 @@ public class UserService {
 		q.declareParameters("String emailParameter");
 		try {
 			List<User> results = (List<User>) q.execute(emailId);
-			System.out.println(results.get(0).getOrganisation().toString());
+			System.out.println(results.get(0).getGender().toString());
 			if (!results.isEmpty()) {
-				System.out.println(results.get(0).getCategory().toString());
-
+				System.out.println(results.get(0).getCountry().toString());
+				
+				request.setAttribute("active", results.get(0).getActive().toString());
+				request.setAttribute("newUserAcc", results.get(0).getEmail().toString());
+				
 				request.setAttribute("firstName", results.get(0).getFirstname().toString());
 				request.setAttribute("lastName", results.get(0).getLastname().toString());
 				request.setAttribute("title", results.get(0).getTitle().toString());
 				request.setAttribute("position", results.get(0).getPosition().toString());
 				request.setAttribute("organisation", results.get(0).getOrganisation().toString());
 				request.setAttribute("category", results.get(0).getCategory().toString());
-				request.setAttribute("active", results.get(0).getActive().toString());
-				request.setAttribute("newUserAcc", results.get(0).getEmail().toString());
+				request.setAttribute("gender", results.get(0).getGender().toString());
+				request.setAttribute("country", results.get(0).getCountry().toString());
+				request.setAttribute("ethnicity", results.get(0).getEthnicity().toString());
+				request.setAttribute("iwi", results.get(0).getIwi().toString());
+				request.setAttribute("comments", results.get(0).getComments().toString());
+				request.setAttribute("orcId", results.get(0).getOrcId().toString());
+				
+				
 			}
 		} catch (Exception e) {
 
@@ -148,7 +157,7 @@ String nextpage="expiry";
 		Email mm = (Email) context.getBean("Email");
 		if (!(Strings.isNullOrEmpty(number)) && !(Strings.isNullOrEmpty(aticleTitle)) ) {
 			mm.sendMail(Constants.adminEmailId,receiverEmail, "Your new QuakeCoRE publication number",
-					"Your QuakeCoRE publication number for the article entitled '" +aticleTitle+  "' is "+number+". Please forward this message to your coauthors. Please add the following statement in your acknowledgement - 'This project was (partially) supported by QuakeCoRE, a New Zealand Tertiary Education Commission-funded Centre. This is QuakeCoRE publication number "+number+"'.");
+					"Your QuakeCoRE publication number for the article entitled '" +aticleTitle+  "' is "+number+". Please forward this message to your coauthors. Add the following statement in your acknowledgement - 'This project was (partially) supported by QuakeCoRE, a New Zealand Tertiary Education Commission-funded Centre. This is QuakeCoRE publication number "+number+"'.");
 		}
 	}
 	

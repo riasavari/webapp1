@@ -40,8 +40,8 @@
 					   
 			  	 <!-- <div class="topbar"></div> --> 
 				<div id="content" class="content-width">
-				<div id="msg" style="display:block;">
-						<h4>${msg}</h4>
+				<div id="msg"  class="panel panel-info" style="display:block;">
+						${msg}
 						</div>
 				  	<div class="container">  
 				        <div id="userid"  style="display:none;">

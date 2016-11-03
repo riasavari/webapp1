@@ -360,8 +360,17 @@ public class UserController {
 			Email mm = (Email) context.getBean("Email");
 			if(activeStatus.equals("false"))
 			{
+
+				StringBuilder bodyText = new StringBuilder();
+				
+				bodyText.append("Hello,"+"\r\n\n ");
+				bodyText.append("Thank you for signing up to the QuakeCoRE user portal, your profile is now active.You can log onto the portal using the following "+url+"\r\n\n ");
+				
+				bodyText.append("After you have logged in, please take a moment to review your mailing list subscription options and confirm that your profile information is correct"+"\r\n\n");
+				bodyText.append("Thank you,"+"\r\n ");
+				bodyText.append("The QuakeCoRE team");
 				mm.sendMail(Constants.adminEmailId, useremail, "Account Activated for QuakeCoRE User Portal",
-						"Your account has been activated. Please login to the user portal "+url);
+						bodyText.toString());
 			}
 			/*else
 				mm.sendMail(Constants.adminEmailId, useremail, "Account Deactivated for QuakeCoRE User Portal",
@@ -995,8 +1004,6 @@ public class UserController {
                pmf.close();
         }
 
-		
-
 		if (emailId.equalsIgnoreCase(adminemail)) {
 			if (hashedPassword.equals(adminPwd)) {
 				System.out.println("matched");
@@ -1111,7 +1118,25 @@ public class UserController {
 			user.setTitle(userInfo.getString("title"));
 			user.setPosition(userInfo.getString("position"));
 			user.setOrganisation(userInfo.getString("organisation"));
+			if (!Strings.isNullOrEmpty(userInfo.getString("orcId")))
+			user.setOrcId(userInfo.getString("orcId"));
+			else
+				user.setOrcId("");
 			user.setCategory(userInfo.getString("category"));
+			user.setCountry(userInfo.getString("country"));
+			if (!Strings.isNullOrEmpty(userInfo.getString("ethnicity")))
+			user.setEthnicity(userInfo.getString("ethnicity"));
+			else
+				user.setEthnicity("");
+			if (!Strings.isNullOrEmpty(userInfo.getString("iwi")))
+			user.setIwi(userInfo.getString("iwi"));
+			else
+				user.setIwi("");
+			user.setGender(userInfo.getString("gender"));
+			if (!Strings.isNullOrEmpty(userInfo.getString("comments")))
+			user.setComments(userInfo.getString("comments"));
+			else
+				user.setComments("");
 			user.setMailLists(mailSubs);
 			Date now = new Date();
 			user.setSignupdate(new Date());
@@ -1357,6 +1382,25 @@ public class UserController {
 					results.get(0).setCategory(user_detailsJson.getString("category"));
 					results.get(0).setPosition(user_detailsJson.getString("position"));
 					results.get(0).setOrganisation(user_detailsJson.getString("organisation"));
+					if (!Strings.isNullOrEmpty(user_detailsJson.getString("orcId")))
+					results.get(0).setOrcId(user_detailsJson.getString("orcId"));
+					else
+						results.get(0).setOrcId("");
+					if (!Strings.isNullOrEmpty(user_detailsJson.getString("comments")))
+					results.get(0).setComments(user_detailsJson.getString("comments"));
+					else
+						results.get(0).setComments("");
+					results.get(0).setCountry(user_detailsJson.getString("country"));
+					if (!Strings.isNullOrEmpty(user_detailsJson.getString("ethnicity")))
+					results.get(0).setEthnicity(user_detailsJson.getString("ethnicity"));
+					else
+						results.get(0).setEthnicity("");
+					if (!Strings.isNullOrEmpty(user_detailsJson.getString("iwi")))
+					results.get(0).setIwi(user_detailsJson.getString("iwi"));
+					else
+						results.get(0).setIwi("");
+					results.get(0).setGender(user_detailsJson.getString("gender"));
+					
 					session.setAttribute("name", user_detailsJson.getString("firstname"));
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block

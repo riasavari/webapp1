@@ -16,6 +16,9 @@ public class User {
 		@PrimaryKey
 	    @Persistent
 	    private String key;
+		
+		@Persistent
+	    private String orcId; 
 
 	 	@Persistent
 	    private String title; 
@@ -52,7 +55,58 @@ public class User {
 	  
 	    @Persistent
 		private List<String> mailLists;
-
+	    
+	    @Persistent
+	    private String comments;
+	    
+	    @Persistent
+	    private String gender;
+	    
+	    @Persistent
+	    private String country;
+	    
+	    @Persistent
+	    private String ethnicity;
+	    
+	    @Persistent
+	    private String iwi;
+	    
+	    
+	    
+		public String getCountry() {
+			return country;
+		}
+		public String getEthnicity() {
+			return ethnicity;
+		}
+		public String getIwi() {
+			return iwi;
+		}
+		
+		
+		public void setCountry(String country) {
+			this.country = country;
+		}
+		public void setEthnicity(String ethnicity) {
+			this.ethnicity = ethnicity;
+		}
+		public void setIwi(String iwi) {
+			this.iwi = iwi;
+		}
+		
+		public String getComments() {
+			return comments;
+		}
+		public void setComments(String comments) {
+			this.comments = comments;
+		}
+		
+		public String getGender() {
+			return gender;
+		}
+		public void setGender(String gender) {
+			this.gender = gender;
+		}
 		public String getKey() {
 			return key;
 		}
@@ -91,6 +145,14 @@ public class User {
 
 		public void setEmail(String email) {
 			this.email = email.toLowerCase();
+		}
+		
+		public String getOrcId() {
+			return orcId;
+		}
+
+		public void setOrcId(String orcId) {
+			this.orcId = orcId;
 		}
 
 		public String getPassword() {
