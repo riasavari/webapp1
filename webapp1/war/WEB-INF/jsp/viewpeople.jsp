@@ -48,7 +48,7 @@
       <div id="username"  style="display:none;">
 				${name}
 			</div>
-       <div id="allusers"  style="display:block;">
+       <div id="allusers"  style="display:none;">
 				${peopleList}
 			</div>
 			  <!-- <div id="search"  class="well well-sm" style="display:block;">
@@ -72,7 +72,7 @@
 		            </tr> -->
 		            <c:forEach var="person" items="${peopleList}">
 		                <tr>
-		                  <td><img src="graphics/person-icon-sm.png" /></td> <td><b><c:out value="${person.title}" />.<c:out value="${person.firstname}" />&nbsp<c:out value="${person.lastname}" />.</b><c:out value="${person.position}" /><br><i><c:out value="${person.organisation}" /></i></td> 
+		                  <td><img src="graphics/person-icon-sm.png" /></td> <td><b><c:out value="${person.firstname}" />&nbsp<c:out value="${person.lastname}" />.</b><c:out value="${person.position}" /><br><i><c:out value="${person.organisation}" /></i></td> 
 		                   
 		                </tr>
 		            </c:forEach>

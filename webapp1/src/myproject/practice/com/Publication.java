@@ -117,7 +117,7 @@ public class Publication {
 	    return title;
 	}
 	public void setTitle(String title) {
-	    this.title = title;
+	    this.title = title.substring(0, 1).toUpperCase()+title.substring(1);
 	}
 	
 	public Boolean getIsVisible() {
@@ -181,13 +181,13 @@ public class Publication {
 		this.status = status;
 	}
 	public void setArticle(String article) {
-		this.article = article.substring(0, 1).toUpperCase()+article.substring(1);
+		this.article = article;
 	}
 	public void setAuthor(String author) {
-		this.author = author;
+		this.author = author.toUpperCase();
 	}
 	public void setVenueName(String venueName) {
-		this.venueName = venueName;
+		this.venueName = venueName.substring(0, 1).toUpperCase()+venueName.substring(1);
 	}
 	public void setdescOutputOther(String descOutputOther) {
 		this.descOutputOther = descOutputOther;

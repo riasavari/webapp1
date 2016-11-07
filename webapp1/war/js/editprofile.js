@@ -80,7 +80,7 @@ $(document.body).keypress(function(event){
 		//to display the stored values in country,ethnicity fields
 		if(country=="NZ")
 		{
-			{ $('#ethnicDiv').show();
+			 $('#ethnicDiv').show();
 				$('#cbox-group input').each(function(){
 					var value=$(this).val() ;
 					if(ethnicity.indexOf(value) != -1)
@@ -95,10 +95,46 @@ $(document.body).keypress(function(event){
 					
 					}
 				
-				}
+				
 		}
-		
+		$('#e2').click(function() {
+			
+		    if ($(this).prop('checked')) {
+		    	$("#iwiDiv").show();
+		    } 
+		    else
+		    	{
+		    	$("#iwiDiv").hide();
+		    	document.getElementById("iwi").value="";  
+				}
+		});
 		//to change values in country,ethnicity fields
+		 /*$("#country").on("change", function(o){
+		     var status = this.value;
+		     
+		   if(status=="NZ")
+			   {
+			   $('#ethnicDiv').show();
+			   $('#e2').click(function() {
+					
+				    if ($(this).prop('checked')) {
+				    	$("#iwiDiv").show();
+				    } 
+				    else
+				    	{
+				    	$("#iwiDiv").hide();
+				    	document.getElementById("iwi").value="";  
+						}
+				});
+		 		}
+		   else
+			   {
+			   $('#ethnicDiv').hide();
+			   $('#cbox-group input').prop('checked', false);
+			   $("#iwiDiv").hide();
+			   document.getElementById("iwi").value="";
+			   }
+		  });*/
 		 $("#country").on("change", function(o){
 		     var status = this.value;
 		     
@@ -194,62 +230,88 @@ $(document.body).keypress(function(event){
 			$("html, body").animate({ scrollTop: 0 }, "slow");
 			return false;
 			}
-			else if(country === 'NZ')
-			{ 
-			raceList='';
-			$('#cbox-group input').each(function(){
-				if ($(this).prop('checked')) {
-					raceList=raceList.concat($(this).val()+',');
-			    }
-			}); 
-			//alert(raceList);
-			if (raceList === null || $.trim(raceList) === "")
-				{
-				 $('#profileErr').html("Please provide ethnic details");
-				    $('#messagebox').fadeIn().delay(2000).fadeOut();
-				    $("html, body").animate({ scrollTop: 0 }, "slow");
-				    return false;
-				}
-			else
-				{//to check if maori, then ask for iwi
-				if(raceList.indexOf("e2") > -1)
-				{
-					if(!isValid(iwi)|| !isValidName(iwi))
-						{
-						document.getElementById("iwi").value="";  
-					    document.getElementById("iwi").focus(); 
-					    $('#profileErr').html("Please enter a valid iwi with letters");
-					    $('#messagebox').fadeIn().delay(2000).fadeOut();
-						  $("html, body").animate({ scrollTop: 0 }, "slow");
-						  return false;
-						}
-				}
-				}
-			}
 			else if(isValid(orcId) && !isValidOrcId(orcId))
 			{
+			$('#modalbox').modal().hide();
 			document.getElementById("orcId").value=""; 
 	        document.getElementById("orcId").focus(); 
-		    $('#profileErr').html("Not a valid orc-Id");
+		    $('#profileErr').html("Not a valid ORCID");
 		    $('#messagebox').fadeIn().delay(2000).fadeOut();
 		    $("html, body").animate({ scrollTop: 0 }, "slow");
 			return false;
 			}	
+			else if(isValid(comments) && comments.length>250)
+			{
+	        	$('#modalbox').modal().hide();
+	        	//document.getElementById("comments").value=""; 
+		        document.getElementById("comments").focus(); 
+	        	$('#profileErr').html("Comments should be less than 250 letters");
+	        	$('#messagebox').fadeIn().delay(2000).fadeOut();
+		        $("html, body").animate({ scrollTop: 0 }, "slow");
+				return false;
+	        }
+	        	
 			else if(isValid(comments) && !isValidInput(comments))
-			{console.log("am i here");
-			document.getElementById("comments").value=""; 
-	        document.getElementById("comments").focus(); 
-		    $('#profileErr').html("Please avoid &,< and > symbols in comments");
-		    $('#messagebox').fadeIn().delay(2000).fadeOut();
-		    $("html, body").animate({ scrollTop: 0 }, "slow");
-			return false;
+			{
+				$('#modalbox').modal().hide();
+	        	//document.getElementById("comments").value=""; 
+		        document.getElementById("comments").focus(); 
+	        	$('#profileErr').html("Please avoid &,< and > symbols in comments");
+	        	$('#messagebox').fadeIn().delay(2000).fadeOut();
+		        $("html, body").animate({ scrollTop: 0 }, "slow");
+				return false;
+		   
 			}
 			else if ((!$('#Male').prop('checked')) && (!$('#Female').prop('checked'))) 
 			{
+				$('#modalbox').modal().hide();
 			    $('#profileErr').html("Please select your gender");
 			    $('#messagebox').fadeIn().delay(2000).fadeOut();
 			    $("html, body").animate({ scrollTop: 0 }, "slow");
 				return false;
+			}
+			else if(country == 'select')
+			{ 
+				$('#modalbox').modal().hide();
+			    $('#profileErr').html("Please select your country");
+			    $('#messagebox').fadeIn().delay(2000).fadeOut();
+			    $("html, body").animate({ scrollTop: 0 }, "slow");
+				return false;
+			}
+			else if(country === 'NZ')
+			{ 
+				$('#modalbox').modal().hide();
+				raceList='';
+				$('#cbox-group input').each(function(){
+					if ($(this).prop('checked')) {
+						raceList=raceList.concat($(this).val()+',');
+				    }
+				}); 
+				
+				if (raceList === null || $.trim(raceList) === "")
+					{
+					 $('#profileErr').html("Please provide ethnic details");
+					    $('#messagebox').fadeIn().delay(2000).fadeOut();
+					    $("html, body").animate({ scrollTop: 0 }, "slow");
+					    return false;
+					}
+				else
+				{//to check if maori, then ask for iwi
+					if(raceList.indexOf("e2") > -1)
+					{
+						if(!isValid(iwi)|| !isValidName(iwi))
+							{
+							document.getElementById("iwi").value="";  
+						    document.getElementById("iwi").focus(); 
+						    $('#profileErr').html("Please enter a valid iwi with letters");
+						    $('#messagebox').fadeIn().delay(2000).fadeOut();
+							$("html, body").animate({ scrollTop: 0 }, "slow");
+							  return false;
+							}
+					}
+				
+				}
+			
 			}
 			else
 				{

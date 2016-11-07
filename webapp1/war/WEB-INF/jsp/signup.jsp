@@ -50,15 +50,25 @@
     </div>
 	 <br><br><br>
 <!-- Loading Spinner Modal -->
-<div class="modal" id="modalbox">
+<!-- <div class="modal" id="modalbox">
  
-  <div class="modal-body">
-    <p>Loading…</p>
+    <div class="modal-body">
+        <p><span class="glyphicon glyphicon-refresh spinning"></span> Processing.Please wait.. </p>
+      </div>
+</div> -->
+<div id="modalbox" class="modal" role="dialog" data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+     
+      <div class="modal-body">
+        <p><span class="glyphicon glyphicon-refresh spinning"></span> Processing.Please wait.. </p>
+      </div>
+      
+    </div>
+
   </div>
-  <!-- <div class="modal-footer">
-    <a href="#" class="btn">Close</a>
-    <a href="#" class="btn btn-primary">Save changes</a>
-  </div> -->
 </div>
 <!-- Terms and Conditions Modal-->
 <div class="modal" id="tandc-modalbox">

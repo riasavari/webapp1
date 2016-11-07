@@ -27,7 +27,7 @@ public class UserService {
 	public static String  getUserData(String emailId,HttpServletRequest request,HttpServletResponse response,ModelMap model,HttpSession session) throws Exception
 	{ 
 		PersistenceManager pm = PMF.get().getPersistenceManager();
-		System.out.println("in getUserData");
+		//System.out.println("in getUserData");
 		String nextpage = "editprofile";
 		if(session.getAttribute("email").equals(Constants.adminEmailId))
 			nextpage="userActivation";
@@ -39,9 +39,9 @@ public class UserService {
 		q.declareParameters("String emailParameter");
 		try {
 			List<User> results = (List<User>) q.execute(emailId);
-			System.out.println(results.get(0).getGender().toString());
+			//System.out.println(results.get(0).getGender().toString());
 			if (!results.isEmpty()) {
-				System.out.println(results.get(0).getCountry().toString());
+				//System.out.println(results.get(0).getCountry().toString());
 				
 				request.setAttribute("active", results.get(0).getActive().toString());
 				request.setAttribute("newUserAcc", results.get(0).getEmail().toString());
@@ -72,7 +72,7 @@ public class UserService {
 	}
 	
 public static String activateUser(String useremail,String userStatus,ModelMap model,HttpSession session)
-{System.out.println("in activateUser "+userStatus);
+{//System.out.println("in activateUser "+userStatus);
 String nextpage="expiry";
 	if(session.getAttribute("email").equals(Constants.adminEmailId))
 	{
@@ -84,9 +84,9 @@ String nextpage="expiry";
 		q.declareParameters("String emailParameter");
 		try {
 			List<User> results = (List<User>) q.execute(useremail);
-			System.out.println(results.get(0).getOrganisation().toString());
+			//System.out.println(results.get(0).getOrganisation().toString());
 			if (!results.isEmpty()) {
-				System.out.println(results.get(0).getActive());
+				//System.out.println(results.get(0).getActive());
 				if(userStatus.equals("false"))
 					results.get(0).setActive(true);
 				else
@@ -111,7 +111,7 @@ String nextpage="expiry";
 	public static String  getUserSubscriptions(String emailId,HttpServletRequest request,HttpServletResponse response,ModelMap model) throws Exception
 	{
 		PersistenceManager pm = PMF.get().getPersistenceManager();
-		System.out.println("getUserSubscriptions");
+		//System.out.println("getUserSubscriptions");
 		String subslist = "";
 		String nextpage = "mailinglist";
 		Query q = pm.newQuery(User.class);
@@ -121,22 +121,22 @@ String nextpage="expiry";
 		q.declareParameters("String emailParameter");
 		try {
 			List<User> results = (List<User>) q.execute(emailId);
-			System.out.println(results.size());
+			//System.out.println(results.size());
 			if (!results.isEmpty()) {
-				System.out.println(results.get(0).getEmail());
+				//System.out.println(results.get(0).getEmail());
 
 				if (Strings.isNullOrEmpty(results.get(0).getMailLists().toString())) {
-					System.out.println("Its NUll here...");
+					//System.out.println("Its NUll here...");
 				}
 
 				else {
 					subslist = results.get(0).getMailLists().toString();
 					if (!Strings.isNullOrEmpty(subslist)) {
-						System.out.println(subslist + " contents sublist");
+						//System.out.println(subslist + " contents sublist");
 						request.setAttribute("subslist", subslist);
 
 					} else {
-						System.out.println(" empty sublist");
+						//System.out.println(" empty sublist");
 						request.setAttribute("subslist", null);
 					}
 				}
@@ -152,12 +152,21 @@ String nextpage="expiry";
 	}
 	public static void sendNewPubDeatilsToUser(String receiverEmail,String number,String aticleTitle)
 	{
-		System.out.println("came to /sendNewPubDeatilsToUser");
+		//System.out.println("came to /sendNewPubDeatilsToUser");
 		ApplicationContext context = new ClassPathXmlApplicationContext("Spring-Mail.xml");
 		Email mm = (Email) context.getBean("Email");
 		if (!(Strings.isNullOrEmpty(number)) && !(Strings.isNullOrEmpty(aticleTitle)) ) {
+			StringBuilder bodyText = new StringBuilder();
+			bodyText.append("Hello,"+"\r\n\n ");
+			
+			bodyText.append("Your QuakeCoRE publication number for your submission entitled '" +aticleTitle+  "' is "+number+".\r\n\n");
+			bodyText.append("Add the following statement in your acknowledgement – "+"\r\n\n");
+			bodyText.append("'This project was (partially) supported by QuakeCoRE, a New Zealand Tertiary Education Commission-funded Centre.This is QuakeCoRE publication number "+number+"'.\r\n\n");
+			bodyText.append("Please forward this message to your co-authors."+"\r\n\n");
+			bodyText.append("Thank you,"+"\r\n");
+			bodyText.append("The QuakeCoRE Team");
 			mm.sendMail(Constants.adminEmailId,receiverEmail, "Your new QuakeCoRE publication number",
-					"Your QuakeCoRE publication number for the article entitled '" +aticleTitle+  "' is "+number+". Please forward this message to your coauthors. Add the following statement in your acknowledgement - 'This project was (partially) supported by QuakeCoRE, a New Zealand Tertiary Education Commission-funded Centre. This is QuakeCoRE publication number "+number+"'.");
+					bodyText.toString() );
 		}
 	}
 	
@@ -173,7 +182,7 @@ String nextpage="expiry";
 
 		Random rand = new Random();
 		int randomNum = rand.nextInt(max);
-		// System.out.println(randomNum);
+		// //System.out.println(randomNum);
 		return randomNum;
 	}
 	
@@ -188,7 +197,7 @@ String nextpage="expiry";
 			randomStr=randomStr+alphabets.charAt(randInt(max) );
 		}
 	   randomStr=randomStr+randInt(10)+randInt(10);
-	 //  System.out.println(randomStr);
+	 //  //System.out.println(randomStr);
 	   
 	    return randomStr;
 	}

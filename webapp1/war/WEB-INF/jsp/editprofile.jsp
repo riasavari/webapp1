@@ -41,24 +41,24 @@
 			  	 <!-- <div class="topbar"></div>  --> 
 				<div id="content" class="content-width">
 				  	<div class="container"> 
-        <div id="userid"  style="display:none;">
+        	<div id="userid"  style="display:none;">
 				${email}
 			</div>
-      </div>
-      		<div id="temp" style="display:block;">
-		 	<div>${firstName}</div>
-		 	<div>${lastName}</div>
-		 	<div>${title}</div>
-		    <div>${position}</div>
-		    <div>${organisation}</div>
-		    <div>${category}</div>
-		    <div>${gender}</div>
-		 	<div>${country}</div>
-		 	<div>${ethnicity}</div>
-		    <div>${iwi}</div>
-		    <div>${comments}</div>
-		    <div>${orcId}</div>
-		</div>
+      
+      		<div id="temp" style="display:none;">
+			 	<div>${firstName}</div>
+			 	<div>${lastName}</div>
+			 	<div>${title}</div>
+			    <div>${position}</div>
+			    <div>${organisation}</div>
+			    <div>${category}</div>
+			    <div>${gender}</div>
+			 	<div>${country}</div>
+			 	<div>${ethnicity}</div>
+			    <div>${iwi}</div>
+			    <div>${comments}</div>
+			    <div>${orcId}</div>
+			</div>
 
 			 
       <h3 class="form-heading">User Profile</h3>
@@ -70,9 +70,8 @@
         </p>
     </div>
 	 <br><br><br>
-	<label class="col-xs-5 control-label">Title</label>
-    <div class="form-group">
-        
+<div class="form-group form-horizontal">
+        <label class="col-xs-3 control-label">Title</label>
         <div class="col-xs-5 selectContainer">
             <select class="form-control" name="title" id="title">
                 <option value="Dr">Dr</option>
@@ -81,28 +80,22 @@
             </select>
         </div>
     </div>
-    <!--  <label class="control-label col-xs-5">FirstName</label> -->
-     <div class="form-group">
-     <div class="col-xs-12"> <input type="text" class="form-control" name="firstname" id="firstname" placeholder="First name"></div>
-    </div>
-    <!--  <label class="control-label col-xs-5">Last Name</label> -->
-     <div class="form-group">
-       <div class="col-xs-12"> <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Last name"></div>
-    </div>
-      <!--  <label class="control-label col-xs-5">Position</label> -->
+    <br>
     <div class="form-group">
-       <div class="col-xs-12"> <input type="text" class="form-control" name="position" id="position" placeholder="Position"></div>
+      <input type="text" class="form-control" name="firstname" id="firstname" placeholder="First name">
     </div>
-   <!--  <label class="control-label col-xs-5">Organisation</label> -->
-    <div class="form-group">
-       <div class="col-xs-12"> <input type="text" class="form-control" name="organisation" id="organisation" placeholder="Organisation"></div>
+     <div class="form-group">
+      <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Last name">
     </div>
-	<label class="col-xs-5 control-label">Category</label>
-	<div class="form-group form-horizontal">
+    	 
+    	  <!-- new addition starts here -->
         
-        <div class="col-xs-12 selectContainer">
-        
+      
+	 <label class="col-xs-3 control-label">Category</label>
+        <div class="col-xs-9 selectContainer">
             <select class="form-control" name="category" id="category">
+            	<option value="uniresearcher">University - Researcher</option>
+            	<option value="unipostdoc">University - Post Doctoral Fellow</option>
                 <option value="govt">Government - Local/Regional/National</option>
                 <option value="govtresearcher">Government - Researcher</option>
                 <option value="ngo">NGO</option>
@@ -112,20 +105,31 @@
                 <option value="schoolteacher">School Teacher - Primary/Secondary</option>
                 <option value="pgstudent">Student - Post Graduate</option>
                 <option value="ugstudent">Student - Undergraduate</option>
-                <option value="unipostdoc">University - Post Doctoral Fellow</option>
-                <option value="uniresearcher">University - Researcher</option>
                 <option value="other">Other</option>
             </select>
         </div>
+           <br>
+     
+    <div class="form-group">
+      <input type="text" class="form-control" name="position" id="position" placeholder="Position">
     </div>
-    	
-    	
-    	  <!-- new addition starts here -->
-        
-         <label class="col-xs-2 control-label">Country</label>
-        <div class="col-xs-10 selectContainer">
-        
+    <div class="form-group">
+      <input type="text" class="form-control" name="organisation" id="organisation" placeholder="Organisation">
+    </div>
+	
+	 		<label class="col-xs-3 control-label">Gender</label>
+	        <div class="radio-inline"><label>
+	            <input type="radio"  name="radioGender" value="Male" id="Male"> Male
+	       </label></div>
+	        <div class="radio-inline"><label> 
+	            <input type="radio"  name="radioGender" value="Female" id="Female">Female
+	        </label></div>
+	        
+	        <br>
+         <label class="col-xs-3 control-label">Country</label>
+        <div class="col-xs-9 selectContainer">
             <select class="form-control" name="country" id="country">
+             <option value="select">select</option>
            <option value="AF">Afghanistan</option>
 	<option value="AX">Aland Islands</option>
 	<option value="AL">Albania</option>
@@ -379,60 +383,43 @@
             </select>
         </div> 
         
+  <br>
        
-        <div class="form-group">
-      <input type="text" class="form-control" name="orcId" id="orcId" placeholder="ORCID (e.g:0000-0002-0581-9563)">
-    </div>
-        
-          <div class="form-group">
-    		<textarea rows="4" cols="50" class="form-control" name="comments" id="comments" placeholder="Comments"></textarea>
-    	 </div>
-         
-       
-        
-        <div class="panel" style="display:none;" id="ethnicDiv"> 
-         	<label class="col-xs-2 control-label"> Ethnicity</label>
-					<div  id="cbox-group">
-								<div class="checkbox">
-								  <label><input type="checkbox" value="e1" id="e1">NZ European</label>
-								</div>
-								<div class="checkbox">
+        <div style="display:none;" id="ethnicDiv"> 
+         	<label class="col-xs-3 control-label"> Ethnicity</label>
+					<div class="checkbox" id="cbox-group">
+								<label><input type="checkbox" value="e1" id="e1">NZ European</label>
 								  <label><input type="checkbox" value="e2" id="e2">Maori</label>
-								</div>
-								<div class="checkbox">
 								  <label><input type="checkbox" value="e3" id="e3">Pasifika</label>
-								</div>
-								<div class="checkbox">
 								  <label><input type="checkbox" value="e4" id="e4">Asian</label>
-								</div>
-								<div class="checkbox">
 								  <label><input type="checkbox" value="e5" id="e5">Other</label>
-								</div>
+								
 					</div>
 					<div class="form-group" style="display:none;" id="iwiDiv">
 		     		 	<input type="text" class="form-control" name="iwi" id="iwi" placeholder="iwi">
 		     		 </div>
         </div>
         
-         <label class="col-xs-2 control-label">Gender</label>
-     <div class="longNameFields" id="radio-group">
-        <!--  To keep a value cheked as default
-        <label class="btn btn-default active">
-            <input type="radio" name="radio-m1" value="radio-m1"  checked=""> QuakeCoRE Monthly Newsletter
-        </label>-->
-        <div class="radio"><label>
-            <input type="radio"  name="radioGender" value="Male" id="Male"> Male
-        </label></div>
-        <div class="radio"><label>
-            <input type="radio"  name="radioGender" value="Female" id="Female">Female
-        </label></div>
-        </div>
+              <div class="form-group">
+      		<input type="text" class="form-control" name="orcId" id="orcId" placeholder="ORCID (e.g:0000-0002-0581-9563)">
+   		 </div>
+        
+          <div class="form-group">
+    		<textarea rows="4" cols="50" class="form-control" name="comments" id="comments" placeholder="Comments"></textarea>
+    	 </div>
+    	 
+            
+	       <!--  </div> -->
+        
+         <br>
+     
         <!-- ends here -->
     		
 			 <button type="submit" class=" btn-lnk" id="btn-editprofile" onclick="return save()">Submit</button>
 	<a href="/homeuser" class="btn-lnk">Cancel</a>
 			  
 	 </form>
+	</div>
 	</div>
 	  </div> 
 			  	 

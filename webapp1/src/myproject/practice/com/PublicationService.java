@@ -25,7 +25,7 @@ public class PublicationService {
 		int publicationNo=0;String number="";
 		if (session != null && session.getAttribute("email") != null && emailId.equals(session.getAttribute("email"))) {
 		//querying the total number of publications from Publication Table
-		System.out.println("getPublicationNo in PublicationService");
+		//System.out.println("getPublicationNo in PublicationService");
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		Query q = pm.newQuery(Publication.class);  
 		
@@ -46,12 +46,12 @@ public class PublicationService {
 		if(publicationNo > 0)
 		{
 			String aticleTitle=pubJson.get("title").toString();
-		System.out.println(pubJson.get("year") + " -- " + pubJson.get("fund")+ "-- " + pubJson.get("project"));
-		System.out.println(pubJson.get("venueName") + "-- " +pubJson.get("status")+ "-- " + pubJson.get("descOutputOther"));
-		System.out.println(pubJson.get("volume") + "-- " + pubJson.get("article"));
-		System.out.println(pubJson.get("page")+ "-- " + pubJson.get("title"));
-		System.out.println(pubJson.get("location") + "-- " + pubJson.get("author"));
-		System.out.println(pubJson.get("url") + "-- " + pubJson.get("dates") + " -- " + pubJson.get("publisher"));
+		//System.out.println(pubJson.get("year") + " -- " + pubJson.get("fund")+ "-- " + pubJson.get("project"));
+		//System.out.println(pubJson.get("venueName") + "-- " +pubJson.get("status")+ "-- " + pubJson.get("descOutputOther"));
+		//System.out.println(pubJson.get("volume") + "-- " + pubJson.get("article"));
+		//System.out.println(pubJson.get("page")+ "-- " + pubJson.get("title"));
+		//System.out.println(pubJson.get("location") + "-- " + pubJson.get("author"));
+		//System.out.println(pubJson.get("url") + "-- " + pubJson.get("dates") + " -- " + pubJson.get("publisher"));
 		if (!Strings.isNullOrEmpty(pubJson.get("title").toString()) && !Strings.isNullOrEmpty(pubJson.get("author").toString())) {
 			Publication newpub = new Publication();
 			String uuid = UUID.randomUUID().toString();
@@ -111,7 +111,7 @@ public class PublicationService {
 																// the
 																// UserPublication
 																// table
-				System.out.println(" ****************  " + number);
+				//System.out.println(" ****************  " + number);
 				request.setAttribute("pubNo", number);
 				
 				//To send email to user with publication number
@@ -136,7 +136,7 @@ public class PublicationService {
 	}
 	//to change the visibility of a publication by admin only
 	public static String publicationVisibility(String pubId,ModelMap model,HttpSession session)
-	{System.out.println("in publicationVisibility "+pubId);
+	{//System.out.println("in publicationVisibility "+pubId);
 	String nextpage="expiry";
 	if (session != null && session.getAttribute("email") != null && session.getAttribute("email").equals(Constants.adminEmailId))
 		{
@@ -150,7 +150,7 @@ public class PublicationService {
 				List<Publication> results = (List<Publication>) q.execute(Integer.parseInt(pubId));
 				
 				if (!results.isEmpty()) {
-					System.out.println(results.get(0).getIsVisible());
+					//System.out.println(results.get(0).getIsVisible());
 					Boolean pubStatus=results.get(0).getIsVisible();
 					if(pubStatus)
 						results.get(0).setIsVisible(false);
@@ -172,7 +172,7 @@ public class PublicationService {
 		return nextpage;
 	}
 	public static void saveNewUserPublication(String email, int displayNo) {
-		System.out.println("coming to save a publication");
+		//System.out.println("coming to save a publication");
 
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		Query q = pm.newQuery(UserPublication.class);
@@ -182,7 +182,7 @@ public class PublicationService {
 		try {
 			List<UserPublication> results = (List<UserPublication>) q.execute(email);
 			List<Integer> newlist = new ArrayList<Integer>();
-			System.out.println(results.hashCode());
+			//System.out.println(results.hashCode());
 			if (!results.isEmpty()) {
 
 				newlist = results.get(0).getPublicationList();
@@ -210,7 +210,7 @@ public class PublicationService {
 	}
 
 	public static void saveNewUserAbstract(String email, int absNo) {
-		System.out.println("coming to save an abstract in saveUserAbstract()");
+		//System.out.println("coming to save an abstract in saveUserAbstract()");
 
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		Query q = pm.newQuery(UserPublication.class);
@@ -220,7 +220,7 @@ public class PublicationService {
 		try {
 			List<UserPublication> results = (List<UserPublication>) q.execute(email);
 			List<Integer> newlist = new ArrayList<Integer>();
-			System.out.println(results.hashCode());
+			//System.out.println(results.hashCode());
 			if (!results.isEmpty()) {
 
 				newlist = results.get(0).getAbstractList();
@@ -250,7 +250,7 @@ public class PublicationService {
 	public static String  updatePublicationDetails(String emailId,int publicationId,HttpServletRequest request,HttpServletResponse response,ModelMap model) throws Exception
 	{ 
 		PersistenceManager pm = PMF.get().getPersistenceManager();
-		System.out.println("in updatePublicationDetails");
+		//System.out.println("in updatePublicationDetails");
 		HashMap<String, String> hash = new HashMap<>();
 		String nextpage="newpublication";
 		Query q = pm.newQuery(Publication.class);
@@ -260,7 +260,7 @@ public class PublicationService {
 		q.declareParameters("int filterParameter");
 		try {
 			List<Publication> results = (List<Publication>) q.execute(publicationId);
-			System.out.println(results.get(0).getKey());
+			//System.out.println(results.get(0).getKey());
 			if (!results.isEmpty()) {
 				
 					request.setAttribute("pub",results);

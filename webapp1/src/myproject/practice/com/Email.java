@@ -13,7 +13,7 @@ public class Email
 	}
 	
 	public void sendMail(String from, String to, String subject, String msg) {
-		System.out.println("got here  for email");
+		//System.out.println("got here  for email");
 
 		SimpleMailMessage message = new SimpleMailMessage();
 		

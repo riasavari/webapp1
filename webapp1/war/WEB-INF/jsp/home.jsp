@@ -29,7 +29,7 @@
 			  	<div class="topbar"></div> 
 				<div id="content" class="content-width">
 				  	<div class="container">  
-				        <div id="userid"  style="display:block;">
+				        <div id="userid"  style="display:none;">
 						${email}
 						</div>
 						

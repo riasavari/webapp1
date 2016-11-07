@@ -41,14 +41,14 @@
 			  	 <!-- <div class="topbar"></div>  --> 
 				<div id="content" class="content-width">
 				  	<div class="container"> 
-        <div id="userid"  style="display:block;">
+        <div id="userid"  style="display:none;">
 				${email}
 			</div>
-     <div id="userAcc"  style="display:block;">
+     <div id="userAcc"  style="display:none;">
 				${newUserAcc}
 			</div>
      
-      		 <div id="userActive"  style="display:block;">
+      		 <div id="userActive"  style="display:none;">
 				${active}
 			</div>
 

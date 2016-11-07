@@ -16,7 +16,7 @@ public class AbstractService {
 		int absNo=0;
 		
 		//querying the total number of abstracts from Abstract Table
-		System.out.println("getAbstractNo in AbstractService");
+		//System.out.println("getAbstractNo in AbstractService");
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		Query q = pm.newQuery(Proposal.class);  
 		
@@ -34,7 +34,7 @@ public class AbstractService {
 			q.closeAll();
 			pm.close();
 		}
-		System.out.println("AbstractNo----------------> "+absNo);
+		//System.out.println("AbstractNo----------------> "+absNo);
 		return absNo;
 	}
 }

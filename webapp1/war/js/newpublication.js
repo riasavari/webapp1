@@ -217,7 +217,7 @@ validate=function(id)
 	var publisher		=	document.getElementById("publisher").value;
 	if(!isValidInput(project))
 	{
-	document.getElementById("project").value="";  
+	//document.getElementById("project").value="";  
     document.getElementById("project").focus(); 
 	$('#err').html("Please avoid &,< and > symbols in project names");
 	$('#messagebox').fadeIn().delay(2000).fadeOut();
@@ -226,7 +226,7 @@ validate=function(id)
 	}
 	if(!isValid(author) || !isValidInput(author))
 	{
-	document.getElementById("author").value="";  
+	//document.getElementById("author").value="";  
     document.getElementById("author").focus(); 
     $('#err').html("Please enter valid names");
     if(!isValidInput(author)){
@@ -238,7 +238,7 @@ validate=function(id)
 	}
 	if(!isValid(title) || !isValidInput(title))
 	{
-	document.getElementById("title").value="";  
+	//document.getElementById("title").value="";  
     document.getElementById("title").focus(); 
     $('#err').html("Please enter valid article title");
     if(!isValidInput(title)){
@@ -252,7 +252,7 @@ validate=function(id)
 	{
 		if(!isValid(venueName) || !isValidInput(venueName))
 		{
-		document.getElementById("venueName").value="";  
+		//document.getElementById("venueName").value="";  
 	    document.getElementById("venueName").focus(); 
 	    $('#err').html("Please enter valid venue details");
 	    if(!isValidInput(venueName)){
@@ -267,7 +267,7 @@ validate=function(id)
 		{
 			if(!isValid(page) || !isValidInput(page))
 			{
-			document.getElementById("page").value="";  
+			//document.getElementById("page").value="";  
 		    document.getElementById("page").focus(); 
 		    $('#err').html("Please enter valid number of pages");
 		    if(!isValidInput(page)){
@@ -281,7 +281,7 @@ validate=function(id)
 			{
 				if(!isValid(publisher) || !isValidInput(publisher))
 				{
-				document.getElementById("publisher").value="";  
+				//document.getElementById("publisher").value="";  
 			    document.getElementById("publisher").focus(); 
 			    $('#err').html("Please enter valid publisher details");
 			    if(!isValidInput(publisher)){
@@ -297,7 +297,7 @@ validate=function(id)
 			{
 				if(!isValid(volume) || !isValidInput(volume))
 				{
-				document.getElementById("volume").value="";  
+				//document.getElementById("volume").value="";  
 			    document.getElementById("volume").focus(); 
 			    $('#err').html("Please enter valid volume and issue numbers");
 			    if(!isValidInput(volume)){
@@ -312,7 +312,7 @@ validate=function(id)
 			{
 				if(!isValid(location) || !isValidInput(location))
 				{
-				document.getElementById("location").value="";  
+				//document.getElementById("location").value="";  
 			    document.getElementById("location").focus(); 
 			    $('#err').html("Please enter valid location");
 			    if(!isValidInput(location)){
@@ -324,7 +324,7 @@ validate=function(id)
 				}
 				if(!isValid(dates) || !isValidInput(dates) )
 				{
-				document.getElementById("dates").value="";  
+				//document.getElementById("dates").value="";  
 			    document.getElementById("dates").focus(); 
 			    $('#err').html("Please enter the dates");
 			    if(!isValidInput(dates)){
@@ -340,7 +340,7 @@ validate=function(id)
 				{
 				if(!isValid(descOutputOther) || !isValidInput(descOutputOther))
 				{
-				document.getElementById("descOutputOther").value="";  
+				//document.getElementById("descOutputOther").value="";  
 			    document.getElementById("descOutputOther").focus(); 
 			    $('#err').html("Please enter the description of output");
 			    if(!isValidInput(descOutputOther)){
@@ -352,6 +352,16 @@ validate=function(id)
 				}
 				
 				}
+			
+			if(isValid(url) && !isValidInput(url) )
+			{
+			//document.getElementById("url").value="";  
+		    document.getElementById("url").focus(); 
+		    $('#err').html("Please avoid &,< and > symbols in DOI");
+		    $('#messagebox').fadeIn().delay(2000).fadeOut();
+		    $("html, body").animate({ scrollTop: 0 }, "slow");
+			return false;
+			}
 		}
 		if ($('#venueDiv').is(":hidden"))
 			$('#venueName').val('');

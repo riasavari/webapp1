@@ -176,20 +176,32 @@
 			$('#modalbox').modal().hide();
 			document.getElementById("orcId").value=""; 
 	        document.getElementById("orcId").focus(); 
-		    $('#signupErr').html("Not a valid orc-Id");
+		    $('#signupErr').html("Not a valid ORCID");
 		    $('#messagebox').fadeIn().delay(2000).fadeOut();
 		    $("html, body").animate({ scrollTop: 0 }, "slow");
 			return false;
 			}	
+			else if(isValid(comments) && comments.length>250)
+			{
+	        	$('#modalbox').modal().hide();
+	        	//document.getElementById("comments").value=""; 
+		        document.getElementById("comments").focus(); 
+	        	$('#signupErr').html("Comments should be less than 250 letters");
+	        	$('#messagebox').fadeIn().delay(2000).fadeOut();
+		        $("html, body").animate({ scrollTop: 0 }, "slow");
+				return false;
+	        }
+	        	
 			else if(isValid(comments) && !isValidInput(comments))
 			{
-			$('#modalbox').modal().hide();
-			document.getElementById("comments").value=""; 
-	        document.getElementById("comments").focus(); 
-		    $('#signupErr').html("Please avoid &,< and > symbols in comments");
-		    $('#messagebox').fadeIn().delay(2000).fadeOut();
-		    $("html, body").animate({ scrollTop: 0 }, "slow");
-			return false;
+				$('#modalbox').modal().hide();
+	        	//document.getElementById("comments").value=""; 
+		        document.getElementById("comments").focus(); 
+	        	$('#signupErr').html("Please avoid &,< and > symbols in comments");
+	        	$('#messagebox').fadeIn().delay(2000).fadeOut();
+		        $("html, body").animate({ scrollTop: 0 }, "slow");
+				return false;
+		   
 			}
 			else if ((!$('#Male').prop('checked')) && (!$('#Female').prop('checked'))) 
 			{
@@ -226,29 +238,29 @@
 				}
 			else
 				{//to check if maori, then ask for iwi
-				if(raceList.indexOf("e2") > -1)
-				{
-					if(!isValid(iwi)|| !isValidName(iwi))
-						{
-						document.getElementById("iwi").value="";  
-					    document.getElementById("iwi").focus(); 
-					    $('#signupErr').html("Please enter a valid iwi with letters");
-					    $('#messagebox').fadeIn().delay(2000).fadeOut();
-						  $("html, body").animate({ scrollTop: 0 }, "slow");
-						  return false;
-						}
-					else
-					   {
-						if($.trim(tick) === "false")
-						{
-						$('#modalbox').modal().hide();
-						$('#signupErr').html("Please agree to the Terms and Conditions");
-						$('#messagebox').fadeIn().delay(2000).fadeOut();
-						$("html, body").animate({ scrollTop: 0 }, "slow");
-						return false;
-						}
-					   }
-				}
+					if(raceList.indexOf("e2") > -1)
+					{
+						if(!isValid(iwi)|| !isValidName(iwi))
+							{
+							document.getElementById("iwi").value="";  
+						    document.getElementById("iwi").focus(); 
+						    $('#signupErr').html("Please enter a valid iwi with letters");
+						    $('#messagebox').fadeIn().delay(2000).fadeOut();
+							  $("html, body").animate({ scrollTop: 0 }, "slow");
+							  return false;
+							}
+						else
+						   {
+							if($.trim(tick) === "false")
+							{
+							$('#modalbox').modal().hide();
+							$('#signupErr').html("Please agree to the Terms and Conditions");
+							$('#messagebox').fadeIn().delay(2000).fadeOut();
+							$("html, body").animate({ scrollTop: 0 }, "slow");
+							return false;
+							}
+						   }
+					}
 				else
 				   {
 					if($.trim(tick) === "false")

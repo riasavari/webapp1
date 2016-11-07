@@ -38,73 +38,73 @@ public class UserController {
 
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String getHomePage(ModelMap model) {
-		System.out.println("home :) ");
+		//System.out.println("home :) ");
 		return "home";
 
 	}
 
 	@RequestMapping(value = "/narrow", method = RequestMethod.GET)
 	public String getnarrowJumboPage(ModelMap model) {
-		System.out.println("narrow :) ");
+		//System.out.println("narrow :) ");
 		return "narrowJumbo";
 
 	}
 
 	@RequestMapping(value = "/sample", method = RequestMethod.GET)
 	public String sample(ModelMap model) {
-		System.out.println("sample :) ");
+		//System.out.println("sample :) ");
 		return "sample";
 
 	}
 
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
 	public String getSignUpPage(ModelMap model) {
-		System.out.println("got here for /signup");
+		//System.out.println("got here for /signup");
 		return "signup";
 
 	}
 
 	@RequestMapping(value = "/done", method = RequestMethod.GET)
 	public String savedOrmodified(ModelMap model) {
-		System.out.println("came to /done");
+		//System.out.println("came to /done");
 		return "thankyou";
 	}
 
 	@RequestMapping(value = "/select", method = RequestMethod.GET)
 	public String selectMailingList(ModelMap model) {
-		System.out.println("came to /select");
+		//System.out.println("came to /select");
 		return "select";
 	}
 
 	@RequestMapping(value = "/userStatusChanged", method = RequestMethod.GET)
 	public String userStatusChangedPage(ModelMap model) {
-		System.out.println("came to /userStatusChanged");
+		//System.out.println("came to /userStatusChanged");
 		return "userStatusChanged";
 	}
 	
 	@RequestMapping(value = "/visibilityChanged", method = RequestMethod.GET)
 	public String pubvisibilityChangedPage(ModelMap model) {
-		System.out.println("came to /visibilityChanged");
+		//System.out.println("came to /visibilityChanged");
 		return "visibilityChanged";
 	}
 	
 	@RequestMapping(value = "/exusersignup", method = RequestMethod.GET)
 	public String getExUserSignUpPage(ModelMap model) {
-		System.out.println("got here for /exusersignup");
+		//System.out.println("got here for /exusersignup");
 		return "exusersignup";
 
 	}
 
 	@RequestMapping(value = "/forgotpassword", method = RequestMethod.GET)
 	public String getForgotPasswordPage(ModelMap model) {
-		System.out.println("got here for /forgotpassword");
+		//System.out.println("got here for /forgotpassword");
 		return "forgotpassword";
 
 	}
 	//Admin related pages-start
 	@RequestMapping(value = "/homeAdmin", method = RequestMethod.GET)
 	public String homeAdminPage(ModelMap model,HttpSession session) {
-		System.out.println("got here for /homeAdmin");
+		//System.out.println("got here for /homeAdmin");
 		String page="expiry";
 		if(session == null || session.getAttribute("email") == null)
 			return page;
@@ -119,7 +119,7 @@ public class UserController {
 	}
 	@RequestMapping(value = "/getmailSubscriptions", method = RequestMethod.GET)
 	public String getmailSubscriptions(ModelMap model,HttpSession session) {
-		System.out.println("got here for /getmailSubscriptions");
+		//System.out.println("got here for /getmailSubscriptions");
 		
 			String page="expiry";
 			if(session == null || session.getAttribute("email") == null)
@@ -136,7 +136,7 @@ public class UserController {
 	
 	@RequestMapping(value = "/showbanner", method = RequestMethod.GET)
 	public String getshowbannerPage(ModelMap model,HttpSession session) {
-		System.out.println("got here for /showbanner ");
+		//System.out.println("got here for /showbanner ");
 		String page="expiry";
 		if(session == null || session.getAttribute("email") == null)
 			return page;
@@ -151,7 +151,7 @@ public class UserController {
 	}
 	@RequestMapping(value = "/sent", method = RequestMethod.GET)
 	public String sent(ModelMap model,HttpSession session) {
-		System.out.println("got here for /sent");
+		//System.out.println("got here for /sent");
 		String page="expiry";
 		if(session == null || session.getAttribute("email") == null)
 			return page;
@@ -166,7 +166,7 @@ public class UserController {
 	}
 	@RequestMapping(value = "/banner", method = RequestMethod.GET)
 	public String banner(ModelMap model,HttpSession session) {
-		System.out.println("got here for /banner");
+		//System.out.println("got here for /banner");
 		String page="expiry";
 		if(session == null || session.getAttribute("email") == null)
 			return page;
@@ -183,14 +183,14 @@ public class UserController {
 	
 	@RequestMapping(value = "/changed", method = RequestMethod.POST)
 	public String postchanged(ModelMap model) {
-		System.out.println("got here for /changed POST");
+		//System.out.println("got here for /changed POST");
 		return "thankyou";
 
 	}
 
 	@RequestMapping(value = "/thankyou", method = RequestMethod.GET)
 	public String thankyou(ModelMap model) {
-		System.out.println("got here for /thankyou " + model);
+		//System.out.println("got here for /thankyou " + model);
 		return "thankyou";
 
 	}
@@ -198,7 +198,7 @@ public class UserController {
 	@RequestMapping(value = "/newpublication", method = RequestMethod.GET)
 	public ModelAndView editPublicationPage(@RequestParam(value = "id", required = false) String pubid,
 			ModelMap model,HttpSession session) {
-		System.out.println("got here for EDIT /newpublication GET");
+		//System.out.println("got here for EDIT /newpublication GET");
 		 if(session == null || session.getAttribute("email") == null)
 			 return new ModelAndView( "expiry");
 			else
@@ -219,7 +219,7 @@ public class UserController {
 	
 	@RequestMapping(value = "/rechangepassword", method = RequestMethod.GET)
 	public String getreChangePasswordPage(ModelMap model) {
-		System.out.println("got here for /rechangepassword");
+		//System.out.println("got here for /rechangepassword");
 		return "rechangepassword";
 
 	}
@@ -228,20 +228,20 @@ public class UserController {
 
 	@RequestMapping(value = "/contactlist", method = RequestMethod.POST)
 	public String contactlistAdminPage(ModelMap model) {
-		System.out.println("got here for /contactlist");
+		//System.out.println("got here for /contactlist");
 		return "contactlist";
 
 	}
 	@RequestMapping(value = "/newsignup", method = RequestMethod.POST)
 	public String newsignupPage(ModelMap model) {
-		System.out.println("got here for /newsignup POST ");
+		//System.out.println("got here for /newsignup POST ");
 		return "newsignup";
 
 	}
 	//Start:user related pages
 	@RequestMapping(value = "/homeuser", method = RequestMethod.POST)
 	public String homeUserPage(ModelMap model,HttpSession session) {
-		System.out.println("got here for /homeuser  POST");
+		//System.out.println("got here for /homeuser  POST");
 		 if(session == null || session.getAttribute("email") == null)
 				return "expiry";
 			else
@@ -256,7 +256,7 @@ public class UserController {
 
 	@RequestMapping(value = "/homeuser", method = RequestMethod.GET)
 	public String gethomeUserPage(ModelMap model,HttpSession session) {
-		System.out.println("got here for /gethomeuser GET");
+		//System.out.println("got here for /gethomeuser GET");
 		 if(session == null || session.getAttribute("email") == null)
 				return "expiry";
 			else
@@ -271,7 +271,7 @@ public class UserController {
 
 	@RequestMapping(value = "/changepassword", method = RequestMethod.GET)
 	public String getChangePasswordPage(ModelMap model,HttpSession session) {
-		System.out.println("got here for /changepassword " + model);
+		//System.out.println("got here for /changepassword " + model);
 		if((session != null && session.getAttribute("email") != null )&& !(session.getAttribute("email").equals(Constants.adminEmailId)))
 			return "changepassword";
 			else if(session == null || session.getAttribute("email") == null)
@@ -282,33 +282,33 @@ public class UserController {
 
 	@RequestMapping(value = "/userActivation", method = RequestMethod.GET)
 	public String getuserActivationPage(ModelMap model) {
-		System.out.println("got here for /userActivation ");
+		//System.out.println("got here for /userActivation ");
 		return "userActivation";
 
 	}
 	
 	@RequestMapping(value = "/invalidrequest", method = RequestMethod.GET)
 	public String invalidrequest(ModelMap model) {
-		System.out.println("/invalidrequest");
+		//System.out.println("/invalidrequest");
 		return "invalidrequest";
 
 	}
 	@RequestMapping(value = "/adminInvalidrequest", method = RequestMethod.GET)
 	public String adminInvalidrequest(ModelMap model) {
-		System.out.println("/adminInvalidrequest");
+		//System.out.println("/adminInvalidrequest");
 		return "adminInvalidrequest";
 
 	}
 	@RequestMapping(value = "/home", method = RequestMethod.POST)
 	public String postHomePage(ModelMap model) {
-		System.out.println("home :) POST");
+		//System.out.println("home :) POST");
 		return "home";
 
 	}
 	@RequestMapping(value = "/banner", method = RequestMethod.POST)
 	public String getshowbannerPage(ModelMap model,HttpServletRequest request, HttpServletResponse response,HttpSession session) {
-		System.out.println("got here for /banner POST");
-		System.out.println(request.getParameter("msg"));
+		//System.out.println("got here for /banner POST");
+		//System.out.println(request.getParameter("msg"));
 		String displayMsg=request.getParameter("msg");
 		
 		String page="expiry";
@@ -343,12 +343,12 @@ public class UserController {
 	}
 	@RequestMapping(value = "/activated", method = RequestMethod.GET)
 	public String getuseractivatedPage(ModelMap model,HttpServletRequest request, HttpServletResponse response,HttpSession session) {
-		System.out.println("got here for /activated ");
+		//System.out.println("got here for /activated ");
 		String page="expiry";
 		if (session != null && session.getAttribute("email") != null) {
 			if(!(session.getAttribute("email").equals(Constants.adminEmailId)))
 				return "invalidrequest";
-		System.out.println(request.getParameter("useremail"));
+		//System.out.println(request.getParameter("useremail"));
 		String useremail=request.getParameter("useremail");
 		String activeStatus=request.getParameter("activeStatus");
 		page=UserService.activateUser(useremail,activeStatus,model,session);
@@ -367,8 +367,9 @@ public class UserController {
 				bodyText.append("Thank you for signing up to the QuakeCoRE user portal, your profile is now active.You can log onto the portal using the following "+url+"\r\n\n ");
 				
 				bodyText.append("After you have logged in, please take a moment to review your mailing list subscription options and confirm that your profile information is correct"+"\r\n\n");
+				
 				bodyText.append("Thank you,"+"\r\n ");
-				bodyText.append("The QuakeCoRE team");
+				bodyText.append("The QuakeCoRE Team");
 				mm.sendMail(Constants.adminEmailId, useremail, "Account Activated for QuakeCoRE User Portal",
 						bodyText.toString());
 			}
@@ -383,12 +384,12 @@ public class UserController {
 	}
 	@RequestMapping(value = "/changeVisibility", method = RequestMethod.GET)
 	public String getchangeVisibilityPage(ModelMap model,HttpServletRequest request, HttpServletResponse response,HttpSession session) {
-		System.out.println("got here for /changeVisibility ");
+		//System.out.println("got here for /changeVisibility ");
 		String page="expiry";
 		if (session != null && session.getAttribute("email") != null) {
 			if(!(session.getAttribute("email").equals(Constants.adminEmailId)))
 				return "invalidrequest";
-		System.out.println(request.getParameter("useremail"));
+		//System.out.println(request.getParameter("useremail"));
 		String pubId=request.getParameter("pubno");
 		
 		page=PublicationService.publicationVisibility(pubId,model,session);
@@ -398,7 +399,7 @@ public class UserController {
 	
 	@RequestMapping(value = "/changed", method = RequestMethod.GET)
 	public String changed(ModelMap model) {
-		System.out.println("got here for /changed");
+		//System.out.println("got here for /changed");
 		return "thankyou";
 
 	}
@@ -409,7 +410,7 @@ public class UserController {
 	public String geteditAbstractPage(@RequestParam(value = "absId", required = false) String absId,
 			HttpServletRequest request, HttpServletResponse response, HttpSession session, ModelMap model) {
 
-		System.out.println("got here for /editthisAbstract" + absId);
+		//System.out.println("got here for /editthisAbstract" + absId);
 		// get the details of an abstract from this absId, then set the abstract
 		// details in request attribute ->to front jsp to display
 
@@ -419,28 +420,28 @@ public class UserController {
 
 	@RequestMapping(value = "/popup", method = RequestMethod.GET)
 	public String getPopup(ModelMap model) {
-		System.out.println("got here for /popup");
+		//System.out.println("got here for /popup");
 		return "popup";
 
 	}
 
 	@RequestMapping(value = "/abstractSubmitted", method = RequestMethod.GET)
 	public String getabstractSubmissionPage(ModelMap model) {
-		System.out.println("got here for /abstractSubmitted");
+		//System.out.println("got here for /abstractSubmitted");
 		return "abstractSubmitted";
 
 	}
 
 	@RequestMapping(value = "/abstractSubmission", method = RequestMethod.GET)
 	public String abstractSubmission(ModelMap model) {
-		System.out.println("got here for GET /abstractSubmission");
+		//System.out.println("got here for GET /abstractSubmission");
 		return "abstractSubmission";
 
 	}
 
 	@RequestMapping(value = "/confirmpopup", method = RequestMethod.GET)
 	public String getconfirmPopup(ModelMap model) {
-		System.out.println("got here for /confirmpopup");
+		//System.out.println("got here for /confirmpopup");
 		return "confirmpopup";
 
 	}
@@ -448,7 +449,7 @@ public class UserController {
 	@RequestMapping(value = "/abstractSubmission", method = RequestMethod.POST)
 	public ModelAndView abstractSubmissionSave(HttpServletRequest request, HttpServletResponse response,
 			HttpSession session, ModelMap model) {
-		System.out.println("got here for POST  /abstractSubmission");
+		//System.out.println("got here for POST  /abstractSubmission");
 		String emailId = "";
 		int absNo = 0;
 		if (session != null && session.getAttribute("email") != null) {
@@ -463,9 +464,9 @@ public class UserController {
 		String project = request.getParameter("project");
 		String url = request.getParameter("url");
 
-		System.out.println(year + "-- " + category);
-		System.out.println(abstractDesc + "-- " + author);
-		System.out.println(title + "-- " + project + " --- " + url);
+		//System.out.println(year + "-- " + category);
+		//System.out.println(abstractDesc + "-- " + author);
+		//System.out.println(title + "-- " + project + " --- " + url);
 
 		try {
 			absNo = AbstractService.getAbstractNo(emailId, request, response, model);
@@ -489,7 +490,7 @@ public class UserController {
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		try {
 			pm.makePersistent(abs);
-			System.out.println(" ****************  " + absNo);
+			//System.out.println(" ****************  " + absNo);
 			PublicationService.saveNewUserAbstract(emailId, absNo);
 		} finally {
 			pm.close();
@@ -504,7 +505,7 @@ public class UserController {
 	@RequestMapping(value = "/viewpublication", method = RequestMethod.GET)
 	public String getviewpublicationsPage(HttpServletRequest request, HttpServletResponse response, HttpSession session,
 			ModelMap model) {
-		System.out.println("got here for GET /viewpublication " + model.toString());
+		//System.out.println("got here for GET /viewpublication " + model.toString());
 		String emailId = "";
 		if (session != null && session.getAttribute("email") != null) {
 			emailId = session.getAttribute("email").toString();
@@ -518,7 +519,7 @@ public class UserController {
 		q.declareParameters("int nameParameter");
 		try {
 			List<Publication> results = (List<Publication>) q.execute(visible);
-			System.out.println("result size " + results.size());
+			//System.out.println("result size " + results.size());
 			if (results.isEmpty()) {
 				model.addAttribute("allPublicationList", null);
 			} else {
@@ -537,7 +538,7 @@ public class UserController {
 		@RequestMapping(value = "/viewpeople", method = RequestMethod.GET)
 		public String getviewpeoplePage(HttpServletRequest request, HttpServletResponse response, HttpSession session,
 				ModelMap model) {
-			System.out.println("got here for GET /viewpeople " + model.toString());
+			//System.out.println("got here for GET /viewpeople " + model.toString());
 			String emailId = "";
 			if (session != null && session.getAttribute("email") != null) {
 				emailId = session.getAttribute("email").toString();
@@ -546,12 +547,12 @@ public class UserController {
 			Boolean isActiveMember=true;
 			PersistenceManager pm = PMF.get().getPersistenceManager();
 			Query q = pm.newQuery(User.class);
+			q.setOrdering("firstname");
 			q.setFilter("active == nameParameter");
-			q.setOrdering("lastname");
 			q.declareParameters("int nameParameter");
 			try {
 				List<User> results = (List<User>) q.execute(isActiveMember);
-				System.out.println("result size " + results.size());
+				//System.out.println("result size " + results.size());
 				if (results.isEmpty()) {
 					model.addAttribute("peopleList", null);
 				} else {
@@ -569,7 +570,7 @@ public class UserController {
 	@RequestMapping(value = "/selectpublication", method = RequestMethod.GET)
 	public  String getAllPubsforAdmin(HttpServletRequest request, HttpServletResponse response,
 			ModelMap model,HttpSession session )
-	{System.out.println("/selectpublication");
+	{//System.out.println("/selectpublication");
 		String emailId = "";
 		if (session != null && session.getAttribute("email") != null) {
 			emailId = session.getAttribute("email").toString();
@@ -583,7 +584,7 @@ public class UserController {
 		q.setOrdering("publicationId");
 		try {
 			List<Publication> results = (List<Publication>) q.execute();
-			System.out.println("result size " + results.size());
+			//System.out.println("result size " + results.size());
 			if (results.isEmpty()) {
 				model.addAttribute("allPubsList", null);
 			} else {
@@ -616,7 +617,7 @@ public class UserController {
 		try {
 			results = (List<Publication>) q.execute(publicationId);
 			if (!results.isEmpty()) {
-				System.out.println(results.get(0).getAuthor());
+				//System.out.println(results.get(0).getAuthor());
 
 				request.setAttribute("editPub", "edit");
 				request.setAttribute("year", results.get(0).getYear());
@@ -642,7 +643,7 @@ public class UserController {
 			q.closeAll();
 			pm.close();
 		}
-		System.out.println("IT DOES");
+		//System.out.println("IT DOES");
 		return new ModelAndView(nextpage);
 	}
 
@@ -654,9 +655,9 @@ public class UserController {
 
 		
 		String pubNo = request.getParameter("editNo");
-		System.out.println(pubNo + " *** POST *** " + buttonValue);
+		//System.out.println(pubNo + " *** POST *** " + buttonValue);
 		if (buttonValue != null) {
-			System.out.println(" *** ONE *** ");
+			//System.out.println(" *** ONE *** ");
 			//To get publication details based on button value 
 			if (session != null && session.getAttribute("email") != null) {
 				if(session.getAttribute("email").equals(Constants.adminEmailId))
@@ -676,9 +677,9 @@ public class UserController {
 				return new ModelAndView("expiry");
 			}
 		} else if (buttonValue == null && !(pubNo.isEmpty())) {//displays the page with a particular publications's  details for editing
-			System.out.println(" *** TWO *** ");
+			//System.out.println(" *** TWO *** ");
 			int no = Integer.parseInt(pubNo);
-			System.out.println(" *** TWO *** no " + no);
+			//System.out.println(" *** TWO *** no " + no);
 			
 			if (session != null && session.getAttribute("email") != null) {
 				if(session.getAttribute("email").equals(Constants.adminEmailId))
@@ -689,12 +690,12 @@ public class UserController {
 			q.declareParameters("String idParameter");
 			try {
 				List<Publication> results = (List<Publication>) q.execute(no);
-				System.out.println("result size " + results.size());
+				//System.out.println("result size " + results.size());
 				if (results.isEmpty()) {
-					System.out.println("no records found" + no);
+					//System.out.println("no records found" + no);
 
 				} else {
-					System.out.println("to save the edited pubdetails");
+					//System.out.println("to save the edited pubdetails");
 					String year = request.getParameter("year");
 					String fund = request.getParameter("fund");
 					String status = request.getParameter("status");
@@ -773,7 +774,7 @@ public class UserController {
 		} else if (buttonValue == null && pubNo.isEmpty())//To sava a new publication
 
 		{
-			System.out.println(" *** THREE *** ");
+			//System.out.println(" *** THREE *** ");
 			if (session != null && session.getAttribute("email") != null) {
 				if(session.getAttribute("email").equals(Constants.adminEmailId))
 					return new ModelAndView("adminInvalidrequest");
@@ -830,7 +831,7 @@ public class UserController {
 			
 
 		} else {
-			System.out.println(" *** FOUR *** ");
+			//System.out.println(" *** FOUR *** ");
 		}
 		return new ModelAndView("changed");
 
@@ -841,7 +842,7 @@ public class UserController {
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpServletRequest request, ModelMap model) {
-		System.out.println("got here for /logout");
+		//System.out.println("got here for /logout");
 		HttpSession session = request.getSession(false);
 		if (session != null) {
 			
@@ -855,7 +856,7 @@ public class UserController {
 	}
 	@RequestMapping(value = "/expiry", method = RequestMethod.GET)
 	public String expiry(ModelMap model,HttpServletRequest request) {
-		System.out.println("got here for /expiry");
+		//System.out.println("got here for /expiry");
 		HttpSession session = request.getSession(false);
 		if (session != null) {
 			
@@ -877,12 +878,12 @@ public class UserController {
 			String newPassword = request.getParameter("newpassword");
 			String emailId = session.getAttribute("email").toString();
 			String isMatched = checkpLoginDetails(emailId, oldPassword, request, response, session).toString();
-			System.out.println("1.matched got in " + isMatched);
+			//System.out.println("1.matched got in " + isMatched);
 			if (isMatched.equals("userMatched")) {
-				System.out.println(emailId + " 2.matched got in " + newPassword);
+				//System.out.println(emailId + " 2.matched got in " + newPassword);
 				saveTempEntry(emailId, newPassword);
 			} else if (isMatched.equals("userMismatched")) {
-				System.out.println(emailId + " 3.wrong password  " + newPassword);
+				//System.out.println(emailId + " 3.wrong password  " + newPassword);
 
 				return new ModelAndView("rechangepassword");
 			}
@@ -901,7 +902,7 @@ public class UserController {
 		String page = "expiry";
 
 		if (session != null && session.getAttribute("email") != null) {
-			System.out.println("got here for /editprofile GET");
+			//System.out.println("got here for /editprofile GET");
 			if(session.getAttribute("email").equals(Constants.adminEmailId))
 				return "adminInvalidrequest";
 			String email = session.getAttribute("email").toString();
@@ -918,12 +919,12 @@ public class UserController {
 	@RequestMapping(value = "/activate", method = RequestMethod.GET)
 	public String activate(HttpServletRequest request, HttpServletResponse response, HttpSession session,ModelMap model) {
 		String newuserAcc=request.getParameter("acc");
-		System.out.println("MAILID "+newuserAcc);
+		//System.out.println("MAILID "+newuserAcc);
 		
 		String page = "expiry";
 
 		if (session != null && session.getAttribute("email") != null && session.getAttribute("email").equals(Constants.adminEmailId)) {
-			System.out.println("got here for /activate GET");
+			//System.out.println("got here for /activate GET");
 			
 			try {
 				page = UserService.getUserData(newuserAcc, request, response, model,session);
@@ -939,7 +940,7 @@ public class UserController {
 	public String updateThisPublication(ModelMap model, HttpServletRequest request, HttpServletResponse response,
 			HttpSession session) {
 		String number = request.getParameter("actionBtn");
-		System.out.println(" /updatePublication " + number);
+		//System.out.println(" /updatePublication " + number);
 		String page = "newpublication";
 		/*
 		 * if (session != null && session.getAttribute("email") != null) {
@@ -959,7 +960,7 @@ public class UserController {
 			HttpSession session) throws Exception {
 		String page = "expiry";
 		if (session != null && session.getAttribute("email") != null) {
-			System.out.println("got here for /mailingList");
+			//System.out.println("got here for /mailingList");
 			String email = session.getAttribute("email").toString();
 			if (email.equalsIgnoreCase(Constants.adminEmailId)) 
 				return "adminInvalidrequest";
@@ -977,10 +978,10 @@ public class UserController {
 	public @ResponseBody String checkpLoginDetails(@RequestParam(value = "id", required = false) String emailId,
 			@RequestParam(value = "pwd", required = false) String password, HttpServletRequest request,
 			HttpServletResponse response, HttpSession session) {
-		System.out.println("into /checklogin");
+		//System.out.println("into /checklogin");
 
 		String hashedPassword = UserService.hashPassword(password);
-		System.out.println(emailId + " - " + password + " - " + hashedPassword);
+		//System.out.println(emailId + " - " + password + " - " + hashedPassword);
 		
 		String adminemail=Constants.adminEmailId;
 		String msg="";
@@ -1006,19 +1007,19 @@ public class UserController {
 
 		if (emailId.equalsIgnoreCase(adminemail)) {
 			if (hashedPassword.equals(adminPwd)) {
-				System.out.println("matched");
+				//System.out.println("matched");
 				session.setAttribute("email", emailId);
 				session.setAttribute("msg", msg);
 				return "adminMatched";
 
 			} else {
-				System.out.println("adminMismatched");
+				//System.out.println("adminMismatched");
 				return "adminMismatched";
 
 			}
 		} else {
 			PersistenceManager pm = PMF.get().getPersistenceManager();
-			System.out.println("check for normal user loggin");
+			//System.out.println("check for normal user loggin");
 			Query q = pm.newQuery(User.class);
 
 			q.setFilter("email == emailParameter");
@@ -1026,22 +1027,22 @@ public class UserController {
 			q.declareParameters("String emailParameter");
 			try {
 				List<User> results = (List<User>) q.execute(emailId);
-				System.out.println(results.size());
+				//System.out.println(results.size());
 				if (results.isEmpty()) {
-					System.out.println("no account");
+					//System.out.println("no account");
 					return "noAccount";
 				} else {
-					System.out.println(results.get(0).getEmail() + " - " + results.get(0).getPassword());
+					//System.out.println(results.get(0).getEmail() + " - " + results.get(0).getPassword());
 					String receivedPassword = results.get(0).getPassword().toString();
 					String active=results.get(0).getActive().toString();
-					System.out.println("active ot not "+active);
-					System.out.println(receivedPassword + " = " + hashedPassword);
+					//System.out.println("active ot not "+active);
+					//System.out.println(receivedPassword + " = " + hashedPassword);
 					if(active.equals("false"))
 					{
 						return "notActive";
 					}
 					if (receivedPassword.equals(hashedPassword)) {
-						System.out.println("user matched");
+						//System.out.println("user matched");
 						results.get(0).setLastLoginDate(new Date());
 						session.setAttribute("email", emailId);
 						session.setAttribute("userKey", results.get(0).getKey().toString());
@@ -1049,7 +1050,7 @@ public class UserController {
 						session.setAttribute("msg", msg);
 						return "userMatched";
 					} else {
-						System.out.println("user mismatched");
+						//System.out.println("user mismatched");
 						return "userMismatched";
 
 					}
@@ -1067,7 +1068,7 @@ public class UserController {
 
 	public Boolean repeatPassword(String emailId, String newPassword) {
 		PersistenceManager pm = PMF.get().getPersistenceManager();
-		System.out.println("check for normal user loggin");
+		//System.out.println("check for normal user loggin");
 		Query q = pm.newQuery(User.class);
 
 		q.setFilter("email == emailParameter");
@@ -1076,19 +1077,19 @@ public class UserController {
 		try {
 			List<User> results = (List<User>) q.execute(emailId);
 			if (results.isEmpty()) {
-				System.out.println("no account");
+				//System.out.println("no account");
 				return false;
 			} else {
-				System.out.println(results.get(0).getEmail() + " - " + results.get(0).getPassword());
+				//System.out.println(results.get(0).getEmail() + " - " + results.get(0).getPassword());
 				String receivedPassword = results.get(0).getPassword().toString();
 				String hashedPassword = (UserService.hashPassword(newPassword));
-				System.out.println(receivedPassword + " = " + hashedPassword);
+				//System.out.println(receivedPassword + " = " + hashedPassword);
 				if (receivedPassword.equals(hashedPassword)) {
-					System.out.println("old-new same : false");
+					//System.out.println("old-new same : false");
 
 					return false;
 				} else {
-					System.out.println("old-new not same :true");
+					//System.out.println("old-new not same :true");
 					return true;
 
 				}
@@ -1103,7 +1104,7 @@ public class UserController {
 
 	public void saveUser(JSONObject userInfo, HttpServletRequest request, HttpServletResponse response,
 			HttpSession session) {
-		System.out.println("got here for /save..........." + userInfo);
+		//System.out.println("got here for /save..........." + userInfo);
 		User user = new User();
 		String uuid = UUID.randomUUID().toString();
 		List<String> mailSubs=new<String> ArrayList();
@@ -1159,12 +1160,12 @@ public class UserController {
 	@RequestMapping(value = "/viewMyAbstractSubmissions", method = RequestMethod.GET)
 	public String getviewMyAbstractSubmissionsPage(ModelMap model, HttpServletRequest request,
 			HttpServletResponse response, HttpSession session) {
-		System.out.println("got here for GET /viewMyAbstractSubmissions");
+		//System.out.println("got here for GET /viewMyAbstractSubmissions");
 		String emailId = "";
 		List<Integer> abs;
 		if (session != null && session.getAttribute("email") != null) {
 			emailId = session.getAttribute("email").toString();
-			System.out.println("my email id " + emailId);
+			//System.out.println("my email id " + emailId);
 		} else
 			return "expiry";
 
@@ -1173,10 +1174,10 @@ public class UserController {
 		try {
 
 			if (userAbs == null) {
-				System.out.println("no publications yet");
+				//System.out.println("no publications yet");
 			} else {
 				try {
-					System.out.println("His abstracts are : " + userAbs.getAbstractList().toString());
+					//System.out.println("His abstracts are : " + userAbs.getAbstractList().toString());
 					abs = userAbs.getAbstractList();
 					List<Proposal> absDetailedlist = getAbsDetailedlist(abs);
 
@@ -1199,7 +1200,7 @@ public class UserController {
 	}
 	
 	public List<Integer> getUserPublicationList(String emailId)
-	{System.out.println("getUserPublicationListgetUserPublicationListgetUserPublicationListgetUserPublicationListgetUserPublicationList");
+	{//System.out.println("getUserPublicationListgetUserPublicationListgetUserPublicationListgetUserPublicationListgetUserPublicationList");
 		List<Integer> absList=new ArrayList<Integer>();
 		
 		PersistenceManager pm = PMF.get().getPersistenceManager();
@@ -1207,10 +1208,10 @@ public class UserController {
 		try {
 
 			if (userAbs == null) {
-				System.out.println("no publications yet");
+				//System.out.println("no publications yet");
 			} else {
 				try {
-					System.out.println("His abstracts are : " + userAbs.getPublicationList().toString());
+					//System.out.println("His abstracts are : " + userAbs.getPublicationList().toString());
 					absList = userAbs.getPublicationList();
 					
 				} catch (Exception e) {
@@ -1223,7 +1224,7 @@ public class UserController {
 
 			pm.close();
 		}
-		System.out.println(absList);
+		//System.out.println(absList);
 		return absList;
 
 		
@@ -1232,7 +1233,7 @@ public class UserController {
 	@RequestMapping(value = "/viewmypublications", method = RequestMethod.GET)
 	public String getViewMyPublicationPage(ModelMap model, HttpServletRequest request, HttpServletResponse response,
 			HttpSession session) {
-		System.out.println("got here for GET /viewmypublications");
+		//System.out.println("got here for GET /viewmypublications");
 		String emailId = "";
 		
 		List<Integer> pubs;
@@ -1240,7 +1241,7 @@ public class UserController {
 			emailId = session.getAttribute("email").toString();
 			if(emailId.equals(Constants.adminEmailId))
 				return "adminInvalidrequest";
-			System.out.println("my email id " + emailId);
+			//System.out.println("my email id " + emailId);
 		} else
 			return "expiry";
 
@@ -1249,10 +1250,10 @@ public class UserController {
 		try {
 			UserPublication userPubs = pm.getObjectById(UserPublication.class, emailId);
 			if (userPubs == null) {
-				System.out.println("no publications yet");
+				//System.out.println("no publications yet");
 			} else {
 				try {
-					System.out.println("His publications are : " + userPubs.getPublicationList().toString());
+					//System.out.println("His publications are : " + userPubs.getPublicationList().toString());
 					pubs = userPubs.getPublicationList();
 					
 					List<Publication> pubDetailedlist = getPubDetailedlist(pubs);//gets only the pubs with visibility true
@@ -1279,7 +1280,7 @@ public class UserController {
 	}
 
 	public List<Proposal> getAbsDetailedlist(List<Integer> abs) {
-		System.out.println(" getAbsDetailedlist ");
+		//System.out.println(" getAbsDetailedlist ");
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		List<Proposal> another = new ArrayList<Proposal>();
 		List<Proposal> results = new ArrayList<Proposal>();
@@ -1292,11 +1293,11 @@ public class UserController {
 			for (int a : abs) {
 				Integer no = a;
 				results = (List<Proposal>) q.execute(no);
-				System.out.println(results.get(0).getAbstractId());
+				//System.out.println(results.get(0).getAbstractId());
 				another.addAll(results);
 			}
 
-			System.out.println(" RESULT SIZE of Abstracts" + another.size());
+			//System.out.println(" RESULT SIZE of Abstracts" + another.size());
 
 		} finally {
 			q.closeAll();
@@ -1306,7 +1307,7 @@ public class UserController {
 	}
 
 	public List<Publication> getPubDetailedlist(List<Integer> pubs) {
-		System.out.println(" getPubDetailedlist " + pubs.size());
+		//System.out.println(" getPubDetailedlist " + pubs.size());
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		List<Publication> another = new ArrayList<Publication>();
 		List<Publication> results = new ArrayList<Publication>();
@@ -1320,7 +1321,7 @@ public class UserController {
 				Integer no = a;
 
 				results = (List<Publication>) q.execute(no);
-				System.out.println(results.get(0).getpublicationId());
+				//System.out.println(results.get(0).getpublicationId());
 				if(results.get(0).getIsVisible())//only displays visible publications
 				another.addAll(results);
 				// results.add(p)
@@ -1330,7 +1331,7 @@ public class UserController {
 				// results.add(p);
 			}
 
-			System.out.println(" RESULT SIZE of Publications" + another.size());
+			//System.out.println(" RESULT SIZE of Publications" + another.size());
 
 		} finally {
 			q.closeAll();
@@ -1343,7 +1344,7 @@ public class UserController {
 	public @ResponseBody String editingUserDetails(
 			@RequestParam(value = "userInfo", required = false) String userdetails, HttpServletRequest request,
 			HttpServletResponse response, HttpSession session) {
-		System.out.println("comes to /editUserDetails thru ajax call" + userdetails);
+		//System.out.println("comes to /editUserDetails thru ajax call" + userdetails);
 		String emailId = "";
 		JSONObject user_detailsJson = new JSONObject();
 		try {
@@ -1353,7 +1354,7 @@ public class UserController {
 			e1.printStackTrace();
 		}
 		if (!Strings.isNullOrEmpty(userdetails)) {
-			System.out.println("from SESSION " + session.getAttribute("email"));
+			//System.out.println("from SESSION " + session.getAttribute("email"));
 			if (session != null && session.getAttribute("email") != null) {
 				emailId = session.getAttribute("email").toString();
 			} else
@@ -1369,12 +1370,12 @@ public class UserController {
 		q.declareParameters("String emailParameter");
 		try {
 			List<User> results = (List<User>) q.execute(emailId);
-			System.out.println("result size " + results.size());
+			//System.out.println("result size " + results.size());
 			if (results.isEmpty()) {
-				System.out.println("no account so proceed" + emailId);
+				//System.out.println("no account so proceed" + emailId);
 				return "noAccount";
 			} else {
-				System.out.println("to save the edited details");
+				//System.out.println("to save the edited details");
 				try {
 					results.get(0).setTitle(user_detailsJson.getString("title"));
 					results.get(0).setFirstname(user_detailsJson.getString("firstname"));
@@ -1444,9 +1445,9 @@ public class UserController {
 		q.declareParameters("String emailParameter");
 		try {
 			List<User> results = (List<User>) q.execute(emailId);
-			System.out.println(results.hashCode());
+			//System.out.println(results.hashCode());
 			if (results.isEmpty()) {
-				System.out.println("no account so proceed" + emailId);
+				//System.out.println("no account so proceed" + emailId);
 				saveUser(user_detailsJson, request, response, session);// Saves
 																		// User
 																		// details
@@ -1456,7 +1457,7 @@ public class UserController {
 				return "noAccount";
 
 			} else {
-				System.out.println("you are an existing user");
+				//System.out.println("you are an existing user");
 				return "existingUser";
 			}
 
@@ -1469,7 +1470,7 @@ public class UserController {
 	@RequestMapping(value = "/ifExistingUserForgot", method = RequestMethod.GET)
 	public @ResponseBody String ifExistingUserForgot(@RequestParam(value = "id", required = false) String emailId,
 			HttpServletRequest request, HttpServletResponse response, HttpSession session) {
-		System.out.println("checking if user exists.." + emailId);
+		//System.out.println("checking if user exists.." + emailId);
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 
 		Query q = pm.newQuery(User.class);
@@ -1479,13 +1480,13 @@ public class UserController {
 		q.declareParameters("String emailParameter");
 		try {
 			List<User> results = (List<User>) q.execute(emailId);
-			System.out.println(results.hashCode());
+			//System.out.println(results.hashCode());
 			if (results.isEmpty()) {
-				System.out.println("no account so proceed" + emailId);
+				//System.out.println("no account so proceed" + emailId);
 				return "noAccount";
 
 			} else {
-				System.out.println("you are an existing user");
+				//System.out.println("you are an existing user");
 				return "existingUser";
 			}
 
@@ -1503,7 +1504,7 @@ public class UserController {
 		String nextpage = "expiry";
 		if (session != null && session.getAttribute("email") != null && session.getAttribute("email").equals(Constants.adminEmailId)) {
 
-			System.out.println("getContactList " + contactList);
+			//System.out.println("getContactList " + contactList);
 			PersistenceManager pm = PMF.get().getPersistenceManager();
 
 			Query q = pm.newQuery(User.class);
@@ -1512,18 +1513,17 @@ public class UserController {
 			String contacts = "";
 			try {
 				List<User> results = (List<User>) q.execute();
-				System.out.println(results + "--- " + results.size());
+				//System.out.println(results + "--- " + results.size());
 				if (!results.isEmpty()) {
 					for (User u : results) {
-						System.out.println("before sublist");
+						//System.out.println("before sublist");
 						subsList = u.getMailLists().toString();
 						if (!Strings.isNullOrEmpty(subsList)) {
 
-							System.out.println(contactList + " contactList | after sublist" + subsList);
-							System.out.println(
-									" what is subsList.indexOf(contactList) =  " + subsList.indexOf(contactList));
+							//System.out.println(contactList + " contactList | after sublist" + subsList);
+							//System.out.println(" what is subsList.indexOf(contactList) =  " + subsList.indexOf(contactList));
 							if (subsList.indexOf(contactList) != -1) {
-								System.out.println("inside sublist");
+								//System.out.println("inside sublist");
 								String email = u.getEmail();
 								contacts = contacts + email + ";";
 
@@ -1540,7 +1540,7 @@ public class UserController {
 				q.closeAll();
 				pm.close();
 			}
-			System.out.println(contacts);
+			//System.out.println(contacts);
 			model.addAttribute("contacts", contacts);
 			sendContactsToAdmin(contacts, listname, emailid, session);
 			nextpage = "sent";
@@ -1549,7 +1549,7 @@ public class UserController {
 	}
 
 	public void sendContactsToAdmin(String contacts, String listname, String senderEmailid, HttpSession session) {
-		System.out.println("came to /sendContactsToAdmin " + senderEmailid);
+		//System.out.println("came to /sendContactsToAdmin " + senderEmailid);
 		ApplicationContext context = new ClassPathXmlApplicationContext("Spring-Mail.xml");
 
 		Email mm = (Email) context.getBean("Email");
@@ -1564,7 +1564,7 @@ public class UserController {
 	}
 	
 	public void activateEmailReqToAdmin(String senderEmailid,HttpServletRequest request) {
-		System.out.println("came to /activateEmailToAdmin " + senderEmailid);
+		//System.out.println("came to /activateEmailToAdmin " + senderEmailid);
 		ApplicationContext context = new ClassPathXmlApplicationContext("Spring-Mail.xml");
 		String url 				= 	request.getScheme() + "://"	+ request.getServerName() + request.getContextPath()+"/activate?acc="+senderEmailid;
 		
@@ -1583,9 +1583,9 @@ public class UserController {
 	//For the first time to add admin to the backend.It creates the table there
 	@RequestMapping(value = "/addAdmin", method = RequestMethod.GET)
     public void addAdmin(HttpServletRequest request, ModelMap model) {
-           System.out.println("/addAdmin GET");
+           //System.out.println("/addAdmin GET");
            Admin a=new Admin();
-           String msg="some message to display";
+           String msg="QuakeCoRE 2017 Annual Meeting 4-6 September,2017";
            String pwd="admin007";
            
            a.setMsg(msg);
@@ -1602,7 +1602,7 @@ public class UserController {
 	//After the table was created, if we need to change details
 	@RequestMapping(value = "/changeCredential", method = RequestMethod.GET)
     public void changeCredentials(HttpServletRequest request, ModelMap model) {
-           System.out.println("/changeCredential");
+           //System.out.println("/changeCredential");
            String searchAdminTable=Constants.adminEmailId;
            PersistenceManager pm = PMF.get().getPersistenceManager();
 
@@ -1615,7 +1615,7 @@ public class UserController {
 
                   if (!results.isEmpty()) {
                         results.get(0).setPassword(UserService.hashPassword("orange"));
-                        results.get(0).setMsg("orange");
+                        results.get(0).setMsg("QuakeCoRE website www.quakecore.nz");
                   }
            } finally {
                   q.closeAll();
@@ -1625,7 +1625,7 @@ public class UserController {
 
 	@RequestMapping(value = "/sendmail", method = RequestMethod.POST)
 	public ModelAndView sendMail(HttpServletRequest request, ModelMap model) {
-		 System.out.println("came to /sendmail"+request.getContextPath());
+		 //System.out.println("came to /sendmail"+request.getContextPath());
 		String email = request.getParameter("email");
 		ApplicationContext context = new ClassPathXmlApplicationContext("Spring-Mail.xml");
 		String requestURL 				= 	request.getScheme() + "://"	+ request.getServerName() + request.getContextPath();
@@ -1636,12 +1636,12 @@ public class UserController {
 		saveTempEntry(email, tempString);
 		mm.sendMail(Constants.adminEmailId, email, "QuakeCoRE account reset information",
 				"Your temporary password is " + tempString + ". Please login and change your password.");
-		// System.out.println("emailed");
+		// //System.out.println("emailed");
 		return new ModelAndView("select");
 	}
 
 	public void saveTempEntry(String email, String tempString) {
-		System.out.println("saveTempEntry " + email);
+		//System.out.println("saveTempEntry " + email);
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 
 		Query q = pm.newQuery(User.class);
@@ -1651,10 +1651,10 @@ public class UserController {
 		q.declareParameters("String emailParameter");
 		try {
 			List<User> results = (List<User>) q.execute(email);
-			System.out.println(results.hashCode());
+			//System.out.println(results.hashCode());
 			if (!results.isEmpty()) {
 				results.get(0).setPassword(tempString);
-				System.out.println("password changed to " + tempString);
+				//System.out.println("password changed to " + tempString);
 
 			} else {
 
@@ -1678,7 +1678,7 @@ public class UserController {
 			String emailId = session.getAttribute("email").toString();
 
 			// saves all data that comes from js into User Table
-			System.out.println("inside /saveEmailList" + list);
+			//System.out.println("inside /saveEmailList" + list);
 
 			String subscriptions = "";
 			JSONObject mail_details = new JSONObject();
@@ -1712,7 +1712,7 @@ public class UserController {
 
 	public void saveUserSubscription(String list, String emailId) {
 		List<String> newlist = Lists.newArrayList(Splitter.on(" , ").split(list));
-		System.out.println("newlist " + newlist);
+		//System.out.println("newlist " + newlist);
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 
 		Query q = pm.newQuery(User.class);
@@ -1722,10 +1722,10 @@ public class UserController {
 		q.declareParameters("String emailParameter");
 		try {
 			List<User> results = (List<User>) q.execute(emailId);
-			System.out.println(results.toString());
+			//System.out.println(results.toString());
 			if (!results.isEmpty()) {
 				results.get(0).setMailLists(newlist);
-				System.out.println("saved ");
+				//System.out.println("saved ");
 
 			} else {
 

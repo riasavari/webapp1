@@ -132,10 +132,10 @@
         </div>
     	 </div>
     	<div class="form-group">
-      		<input type="text" class="form-control" name="project" id="project" placeholder="project(s),if applicable (e.g: 16002, 16004 or TP4)">
+      		<input type="text" class="form-control" name="project" id="project" placeholder="Project(s),if applicable (e.g: 16002 or TP4)">
     	 </div>
     	  <div class="form-group">
-      		<input type="text" class="form-control" name="author" id="author" placeholder="Authors (e.g: Carter C, Smith A, Bruce N)">
+      		<input type="text" class="form-control" name="author" id="author" placeholder="Authors (e.g: Carter B, Smith A, Parker N)">
     	 </div>
     	 
 		 <div class="form-group" >
@@ -154,7 +154,7 @@
       		<input type="text" class="form-control" name="page" id="page"  placeholder="Number of pages">
     	 </div>
     	 <div class="form-group" style="display:none;" id="volumeDiv">
-      		<input type="text" class="form-control" name="volume" id="volume" placeholder="Volume,issue no, if available (e.g: 143,8)">
+      		<input type="text" class="form-control" name="volume" id="volume" placeholder="Volume,issue no, if available (e.g: 14(2))">
     	 </div>
     	 
     	 <div class="form-group" style="display:none;" id="locationDiv">

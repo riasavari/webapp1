@@ -42,21 +42,23 @@
 			  	 <!-- <div class="topbar"></div>  --> 
 				<div id="content" class="content-width">
 				  	<div class="container">
-        <div id="userid"  style="display:none;">
-				${email}
-			</div>
-      <div id="username"  style="display:none;">
-				${name}
-			</div>
-       <div id="allpublications"  style="display:none;">
-				${allPublicationList}
-			</div>
-			  <div id="search"  class="well well-sm" style="display:block;">
-				Please do a search to find a particular publication in this list.
-				Refresh the page to see latest additions.
-			</div>
+				        <div id="userid"  style="display:none;">
+								${email}
+						</div>
+				      	<div id="username"  style="display:none;">
+								${name}
+						</div>
+				        <div id="allpublications"  style="display:none;">
+								${allPublicationList}
+						</div>
+						<div id="search"  class="well well-sm" style="display:block;">
+							To find a particular publication press Ctrl F.
+							<!-- <br>To refresh the page to see latest additions press f5. -->
+						</div>
+					</div>
       <h3 class="form-heading">QuakeCoRE Publications</h3>
         <div class="jumbotron">
+       
  			<!-- <span style="white-space: nowrap"> -->
 			<div style="white-space: nowrap" align="center">
 			 <c:choose>
@@ -77,14 +79,14 @@
 		                <tr>
 		                    <c:if test="${not empty pub.pubIdStr4digit}"><td><c:out value="${pub.pubIdStr4digit}" /></td></c:if> 
 		                   <td> 
-							<c:if test="${not empty pub.author}"><c:out value="${pub.author}"/>.</c:if> 
-							<c:if test="${not empty pub.title}">'<c:out value="${pub.title}"/>'</c:if> 
-							<c:if test="${not empty pub.venueName}">,<c:out value="${pub.venueName}"/>.</c:if>
+							<c:if test="${not empty pub.author}"><c:out value="${pub.author}"/>.'</c:if> 
+							<c:if test="${not empty pub.title}"><c:out value="${pub.title}"/>',</c:if> 
+							<c:if test="${not empty pub.venueName}"><i><c:out value="${pub.venueName}"/></i>,</c:if>
 							<c:if test="${not empty pub.location}"><c:out value="${pub.location}"/>.</c:if>
-							<%-- <c:if test="${not empty pub.page}"><c:out value="${pub.page}"/>.</c:if> --%>
 							<c:if test="${not empty pub.publisher}"><c:out value="${pub.publisher}"/>.</c:if>
-							<c:if test="${not empty pub.volume}"><c:out value="${pub.volume}"/>.</c:if>
-							<c:if test="${not empty pub.url}"><c:out value="${pub.url}"/>.</c:if>
+							<c:if test="${not empty pub.volume}"><b><c:out value="${pub.volume}"/></b>:</c:if>
+							<c:if test="${not empty pub.page}"><c:out value="${pub.page}"/>.</c:if>
+							<c:if test="${not empty pub.url}"><c:out value="${pub.url}"/></c:if>
 							<c:if test="${not empty pub.publishDate}"><c:out value="${pub.publishDate}"/>.</c:if>
 							</td>
 							<c:if test="${not empty pub.fund}"><td><c:out value="${pub.fund}"/></td></c:if> 
@@ -98,8 +100,9 @@
 		</c:choose>
 		    </div>
 		<!-- </span> -->
+		
 	</div>
-	 </div>
+	 
 			  	 </div>	
 			    
 				  <div id="footer"><p><strong>QuakeCoRE | 
