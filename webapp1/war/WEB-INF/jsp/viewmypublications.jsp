@@ -82,19 +82,19 @@
 		            <c:forEach var="pub" items="${mypubs}">
 		                 <tr>
 							 
-							 <c:set var="name" scope="application" value="${pub.publicationId}"/>
+							<%--  <c:set var="pubStatus" scope="application" value="${pub.status}"/> --%>
 							 
 							  <c:if test="${not empty pub.pubIdStr4digit}"><td><c:out value="${pub.pubIdStr4digit}" /></td></c:if> 
 		                   <td> 
 							<c:if test="${not empty pub.author}"><c:out value="${pub.author}"/>.'</c:if> 
 							<c:if test="${not empty pub.title}"><c:out value="${pub.title}"/>',</c:if> 
-							<c:if test="${not empty pub.venueName}"><i><c:out value="${pub.venueName}"/></i>,</c:if>
+							<c:if test="${not empty pub.venueName}"><i><c:out value="${pub.venueName}"/></i><c:if test = "${pub.status == 'Published'}">,</c:if></c:if>
 							<c:if test="${not empty pub.location}"><c:out value="${pub.location}"/>.</c:if>
 							<c:if test="${not empty pub.publisher}"><c:out value="${pub.publisher}"/>.</c:if>
 							<c:if test="${not empty pub.volume}"><b><c:out value="${pub.volume}"/></b>:</c:if>
-							<c:if test="${not empty pub.page}"><c:out value="${pub.page}"/>.</c:if>
-							<c:if test="${not empty pub.url}"><c:out value="${pub.url}"/></c:if>
-							<c:if test="${not empty pub.publishDate}"><c:out value="${pub.publishDate}"/>.</c:if>
+							<c:if test="${not empty pub.page}"><c:out value="${pub.page}"/></c:if>
+							<c:if test="${not empty pub.url}">,<c:out value="${pub.url}"/></c:if>
+							<c:if test="${not empty pub.publishDate}">,<c:out value="${pub.publishDate}"/>.</c:if>
 							</td>
 							<c:if test="${not empty pub.fund}"><td><c:out value="${pub.fund}"/></td></c:if> 
 							<c:if test="${not empty pub.article}"><td><c:out value="${pub.article}"/></td></c:if> 

@@ -310,7 +310,6 @@
 			userInfo["gender"]	=	$.trim(gender);
 			console.log(userInfo);
 			
-			
 			var result=intoServer(userInfo);
 			return result;
 		}

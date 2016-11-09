@@ -44,6 +44,10 @@ table {
 	text-align:left;
 	
 }
+#comboMargin
+{
+	 margin-bottom: 10px; 
+}
 .form-heading
 {
 	font-weight:200;

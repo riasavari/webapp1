@@ -63,7 +63,7 @@
     <div class="modal-content">
      
       <div class="modal-body">
-        <p><span class="glyphicon glyphicon-refresh spinning"></span> Processing.Please wait.. </p>
+        <p><!-- <span class="glyphicon glyphicon-refresh spinning"></span> --> Processing.Please wait.. </p>
       </div>
       
     </div>
@@ -88,7 +88,7 @@
 	<!-- <h2 class="form-heading">Please sign up</h2> -->
 	 <div class="form-group form-horizontal">
         <label class="col-xs-3 control-label">Title</label>
-        <div class="col-xs-5 selectContainer">
+        <div class="col-xs-5 selectContainer" id="comboMargin">
             <select class="form-control" name="title" id="title">
                 <option value="Dr">Dr</option>
                 <option value="Mr">Mr</option>
@@ -116,7 +116,7 @@
   
   
 	 <label class="col-xs-3 control-label">Category</label>
-        <div class="col-xs-9 selectContainer">
+        <div class="col-xs-9 selectContainer" id="comboMargin">
             <select class="form-control" name="category" id="category">
             	<option value="uniresearcher">University - Researcher</option>
             	<option value="unipostdoc">University - Post Doctoral Fellow</option>
@@ -151,7 +151,7 @@
 	        
 	        <br>
          <label class="col-xs-3 control-label">Country</label>
-        <div class="col-xs-9 selectContainer">
+        <div class="col-xs-9 selectContainer" id="comboMargin">
             <select class="form-control" name="country" id="country">
              <option value="select">select</option>
            <option value="AF">Afghanistan</option>

@@ -70,17 +70,17 @@
         </p>
     </div>
 	 <br><br><br>
-<div class="form-group form-horizontal">
+<!-- <div class="form-group form-horizontal"> -->
         <label class="col-xs-3 control-label">Title</label>
-        <div class="col-xs-5 selectContainer">
+        <div class="col-xs-5 selectContainer" id="comboMargin">
             <select class="form-control" name="title" id="title">
                 <option value="Dr">Dr</option>
                 <option value="Mr">Mr</option>
                 <option value="Ms">Ms</option>
             </select>
         </div>
-    </div>
-    <br>
+    <!-- </div> -->
+    
     <div class="form-group">
       <input type="text" class="form-control" name="firstname" id="firstname" placeholder="First name">
     </div>
@@ -92,7 +92,7 @@
         
       
 	 <label class="col-xs-3 control-label">Category</label>
-        <div class="col-xs-9 selectContainer">
+        <div class="col-xs-9 selectContainer" id="comboMargin">
             <select class="form-control" name="category" id="category">
             	<option value="uniresearcher">University - Researcher</option>
             	<option value="unipostdoc">University - Post Doctoral Fellow</option>
@@ -116,7 +116,7 @@
     <div class="form-group">
       <input type="text" class="form-control" name="organisation" id="organisation" placeholder="Organisation">
     </div>
-	
+	<div id="comboMargin">
 	 		<label class="col-xs-3 control-label">Gender</label>
 	        <div class="radio-inline"><label>
 	            <input type="radio"  name="radioGender" value="Male" id="Male"> Male
@@ -124,10 +124,10 @@
 	        <div class="radio-inline"><label> 
 	            <input type="radio"  name="radioGender" value="Female" id="Female">Female
 	        </label></div>
+	     </div>   
 	        
-	        <br>
          <label class="col-xs-3 control-label">Country</label>
-        <div class="col-xs-9 selectContainer">
+        <div class="col-xs-9 selectContainer" id="comboMargin">
             <select class="form-control" name="country" id="country">
              <option value="select">select</option>
            <option value="AF">Afghanistan</option>
@@ -383,8 +383,8 @@
             </select>
         </div> 
         
-  <br>
-       
+ 
+      <br>
         <div style="display:none;" id="ethnicDiv"> 
          	<label class="col-xs-3 control-label"> Ethnicity</label>
 					<div class="checkbox" id="cbox-group">

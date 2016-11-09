@@ -89,7 +89,7 @@
     	 <!-- copy from here for editPublication -->
 		 <div class="form-group">
       		<label class="col-xs-4 control-label">Year</label>
-        <div class="col-xs-5 selectContainer">
+        <div class="col-xs-5 selectContainer" id="comboMargin">
             <select class="form-control selectwidthauto" name="year" id="year">
                 <option value="2016">2016</option>
                 <option value="2017">2017</option>
@@ -101,7 +101,7 @@
         </div>
         <div class="form-group">
         <label class="col-xs-4 control-label">Funding</label>
-        <div class="col-xs-5 selectContainer">
+        <div class="col-xs-5 selectContainer" id="comboMargin">
             <select class="form-control selectwidthauto" name="fund" id="fund">
                 <option value="Aligned">Aligned</option>
                 <option value="Direct">Direct</option>
@@ -110,7 +110,7 @@
     	 </div>
     	  <div class="form-group">
       		<label class="col-xs-4 control-label">Status</label>
-        <div class="col-xs-5 selectContainer"><!-- if you change/add the value names in this dropdown list,change in js files accordingly -->
+        <div class="col-xs-5 selectContainer" id="comboMargin"><!-- if you change/add the value names in this dropdown list,change in js files accordingly -->
             <select class="form-control selectwidthauto" name="status" id="status">
                 <option value="Submitted">Submitted</option>
                 <option value="Accepted">Accepted</option>
@@ -120,8 +120,8 @@
     	 </div>
     	  <div class="form-group">
       		<label class="col-xs-4 control-label">Article Type</label>
-        <div class="col-xs-5 selectContainer"><!-- if you change/add the value names in this dropdown list,change in js files accordingly -->
-            <select class="form-control selectwidthauto" name="article" id="article">
+        <div class="col-xs-8 selectContainer"  id="comboMargin"><!-- if you change/add the value names in this dropdown list,change in js files accordingly -->
+            <select class="form-control" name="article" id="article">
                 <option value="Journal">Journal Article (peer-reviewed)</option>
                 <option value="Conference">Conference Article (peer-reviewed)</option>
                 <option value="Book">Book (peer-reviewed)</option>
