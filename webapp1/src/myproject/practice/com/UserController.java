@@ -1116,7 +1116,6 @@ public class UserController {
 			user.setLastname(userInfo.getString("lastname"));
 			user.setEmail(userInfo.getString("email"));
 			user.setPassword(userInfo.getString("password"));
-			user.setTitle(userInfo.getString("title"));
 			user.setPosition(userInfo.getString("position"));
 			user.setOrganisation(userInfo.getString("organisation"));
 			if (!Strings.isNullOrEmpty(userInfo.getString("orcId")))
@@ -1377,7 +1376,6 @@ public class UserController {
 			} else {
 				//System.out.println("to save the edited details");
 				try {
-					results.get(0).setTitle(user_detailsJson.getString("title"));
 					results.get(0).setFirstname(user_detailsJson.getString("firstname"));
 					results.get(0).setLastname(user_detailsJson.getString("lastname"));
 					results.get(0).setCategory(user_detailsJson.getString("category"));

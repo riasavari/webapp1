@@ -45,10 +45,8 @@ public class UserService {
 				
 				request.setAttribute("active", results.get(0).getActive().toString());
 				request.setAttribute("newUserAcc", results.get(0).getEmail().toString());
-				
 				request.setAttribute("firstName", results.get(0).getFirstname().toString());
 				request.setAttribute("lastName", results.get(0).getLastname().toString());
-				request.setAttribute("title", results.get(0).getTitle().toString());
 				request.setAttribute("position", results.get(0).getPosition().toString());
 				request.setAttribute("organisation", results.get(0).getOrganisation().toString());
 				request.setAttribute("category", results.get(0).getCategory().toString());

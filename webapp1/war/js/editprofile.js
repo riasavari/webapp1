@@ -10,16 +10,16 @@ $(document.body).keypress(function(event){
 		//alert("inside of editprofile.js "+($($('#temp > div')[4]).html()));
 		var firstName	=	($($('#temp > div')[0]).html() != "") ? ($($('#temp > div')[0]).html()) : "";
 		var lastName	=	($($('#temp > div')[1]).html() != "") ? ($($('#temp > div')[1]).html()) : "";
-		var title		=	($($('#temp > div')[2]).html() != "") ? ($($('#temp > div')[2]).html()) : "";
-		var position	=	($($('#temp > div')[3]).html() != "") ? ($($('#temp > div')[3]).html()) : "";
-		var organisation=	($($('#temp > div')[4]).html() != "") ? ($($('#temp > div')[4]).html()) : "";
-		var category	=	($($('#temp > div')[5]).html() != "") ? ($($('#temp > div')[5]).html()) : "";
-		var gender		=	($($('#temp > div')[6]).html() != "") ? ($($('#temp > div')[6]).html()) : "";
-	 	var country		=	($($('#temp > div')[7]).html() != "") ? ($($('#temp > div')[7]).html()) : "";
-	 	var ethnicity	=	($($('#temp > div')[8]).html() != "") ? ($($('#temp > div')[8]).html()) : "";
-	    var iwi			=	($($('#temp > div')[9]).html() != "") ? ($($('#temp > div')[9]).html()) : "";
-	    var comments	=	($($('#temp > div')[10]).html() != "") ? ($($('#temp > div')[10]).html()) : "";
-	    var orcId		=	($($('#temp > div')[11]).html() != "") ? ($($('#temp > div')[11]).html()) : "";
+		var position	=	($($('#temp > div')[2]).html() != "") ? ($($('#temp > div')[2]).html()) : "";
+		var organisation=	($($('#temp > div')[3]).html() != "") ? ($($('#temp > div')[3]).html()) : "";
+		var category	=	($($('#temp > div')[4]).html() != "") ? ($($('#temp > div')[4]).html()) : "";
+		var gender		=	($($('#temp > div')[5]).html() != "") ? ($($('#temp > div')[5]).html()) : "";
+		var country		=	($($('#temp > div')[6]).html() != "") ? ($($('#temp > div')[6]).html()) : "";
+		var ethnicity	=	($($('#temp > div')[7]).html() != "") ? ($($('#temp > div')[7]).html()) : "";
+		var iwi			=	($($('#temp > div')[8]).html() != "") ? ($($('#temp > div')[8]).html()) : "";
+		var comments	=	($($('#temp > div')[9]).html() != "") ? ($($('#temp > div')[9]).html()) : "";
+		var orcId		=	($($('#temp > div')[10]).html() != "") ? ($($('#temp > div')[10]).html()) : "";
+	    		
 	
 		
 		var raceList;
@@ -42,9 +42,6 @@ $(document.body).keypress(function(event){
 		$('#lastname').val(lastName);
 		else
 			$('#lastname').val("");
-		
-		if(title.length != 0)
-		$('#title').val(title);
 		
 		if(position.length != 0)
 		$('#position').val(position);
@@ -173,7 +170,6 @@ $(document.body).keypress(function(event){
 			
 			var firstname		=	document.getElementById("firstname").value;
 			var lastname		=	document.getElementById("lastname").value;
-			var title			=	document.getElementById("title").value;
 			var position		=	document.getElementById("position").value;
 			var organisation	=	document.getElementById("organisation").value;
 			var category		=	document.getElementById("category").value;;
@@ -328,7 +324,6 @@ $(document.body).keypress(function(event){
 			
 			userInfo["firstname"]	=	$.trim(firstname);
 			userInfo["lastname"]	=	$.trim(lastname);
-			userInfo["title"]	=	title;
 			userInfo["position"]	=	$.trim(position);
 			userInfo["organisation"]	=	$.trim(organisation);
 			userInfo["category"]	=	category;

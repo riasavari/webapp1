@@ -63,7 +63,7 @@
     </div>
 	 <br><br><br> -->
     	<!-- <div class="well well-lg" style="display: block; position: absolute;z-index: 2001;"> -->
-       <label>Name: ${title}.${firstName} ${lastName}</label><br>
+       <label>Name: ${firstName} ${lastName}</label><br>
        <label>Position: ${position} </label><br>
         <label>Organisation: ${organisation}</label><br>
         <label>Category: ${category}</label><br>

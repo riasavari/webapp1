@@ -48,7 +48,6 @@
       		<div id="temp" style="display:none;">
 			 	<div>${firstName}</div>
 			 	<div>${lastName}</div>
-			 	<div>${title}</div>
 			    <div>${position}</div>
 			    <div>${organisation}</div>
 			    <div>${category}</div>
@@ -70,16 +69,6 @@
         </p>
     </div>
 	 <br><br><br>
-<!-- <div class="form-group form-horizontal"> -->
-        <label class="col-xs-3 control-label">Title</label>
-        <div class="col-xs-5 selectContainer" id="comboMargin">
-            <select class="form-control" name="title" id="title">
-                <option value="Dr">Dr</option>
-                <option value="Mr">Mr</option>
-                <option value="Ms">Ms</option>
-            </select>
-        </div>
-    <!-- </div> -->
     
     <div class="form-group">
       <input type="text" class="form-control" name="firstname" id="firstname" placeholder="First name">

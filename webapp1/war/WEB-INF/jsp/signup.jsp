@@ -86,17 +86,6 @@
     </div>
 </div>
 	<!-- <h2 class="form-heading">Please sign up</h2> -->
-	 <div class="form-group form-horizontal">
-        <label class="col-xs-3 control-label">Title</label>
-        <div class="col-xs-5 selectContainer" id="comboMargin">
-            <select class="form-control" name="title" id="title">
-                <option value="Dr">Dr</option>
-                <option value="Mr">Mr</option>
-                <option value="Ms">Ms</option>
-            </select>
-        </div>
-    </div>
-    <br>
      
     <div class="form-group">
       <input type="text" class="form-control" name="firstname" id="firstname" placeholder="First name">

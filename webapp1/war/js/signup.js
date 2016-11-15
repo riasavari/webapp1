@@ -65,7 +65,6 @@
 			var lastname		=	document.getElementById("lastname").value;
 			var password		=	document.getElementById("password").value;
 			var confirmPassword	=	document.getElementById("retype-password").value
-			var title			=	document.getElementById("title").value;
 			var position		=	document.getElementById("position").value;
 			var organisation	=	document.getElementById("organisation").value;
 			var orcId			=	document.getElementById("orcId").value;
@@ -298,7 +297,6 @@
 			userInfo["firstname"]	=	$.trim(firstname);
 			userInfo["lastname"]	=	$.trim(lastname);
 			userInfo["password"]	=	password;
-			userInfo["title"]	=	title;
 			userInfo["position"]	=	$.trim(position);
 			userInfo["organisation"]	=	$.trim(organisation);
 			userInfo["orcId"]	=	orcId;

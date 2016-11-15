@@ -19,9 +19,6 @@ public class User {
 		
 		@Persistent
 	    private String orcId; 
-
-	 	@Persistent
-	    private String title; 
 	 	
 	 	@Persistent
 	    private Boolean active; 
@@ -171,16 +168,6 @@ public class User {
 			this.signupdate = signupdate;
 		}
 
-		
-		public String getTitle() {
-				return title;
-			}
-
-			public void setTitle(String title) {
-				this.title = title;
-			}
-
-			
 			public Date getLastLoginDate() {
 				return lastLoginDate;
 			}
