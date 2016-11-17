@@ -48,8 +48,6 @@
 		
 		signup = function ()
 		{ 
-			//console.log("inside signup () "); 
-			//$("html, body").animate({ scrollTop: 0 }, "slow");
 			$('#modalbox').modal('show');
 			var emailid	=	document.getElementById("email").value;
 			var endOutput=validate();
@@ -76,7 +74,6 @@
 			
 			//console.log(email);console.log(firstname);console.log(lastname);console.log(password);console.log(confirmPassword);
 			
-			console.log(comments);
 			
 			if(!isValid(email) && !isValid(firstname) && !isValid(lastname) && !isValid(password) && !isValid(confirmPassword) && !isValid(position) && !isValid(organisation) )
 			{
@@ -306,7 +303,7 @@
 			userInfo["ethnicity"]	=	$.trim(raceList);
 			userInfo["iwi"]	=	$.trim(iwi);
 			userInfo["gender"]	=	$.trim(gender);
-			console.log(userInfo);
+			//console.log(userInfo);
 			
 			var result=intoServer(userInfo);
 			return result;
@@ -316,11 +313,11 @@
 		{//send JSON object
 			var result=false;
 			$.ajax({
-				async:false,
 			    type: 'POST', 
 			    url: '/ifExistingUser', 
 			    data:{userInfo:JSON.stringify(userInfo)},
 			    dataType:'text',
+			    async:false,
 			    success: function(response)
 			             {
 						    	//alert("1"+response);	
@@ -345,6 +342,7 @@
 						    	
 			             },
 			             error: function(){
+			            	 $('#modalbox').modal('hide');
 			             }
 			  
 				});

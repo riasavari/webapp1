@@ -1627,14 +1627,16 @@ public class UserController {
 		String email = request.getParameter("email");
 		ApplicationContext context = new ClassPathXmlApplicationContext("Spring-Mail.xml");
 		String requestURL 				= 	request.getScheme() + "://"	+ request.getServerName() + request.getContextPath();
-
 		Email mm = (Email) context.getBean("Email");
-
 		String tempString = UserService.randString();
 		saveTempEntry(email, tempString);
-		mm.sendMail(Constants.adminEmailId, email, "QuakeCoRE account reset information",
-				"Your temporary password is " + tempString + ". Please login and change your password.");
-		// //System.out.println("emailed");
+		
+		StringBuilder bodyText = new StringBuilder();
+		
+		
+		bodyText.append("Your temporary password is " + tempString + ". Please login and change your password "+requestURL);
+		
+		mm.sendMail(Constants.adminEmailId, email, "QuakeCoRE account reset information",bodyText.toString());
 		return new ModelAndView("select");
 	}
 

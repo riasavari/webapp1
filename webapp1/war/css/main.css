@@ -9,6 +9,7 @@ body {
 td {
   white-space: normal !important; 
   word-wrap: break-word;  
+  
 }
 table {
   table-layout: fixed;
@@ -43,6 +44,10 @@ table {
 {
 	text-align:left;
 	
+}
+#rowFont th,#rowFont td
+{
+	padding: 3px;
 }
 #comboMargin
 {

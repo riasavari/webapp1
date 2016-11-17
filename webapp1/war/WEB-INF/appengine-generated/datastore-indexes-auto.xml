@@ -1,17 +1,4 @@
-<!-- Indices written at Thu, 10 Nov 2016 11:53:37 NZDT -->
+<!-- Indices written at Wed, 16 Nov 2016 18:19:37 NZDT -->
 
-<datastore-indexes>
+<datastore-indexes/>
 
-    <!-- Used 7 times in query history -->
-    <datastore-index kind="Publication" ancestor="false" source="auto">
-        <property name="isVisible" direction="asc"/>
-        <property name="publicationId" direction="asc"/>
-    </datastore-index>
-
-    <!-- Used 2 times in query history -->
-    <datastore-index kind="User" ancestor="false" source="auto">
-        <property name="active" direction="asc"/>
-        <property name="firstname" direction="asc"/>
-    </datastore-index>
-
-</datastore-indexes>

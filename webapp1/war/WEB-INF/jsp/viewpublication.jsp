@@ -67,7 +67,7 @@
       		 <c:otherwise>
 		        <table  border="1" cellpadding="5">
 		            
-		            <tr>
+		            <tr id="rowFont">
 		                <th>ID</th>
 		                <th>Details</th>
 						<th>Funding</th>
@@ -76,7 +76,7 @@
 						<th>Year</th>
 		            </tr>
 		            <c:forEach var="pub" items="${allPublicationList}">
-		                <tr>
+		                <tr id="rowFont">
 		                    <c:if test="${not empty pub.pubIdStr4digit}"><td><c:out value="${pub.pubIdStr4digit}" /></td></c:if> 
 		                   <td> 
 							<c:if test="${not empty pub.author}"><c:out value="${pub.author}"/>.'</c:if> 

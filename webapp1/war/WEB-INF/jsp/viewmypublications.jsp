@@ -68,7 +68,7 @@
       		 <c:otherwise>
 		        <table  border="1" cellpadding="5">
 		            
-		            <tr>
+		            <tr id="rowFont">
 		                <th>ID</th>
 		                <th>Details</th>
 						<th>Funding</th>
@@ -80,7 +80,7 @@
 		            </tr>
 					
 		            <c:forEach var="pub" items="${mypubs}">
-		                 <tr>
+		                 <tr id="rowFont">
 							 
 							<%--  <c:set var="pubStatus" scope="application" value="${pub.status}"/> --%>
 							 

@@ -56,14 +56,14 @@
         <p><span class="glyphicon glyphicon-refresh spinning"></span> Processing.Please wait.. </p>
       </div>
 </div> -->
-<div id="modalbox" class="modal" role="dialog" data-keyboard="false" data-backdrop="static">
+ <div id="modalbox" class="modal" role="dialog" data-keyboard="false" data-backdrop="static" style="display: none"> 
   <div class="modal-dialog">
 
     <!-- Modal content-->
     <div class="modal-content">
      
       <div class="modal-body">
-        <p><!-- <span class="glyphicon glyphicon-refresh spinning"></span> --> Processing.Please wait.. </p>
+        <p><!-- <span class="glyphicon glyphicon-refresh spinning"></span> -->Processing.Please wait.. </p>
       </div>
       
     </div>
