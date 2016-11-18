@@ -49,7 +49,7 @@
 						</div>
 	 <h3 class="form-heading">Welcome ${name}!</h3>
 		<div class="jumbotron">
-				<form  method="post"  class="fillform" name="formUserSelection" action="">
+				<form  method="post"  class="homeuserform" name="formUserSelection" action="">
 					 <div id="messagebox" class="alertbox" style="display: none; position: absolute;z-index: 2001;">
 				        <p>
 				            <span class="alert alert-success" id="Err"></span>
@@ -60,10 +60,12 @@
 							  <a href="changepassword" class="btn btn-default btn-block" role="button" >Change password</a>
 							  <a href="editprofile" class="btn  btn-default btn-block" role="button" >Edit profile</a>
 							  <a href="mailinglist" class="btn  btn-default btn-block" role="button">Mailing list subscription</a>
-							  <a href="newpublication" class="btn  btn-default btn-block" role="button">Get QuakeCoRE article number</a>
-							   <a href="viewmypublications" class="btn  btn-default btn-block" role="button">Update article details</a>
+							  <a href="newpublication" class="btn  btn-default btn-block" role="button">Get QuakeCoRE publication number</a>
+							   <a href="viewmypublications" class="btn  btn-default btn-block" role="button">Update publication details</a>
 							   <a href="viewpeople" class="btn  btn-default btn-block" role="button">QuakeCoRE community</a>
 							  <a href="viewpublication" class="btn  btn-default btn-block" role="button">QuakeCoRE publications</a>
+							  <a href="http://www.quakecore.nz/about/logo.shtml" target="_blank" class="btn  btn-default btn-block" role="button">Get QuakeCoRE logo</a>
+							   <a href="https://wiki.canterbury.ac.nz/display/QuakeCore/QuakeCoRE%3A+The+Centre+for+Earthquake+Resilience+Home" target="_blank" class="btn  btn-default btn-block" role="button">QuakeCoRE wikipages</a>
 							  <br><br>
 							   <!--  <a href="abstractSubmission" class="btn btn-round" role="button">Submit abstract</a> 
 							   <a href="viewMyAbstractSubmissions" class="btn btn-round" role="button">View my abstract submissions</a> -->

@@ -100,30 +100,32 @@
         </div>
         </div>
         <div class="form-group">
-        <label class="col-xs-4 control-label">Funding</label>
+        <label class="col-xs-4 control-label">Attribution</label>
         <div class="col-xs-5 selectContainer" id="comboMargin">
             <select class="form-control selectwidthauto" name="fund" id="fund">
                 <option value="Aligned">Aligned</option>
                 <option value="Direct">Direct</option>
             </select>
-        </div>
-    	 </div>
-    	  <div class="form-group">
+            </div>
+         </div>
+    	 <a href="#" class="col-xs-1" data-toggle="tooltip" data-placement="bottom" ><span class="glyphicon glyphicon-question-sign"></span></a>
+        
+    	 <div class="form-group">
       		<label class="col-xs-4 control-label">Status</label>
-        <div class="col-xs-5 selectContainer" id="comboMargin"><!-- if you change/add the value names in this dropdown list,change in js files accordingly -->
-            <select class="form-control selectwidthauto" name="status" id="status">
+        <div class="col-xs-5 selectContainer selectwidthauto" id="comboMargin"><!-- if you change/add the value names in this dropdown list,change in js files accordingly -->
+            <select class="form-control" name="status" id="status">
                 <option value="Submitted">Submitted</option>
                 <option value="Accepted">Accepted</option>
                 <option value="Published">Published</option>
             </select>
         </div>
-    	 </div>
+         </div>
     	  <div class="form-group">
-      		<label class="col-xs-4 control-label">Article Type</label>
+      		<label class="col-xs-4 control-label">Type</label>
         <div class="col-xs-8 selectContainer"  id="comboMargin"><!-- if you change/add the value names in this dropdown list,change in js files accordingly -->
             <select class="form-control" name="article" id="article">
-                <option value="Journal">Journal Article (peer-reviewed)</option>
-                <option value="Conference">Conference Article (peer-reviewed)</option>
+                <option value="Journal">Journal Publication (peer-reviewed)</option>
+                <option value="Conference">Conference Proceeding (peer-reviewed)</option>
                 <option value="Book">Book (peer-reviewed)</option>
                  <option value="Book chapter">Book Chapter (peer-reviewed)</option>
                 <option value="Peer-reviewed">Other (peer-reviewed)</option>
@@ -135,7 +137,7 @@
       		<input type="text" class="form-control" name="project" id="project" placeholder="Project(s),if applicable (e.g: 16002 or TP4)">
     	 </div>
     	  <div class="form-group">
-      		<input type="text" class="form-control" name="author" id="author" placeholder="Authors (e.g: Carter B, Smith A, Parker N)">
+      		<input type="text" class="form-control" name="author" id="author" placeholder="Authors (e.g: Carter B., Smith A.M., Parker N)">
     	 </div>
     	 
 		 <div class="form-group" >

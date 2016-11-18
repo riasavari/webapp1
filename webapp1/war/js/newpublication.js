@@ -8,7 +8,13 @@ $(document).ready(function()
 	{
 		$("#logoutTab").hide();
 	}
-	
+	$(document).ready(function(){
+	    $('[data-toggle="tooltip"]').tooltip({
+	    	template:'<div class="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
+	        title: "<b>Direct Outputs:</b>Research outputs are classified as direct if directly funded (in part or full) by the CoRE.<br><b>Aligned Outputs:</b>Research outputs are classified as aligned if they weren’t directly funded in any way by the Core but are within the mission of QuakeCoRE.",
+	        html: true
+	    }); 
+	});
 	console.log("inside of js "+($($('#temp > div')[14]).html()));
 	var year	=	($($('#temp > div')[0]).html() != "") ? ($($('#temp > div')[0]).html()) : "";
 	var fund	=	($($('#temp > div')[1]).html() != "") ? ($($('#temp > div')[1]).html()) : "";
