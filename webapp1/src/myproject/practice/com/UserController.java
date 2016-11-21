@@ -82,10 +82,10 @@ public class UserController {
 		return "userStatusChanged";
 	}
 	
-	@RequestMapping(value = "/visibilityChanged", method = RequestMethod.GET)
+	@RequestMapping(value = "/itemDetailsChanged", method = RequestMethod.GET)
 	public String pubvisibilityChangedPage(ModelMap model) {
-		//System.out.println("came to /visibilityChanged");
-		return "visibilityChanged";
+		//System.out.println("came to /itemDetailsChanged");
+		return "itemDetailsChanged";
 	}
 	
 	@RequestMapping(value = "/exusersignup", method = RequestMethod.GET)
@@ -396,6 +396,26 @@ public class UserController {
 		}
 		return page;
 	}
+	@RequestMapping(value = "/correct", method = RequestMethod.GET)
+	public ModelAndView correctPublicationPage(ModelMap model,HttpServletRequest request, HttpServletResponse response,HttpSession session) {
+		//System.out.println("got here for /changeVisibility ");
+		
+		if (session != null && session.getAttribute("email") != null) {
+			if(!(session.getAttribute("email").equals(Constants.adminEmailId)))
+				return new ModelAndView ("invalidrequest");
+			//System.out.println(request.getParameter("useremail"));
+			String pubId=request.getParameter("pubno");
+			int no=Integer.parseInt(pubId);
+			try {
+				return getPublication(Constants.adminEmailId, request, response, model,no);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return new ModelAndView ("expiry");
+		
+	}
 	
 	@RequestMapping(value = "/changed", method = RequestMethod.GET)
 	public String changed(ModelMap model) {
@@ -567,6 +587,37 @@ public class UserController {
 			return "viewpeople";
 
 		}
+		@RequestMapping(value = "/correctPublication", method = RequestMethod.GET)
+		public  String getAllPubforAdmin(HttpServletRequest request, HttpServletResponse response,
+				ModelMap model,HttpSession session )
+		{//System.out.println("/correctPublication");
+			String emailId = "";
+			if (session != null && session.getAttribute("email") != null) {
+				emailId = session.getAttribute("email").toString();
+				if(!(emailId.equals(Constants.adminEmailId)))
+					return "invalidrequest";
+			} else
+				return "expiry";
+		
+			PersistenceManager pm = PMF.get().getPersistenceManager();
+			Query q = pm.newQuery(Publication.class);
+			q.setOrdering("publicationId");
+			try {
+				List<Publication> results = (List<Publication>) q.execute();
+				//System.out.println("result size " + results.size());
+				if (results.isEmpty()) {
+					model.addAttribute("allPubsList", null);
+				} else {
+					model.addAttribute("allPubsList", results);
+				}
+
+			} finally {
+				q.closeAll();
+				pm.close();
+			}
+
+			return "correctPublication";
+		}
 	@RequestMapping(value = "/selectpublication", method = RequestMethod.GET)
 	public  String getAllPubsforAdmin(HttpServletRequest request, HttpServletResponse response,
 			ModelMap model,HttpSession session )
@@ -601,10 +652,13 @@ public class UserController {
 	
 	public ModelAndView getPublication(String emailId, HttpServletRequest request, HttpServletResponse response,
 			ModelMap model, int publicationId) throws Exception {
+		if(!emailId.equals(Constants.adminEmailId))//if edited by user than admin, this check is needed
+		{
 		List<Integer> user_pubList=getUserPublicationList(emailId);
 		if(!user_pubList.contains(publicationId))
 		{
 			return new ModelAndView("expiry");
+		}
 		}
 		String nextpage = "newpublication";
 		PersistenceManager pm = PMF.get().getPersistenceManager();
@@ -682,8 +736,8 @@ public class UserController {
 			//System.out.println(" *** TWO *** no " + no);
 			
 			if (session != null && session.getAttribute("email") != null) {
-				if(session.getAttribute("email").equals(Constants.adminEmailId))
-					return new ModelAndView("adminInvalidrequest");
+				/*if(session.getAttribute("email").equals(Constants.adminEmailId))//Admin can edit as well, so blocked this
+					return new ModelAndView("adminInvalidrequest");*/
 			PersistenceManager pm = PMF.get().getPersistenceManager();
 			Query q = pm.newQuery(Publication.class);
 			q.setFilter("publicationId == idParameter");
@@ -760,7 +814,8 @@ public class UserController {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-
+					if(session.getAttribute("email").equals(Constants.adminEmailId))//Admin can edit as well, so blocked this
+						return new ModelAndView("itemDetailsChanged");
 					return new ModelAndView("changed");
 				}
 

@@ -51,7 +51,7 @@
       		
 
 			 
-      <h3 class="form-heading">User Profile</h3>
+      <h3 class="form-heading">Change Visibility?</h3>
     <div class="jumbotron">
 	<form  method="get"  class="fillform form-horizontal" name="formPubVisibility" action="changeVisibility">
 	
@@ -74,6 +74,5 @@
 		</div>
 		<script  src="/lib/jquery-min-latest.js"></script>
 		<script  src="bootstrap/js/bootstrap.min.js"></script>
-		<script  src="/js/changepublicationstatus.js"></script>
 		</body>
 </html>

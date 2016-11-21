@@ -38,7 +38,7 @@
 		${email}
 	</div>
     <div class="jumbotron">
-  <h3 class="form-heading">The publication's visibility has been successfully changed.</h3>
+  <h3 class="form-heading">The publication's details have been successfully changed.</h3>
   </div>
   		</div> 
 			  	 </div>	

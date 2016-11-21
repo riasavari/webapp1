@@ -47,8 +47,7 @@
 		
 		
 		signup = function ()
-		{ 
-			$('#modalbox').modal('show');
+		{ $('#modalbox').modal('show');
 			var emailid	=	document.getElementById("email").value;
 			var endOutput=validate();
 			return endOutput;

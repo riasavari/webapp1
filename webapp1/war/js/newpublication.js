@@ -10,12 +10,12 @@ $(document).ready(function()
 	}
 	$(document).ready(function(){
 	    $('[data-toggle="tooltip"]').tooltip({
-	    	template:'<div class="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
-	        title: "<b>Direct Outputs:</b>Research outputs are classified as direct if directly funded (in part or full) by the CoRE.<br><b>Aligned Outputs:</b>Research outputs are classified as aligned if they weren’t directly funded in any way by the Core but are within the mission of QuakeCoRE.",
+	    	template:'<div class="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner" style="text-align:justify"></div></div>',
+	        title: "<b>Aligned:</b>Research outputs are classified as aligned if they weren’t directly funded in any way by the Core but are within the mission of QuakeCoRE.<br><b>Direct:</b>Research outputs are classified as direct if directly funded (in part or full) by the CoRE.",
 	        html: true
 	    }); 
 	});
-	console.log("inside of js "+($($('#temp > div')[14]).html()));
+	//console.log("inside of js "+($($('#temp > div')[14]).html()));
 	var year	=	($($('#temp > div')[0]).html() != "") ? ($($('#temp > div')[0]).html()) : "";
 	var fund	=	($($('#temp > div')[1]).html() != "") ? ($($('#temp > div')[1]).html()) : "";
 	var status	=	($($('#temp > div')[2]).html() != "") ? ($($('#temp > div')[2]).html()) : "";
@@ -34,7 +34,7 @@ $(document).ready(function()
 	var project= ($($('#temp > div')[15]).html() != "") ? ($($('#temp > div')[15]).html()) : "";
 	if($.trim(editpub) == "edit")
 	{
-		console.log("GOT In EDIT validation"+year.length);
+		//console.log("GOT In EDIT validation"+year.length);
 		if(publicationNo.length != 0)
 			$('#editNo').val(publicationNo);
 		
@@ -116,7 +116,7 @@ $(document).ready(function()
     	document.getElementById("publisher").value		=	""; 
 		}
     $("select").change(function(){
-    	console.log("moves HERE here");
+    	//console.log("moves HERE here");
     	var article	=	document.getElementById("article").value;
     	var status	=	document.getElementById("status").value;
     	

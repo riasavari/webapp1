@@ -156,7 +156,7 @@ public class PublicationService {
 						results.get(0).setIsVisible(false);
 					else
 						results.get(0).setIsVisible(true);
-					nextpage="visibilityChanged";
+					nextpage="itemDetailsChanged";
 				}
 			} catch (Exception e) {
 				// TODO Auto-generated catch block

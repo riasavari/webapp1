@@ -108,7 +108,7 @@
             </select>
             </div>
          </div>
-    	 <a href="#" class="col-xs-1" data-toggle="tooltip" data-placement="bottom" ><span class="glyphicon glyphicon-question-sign"></span></a>
+    	 <a href="#" class="col-xs-1" data-toggle="tooltip" data-placement="right" ><span class="glyphicon glyphicon-question-sign"></span></a>
         
     	 <div class="form-group">
       		<label class="col-xs-4 control-label">Status</label>
@@ -137,7 +137,7 @@
       		<input type="text" class="form-control" name="project" id="project" placeholder="Project(s),if applicable (e.g: 16002 or TP4)">
     	 </div>
     	  <div class="form-group">
-      		<input type="text" class="form-control" name="author" id="author" placeholder="Authors (e.g: Carter B., Smith A.M., Parker N)">
+      		<input type="text" class="form-control" name="author" id="author" placeholder="Authors (e.g: CARTER B., SMITH A.M., AND PARKER N.)">
     	 </div>
     	 
 		 <div class="form-group" >

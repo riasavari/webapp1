@@ -79,7 +79,7 @@
 		                <tr id="rowFont">
 		                    <c:if test="${not empty pub.pubIdStr4digit}"><td><c:out value="${pub.pubIdStr4digit}" /></td></c:if> 
 		                   <td> 
-							<c:if test="${not empty pub.author}"><c:out value="${pub.author}"/>.'</c:if> 
+							<c:if test="${not empty pub.author}"><c:out value="${pub.author}"/>'</c:if> 
 							<c:if test="${not empty pub.title}"><c:out value="${pub.title}"/>',</c:if> 
 							<c:if test="${not empty pub.venueName}"><i><c:out value="${pub.venueName}"/></i><c:if test = "${pub.status == 'Published'}">,</c:if></c:if>
 							<c:if test="${not empty pub.location}"><c:out value="${pub.location}"/>.</c:if>

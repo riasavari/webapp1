@@ -59,9 +59,11 @@
 			   		 <br>
 			         <ul class="nav nav-pills">
 			         			<a href="showbanner" class="btn btn-round" role="button" >Show banner</a><br>
-			         			<a href="selectpublication" class="btn btn-round" role="button" >Change publication status</a><br>
+			         			<a href="correctPublication" class="btn btn-round" role="button" >Correct publication details</a><br>
 							  <a href="getmailSubscriptions" class="btn btn-round" role="button" >Get email subscriptions</a><br>
 							  <a href="viewpublication" class="btn btn-round" role="button">View all publications</a><br>
+							  <a href="viewpeople" class="btn  btn-block" role="button">QuakeCoRE community</a>
+							  <a href="selectpublication" class="btn btn-round" role="button" >Change publication status</a><br>
 					 </ul>
 			   </form>
 	 </div>

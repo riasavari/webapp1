@@ -63,7 +63,7 @@
     <div class="modal-content">
      
       <div class="modal-body">
-        <p><!-- <span class="glyphicon glyphicon-refresh spinning"></span> -->Processing.Please wait.. </p>
+        <p><span class="glyphicon glyphicon-refresh spinning"></span> Processing.Please wait.. </p>
       </div>
       
     </div>

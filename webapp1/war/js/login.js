@@ -81,8 +81,8 @@ $.ajax({
     dataType:'text',
     success: function(response)
              {
-			    	console.log("SUCCESS");
-			    	console.log(response);
+			    	//console.log("SUCCESS");
+			    	//console.log(response);
 			    	var nextPage = "home";
 			    	if(response === "adminMatched")
 			    	{
