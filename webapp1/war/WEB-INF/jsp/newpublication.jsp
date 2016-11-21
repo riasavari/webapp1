@@ -103,8 +103,8 @@
         <label class="col-xs-4 control-label">Attribution</label>
         <div class="col-xs-5 selectContainer" id="comboMargin">
             <select class="form-control selectwidthauto" name="fund" id="fund">
-                <option value="Aligned">Aligned</option>
                 <option value="Direct">Direct</option>
+                <option value="Aligned">Aligned</option>
             </select>
             </div>
          </div>

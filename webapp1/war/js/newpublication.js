@@ -11,7 +11,7 @@ $(document).ready(function()
 	$(document).ready(function(){
 	    $('[data-toggle="tooltip"]').tooltip({
 	    	template:'<div class="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner" style="text-align:justify"></div></div>',
-	        title: "<b>Aligned:</b>Research outputs are classified as aligned if they weren’t directly funded in any way by the Core but are within the mission of QuakeCoRE.<br><b>Direct:</b>Research outputs are classified as direct if directly funded (in part or full) by the CoRE.",
+	        title: "<b>Direct:</b>Research outputs are classified as direct if directly funded (in part or full) by the CoRE.<br><b>Aligned:</b>Research outputs are classified as aligned if they weren’t directly funded in any way by the Core but are within the mission of QuakeCoRE.",
 	        html: true
 	    }); 
 	});
