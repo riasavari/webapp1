@@ -137,7 +137,7 @@
       		<input type="text" class="form-control" name="project" id="project" placeholder="Project(s),if applicable (e.g: 16002 or TP4)">
     	 </div>
     	  <div class="form-group">
-      		<input type="text" class="form-control" name="author" id="author" placeholder="Authors (e.g: CARTER B., SMITH A.M., AND PARKER N.)">
+      		<input type="text" class="form-control" name="author" id="author" placeholder="Authors (e.g: MOORE B., KANE A.C., AND LI J.)">
     	 </div>
     	 
 		 <div class="form-group" >

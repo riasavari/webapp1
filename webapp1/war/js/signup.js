@@ -47,7 +47,7 @@
 		
 		
 		signup = function ()
-		{ $('#modalbox').modal('show');
+		{ $('#signupSpin').show();$('#modalbox').modal('show');
 			var emailid	=	document.getElementById("email").value;
 			var endOutput=validate();
 			return endOutput;
@@ -76,7 +76,7 @@
 			
 			if(!isValid(email) && !isValid(firstname) && !isValid(lastname) && !isValid(password) && !isValid(confirmPassword) && !isValid(position) && !isValid(organisation) )
 			{
-				$('#modalbox').modal().hide();
+				$('#modalbox').modal().hide();$('#signupSpin').hide();
 				document.getElementById("firstname").value="";  
 			    document.getElementById("firstname").focus(); 
 		    $('#signupErr').html("Please fill in the details");
@@ -86,7 +86,7 @@
 			return false;
 			}
 			else if(!isValid(firstname) || !isValidName(firstname))
-			{$('#modalbox').modal().hide();
+			{$('#modalbox').modal().hide();$('#signupSpin').hide();
 			document.getElementById("firstname").value="";  
 		    document.getElementById("firstname").focus(); 
 		    $('#signupErr').html("Please enter a valid firstname with letters");
@@ -96,7 +96,7 @@
 			return false;
 			}
 			else if(!isValid(lastname) || !isValidName(lastname))
-			{$('#modalbox').modal().hide();
+			{$('#modalbox').modal().hide();$('#signupSpin').hide();
 			document.getElementById("lastname").value="";  
 			document.getElementById("lastname").focus(); 
 			$('#signupErr').html("Please enter a valid lastname with letters");
@@ -106,7 +106,7 @@
 			return false;
 			}
 			else if(!isValid(email) || !isValidEmail(email))
-			{$('#modalbox').modal().hide();
+			{$('#modalbox').modal().hide();$('#signupSpin').hide();
 			document.getElementById("email").value="";  
 	        document.getElementById("email").focus(); 
 		    $('#signupErr').html("Please enter a valid email address");
@@ -116,7 +116,7 @@
 			return false;
 			}
 			else if(!isValid(password) || !isValidPassword(password))
-			{$('#modalbox').modal().hide();
+			{$('#modalbox').modal().hide();$('#signupSpin').hide();
 			document.getElementById("password").value="";  
 		    document.getElementById("password").focus(); 
 		    $('#signupErr').html("Password minimum length 6 with numbers and letters only");
@@ -126,7 +126,7 @@
 			return false;
 			}
 			else if(!isValid(confirmPassword)) 
-			{$('#modalbox').modal().hide();
+			{$('#modalbox').modal().hide();$('#signupSpin').hide();
 			document.getElementById("retype-password").value="";  
 		    document.getElementById("retype-password").focus(); 
 		    $('#signupErr').html("Please retype your password");
@@ -136,7 +136,7 @@
 			return false;
 			} 
 			else if(password !== confirmPassword)
-			{$('#modalbox').modal().hide();
+			{$('#modalbox').modal().hide();$('#signupSpin').hide();
 			document.getElementById("password").value=""; 
 	        document.getElementById("retype-password").value="";  
 	        document.getElementById("password").focus(); 
@@ -147,7 +147,7 @@
 			return false;
 			}
 			else if(!isValid(position) || !isValidName(position))
-			{$('#modalbox').modal().hide();
+			{$('#modalbox').modal().hide();$('#signupSpin').hide();
 			document.getElementById("position").value="";  
 			document.getElementById("position").focus(); 
 			$('#signupErr').html("Please enter the position with letters");
@@ -157,7 +157,7 @@
 			return false;
 			}
 			else if(!isValid(organisation) || !isValidName(organisation))
-			{$('#modalbox').modal().hide();
+			{$('#modalbox').modal().hide();$('#signupSpin').hide();
 			document.getElementById("organisation").value="";  
 			document.getElementById("organisation").focus(); 
 			$('#signupErr').html("Please enter the organisation with letters");
@@ -168,7 +168,7 @@
 			}
 			else if(isValid(orcId) && !isValidOrcId(orcId))
 			{
-			$('#modalbox').modal().hide();
+			$('#modalbox').modal().hide();$('#signupSpin').hide();
 			document.getElementById("orcId").value=""; 
 	        document.getElementById("orcId").focus(); 
 		    $('#signupErr').html("Not a valid ORCID");
@@ -178,7 +178,7 @@
 			}	
 			else if(isValid(comments) && comments.length>250)
 			{
-	        	$('#modalbox').modal().hide();
+	        	$('#modalbox').modal().hide();$('#signupSpin').hide();
 	        	//document.getElementById("comments").value=""; 
 		        document.getElementById("comments").focus(); 
 	        	$('#signupErr').html("Comments should be less than 250 letters");
@@ -189,7 +189,7 @@
 	        	
 			else if(isValid(comments) && !isValidInput(comments))
 			{
-				$('#modalbox').modal().hide();
+				$('#modalbox').modal().hide();$('#signupSpin').hide();
 	        	//document.getElementById("comments").value=""; 
 		        document.getElementById("comments").focus(); 
 	        	$('#signupErr').html("Please avoid &,< and > symbols in comments");
@@ -200,7 +200,7 @@
 			}
 			else if ((!$('#Male').prop('checked')) && (!$('#Female').prop('checked'))) 
 			{
-				$('#modalbox').modal().hide();
+				$('#modalbox').modal().hide();$('#signupSpin').hide();
 			    $('#signupErr').html("Please select your gender");
 			    $('#messagebox').fadeIn().delay(2000).fadeOut();
 			    $("html, body").animate({ scrollTop: 0 }, "slow");
@@ -208,7 +208,7 @@
 			}
 			else if(country == 'select')
 			{ 
-				$('#modalbox').modal().hide();
+				$('#modalbox').modal().hide();$('#signupSpin').hide();
 			    $('#signupErr').html("Please select your country");
 			    $('#messagebox').fadeIn().delay(2000).fadeOut();
 			    $("html, body").animate({ scrollTop: 0 }, "slow");
@@ -216,7 +216,7 @@
 			}
 			else if(country == 'NZ')
 			{ 
-			$('#modalbox').modal().hide();
+			$('#modalbox').modal().hide();$('#signupSpin').hide();
 			raceList='';
 			$('#cbox-group input').each(function(){
 				if ($(this).prop('checked')) {
@@ -248,7 +248,7 @@
 						   {
 							if($.trim(tick) === "false")
 							{
-							$('#modalbox').modal().hide();
+							$('#modalbox').modal().hide();$('#signupSpin').hide();
 							$('#signupErr').html("Please agree to the Terms and Conditions");
 							$('#messagebox').fadeIn().delay(2000).fadeOut();
 							$("html, body").animate({ scrollTop: 0 }, "slow");
@@ -260,7 +260,7 @@
 				   {
 					if($.trim(tick) === "false")
 					{
-					$('#modalbox').modal().hide();
+					$('#modalbox').modal().hide();$('#signupSpin').hide();
 					$('#signupErr').html("Please agree to the Terms and Conditions");
 					$('#messagebox').fadeIn().delay(2000).fadeOut();
 					$("html, body").animate({ scrollTop: 0 }, "slow");
@@ -271,7 +271,7 @@
 			}
 			else if($.trim(tick) === "false")
 			{
-				$('#modalbox').modal().hide();
+				$('#modalbox').modal().hide();$('#signupSpin').hide();
 				$('#signupErr').html("Please agree to the Terms and Conditions");
 				$('#messagebox').fadeIn().delay(2000).fadeOut();
 				$("html, body").animate({ scrollTop: 0 }, "slow");
@@ -321,7 +321,7 @@
 			             {
 						    	//alert("1"+response);	
 						    	if(response === "existingUser")
-						    	{$('#modalbox').modal('hide');
+						    	{$('#modalbox').modal('hide');$('#signupSpin').hide();
 						    		//alert("2");
 						    		window.location="exusersignup";
 						    		return false;
@@ -333,7 +333,7 @@
 						    		return true;
 						    	}
 						    	else
-						    		{$('#modalbox').modal('hide');
+						    		{$('#modalbox').modal('hide');$('#signupSpin').hide();
 						    		//alert("4");	
 						    		window.location="apologies";
 						    		return false;
@@ -341,7 +341,7 @@
 						    	
 			             },
 			             error: function(){
-			            	 $('#modalbox').modal('hide');
+			            	 $('#modalbox').modal('hide');$('#signupSpin').hide();
 			             }
 			  
 				});

@@ -430,9 +430,11 @@
 			  <label class="checkbox-inline"><input type="checkbox" value="agree-cbox" id="agree-cbox"> I agree to the <a href="" data-toggle="modal" data-target="#tandc-modalbox">Terms and Conditions</a></label>
 			</div>
 			
-
+			 <!--<div id="signupSpin" style="display: none;"><p><span class="glyphicon glyphicon-refresh spinning"></span>..</p></div>-->
     
-			 <br> <button type="submit" class="myButton" id="btn-signup" data-toggle="modal" data-target="#modalbox" onclick="return signup()" >Sign Up</button>
+			 <br> <button type="submit" class="myButton" id="btn-signup" data-toggle="modal" data-target="#modalbox" onclick="return signup()" >
+			 <span id="signupSpin" style="display: none;" class="glyphicon glyphicon-refresh spinning"></span>
+			 Sign Up</button>
 	 </form>
 	</div>
 	 </div> 
