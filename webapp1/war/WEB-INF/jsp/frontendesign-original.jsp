@@ -103,7 +103,7 @@
   
     
 		<div id="footer"><p><strong>QuakeCoRE | 
-  </strong><a href="mailto:info@quakecore.nz">info@quakecore.nz</a><strong> | </strong> </p>
+  </strong><a href="mailto:research@quakecore.nz">research@quakecore.nz</a><strong> | </strong> </p>
 <!-- <p>Banner image used with permission from <a href="http://commons.wikimedia.org/wiki/File:CanterburyCollegeChemistry_gobeirne.jpg">Greg O'Beirne</a></p> -->
 </div>
 </div>
