@@ -69,7 +69,7 @@
 							   <a href="viewmypublications" class="btn  btn-default btn-block" role="button">Update publication details</a>
 							   <a href="viewpeople" class="btn  btn-default btn-block" role="button">QuakeCoRE community</a>
 							  <a href="viewpublication" class="btn  btn-default btn-block" role="button">QuakeCoRE publications</a>
-							  <a href="http://www.quakecore.nz/logo/" target="_blank" class="btn  btn-default btn-block" role="button">Get QuakeCoRE logo</a>
+							  <a href="http://www.quakecore.nz/logo/" target="_blank" class="btn  btn-default btn-block" role="button">Get QuakeCoRE logo & templates</a>
 							   <a href="https://wiki.canterbury.ac.nz/display/QuakeCore/QuakeCoRE%3A+The+Centre+for+Earthquake+Resilience+Home" target="_blank" class="btn  btn-default btn-block" role="button">QuakeCoRE wikipages</a>
 							  <a href="http://www.quakecore.nz/wp-content/uploads/2017/03/QuakeCoRE_No_Cost_Extension_Application_-2016.doc" class="btn  btn-default btn-block" role="button">No cost extension application</a>
 							  <a href="http://www.quakecore.nz/wp-content/uploads/2017/03/QuakeCoRE_RfP_Variation_Application_-2016.doc" class="btn  btn-default btn-block" role="button">Variation application</a>
