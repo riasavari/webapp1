@@ -1,29 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
-		<attributes>
-			<attribute name="owner.project.facets" value="java"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/appengine-api-1.0-sdk-1.9.34.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/appengine-api-labs.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/appengine-endpoints-deps.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/appengine-endpoints.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/appengine-jsr107cache-1.9.34.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/asm-4.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/aas105/java tools/appengine-java-sdk-1.9.58/lib/user/appengine-api-labs-1.9.58.jar"/>
+	<classpathentry kind="lib" path="C:/Users/aas105/java tools/appengine-java-sdk-1.9.58/lib/opt/user/appengine-endpoints/v1/appengine-endpoints-deps.jar"/>
+	<classpathentry kind="lib" path="C:/Users/aas105/java tools/appengine-java-sdk-1.9.58/lib/opt/user/appengine-endpoints/v1/appengine-endpoints.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/com.springsource.org.apache.commons.logging-1.1.1.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/com.springsource.org.apache.log4j-1.2.15.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/datanucleus-api-jdo-3.1.3.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/datanucleus-api-jpa-3.1.3.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/datanucleus-appengine-2.1.2.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/datanucleus-core-3.1.3.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/geronimo-jpa_2.0_spec-1.0.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/jdo-api-3.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/aas105/java tools/appengine-java-sdk-1.9.58/lib/opt/user/datanucleus/v2/datanucleus-api-jdo-3.1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/aas105/java tools/appengine-java-sdk-1.9.58/lib/opt/user/datanucleus/v2/datanucleus-api-jpa-3.1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/aas105/java tools/appengine-java-sdk-1.9.58/lib/opt/user/datanucleus/v2/datanucleus-appengine-2.1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/aas105/java tools/appengine-java-sdk-1.9.58/lib/opt/user/datanucleus/v2/datanucleus-core-3.1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/aas105/java tools/appengine-java-sdk-1.9.58/lib/opt/user/datanucleus/v2/geronimo-jpa_2.0_spec-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/aas105/java tools/appengine-java-sdk-1.9.58/lib/opt/user/datanucleus/v2/jdo-api-3.0.1.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/jmxtools-1.2.1.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/jsr107cache-1.1.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/jta-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/aas105/java tools/appengine-java-sdk-1.9.58/lib/opt/user/jsr107/v1/jsr107cache-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/aas105/java tools/appengine-java-sdk-1.9.58/lib/opt/user/datanucleus/v2/jta-1.1.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/org.springframework.asm-3.0.1.RELEASE-A.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/org.springframework.beans-3.0.1.RELEASE-A.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/org.springframework.context-3.0.1.RELEASE-A.jar"/>
@@ -40,6 +31,15 @@
 	<classpathentry kind="lib" path="war/WEB-INF/lib/logging-mailhandler-1.5.5.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/javax.mail-1.5.5.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-lang3-3.5.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/jstl-1.2.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_151">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/aas105/java tools/appengine-java-sdk-1.9.58/lib/user/appengine-api-1.0-sdk-1.9.58.jar"/>
+	<classpathentry kind="lib" path="C:/Users/aas105/java tools/appengine-java-sdk-1.9.58/lib/user/appengine-jsr107cache-1.9.58.jar"/>
+	<classpathentry kind="lib" path="C:/Users/aas105/java tools/appengine-java-sdk-1.9.58/lib/opt/user/datanucleus/v2/asm-5.0.4.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/org.json.jar"/>
+	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER/appengine-java-sdk-1.9.58"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

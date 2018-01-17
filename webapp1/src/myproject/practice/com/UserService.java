@@ -19,8 +19,10 @@ import org.springframework.ui.ModelMap;
 import com.google.common.base.Charsets;
 import com.google.common.base.Strings;
 import com.google.common.hash.Hashing;
-import com.google.appengine.labs.repackaged.org.json.JSONException;
-import com.google.appengine.labs.repackaged.org.json.JSONObject;
+//import com.google.appengine.labs.repackaged.org.json.JSONException;
+//import com.google.appengine.labs.repackaged.org.json.JSONObject;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class UserService {
 	
